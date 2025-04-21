@@ -1,0 +1,8 @@
+needed:
+-def tds
+-def equicont
+-def factor
+-quotient flow
+-product flow
+-def invariant equiv rel
+-subflows and product flows of equicontinuous flows
