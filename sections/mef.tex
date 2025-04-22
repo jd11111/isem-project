@@ -2,7 +2,7 @@
 \begin{definition}[Topological dynamical system]
   A \emph{topological dynamical system} (TDS) is a triplet $(X,T,\cdot)$, where
   \begin{itemize}
-    \item $X$ is a topological Hausdorff space,
+    \item $X$ is a non-empty, compact topological Hausdorff space,
     \item $T$ is a topological group,
     \item $\cdot : X \times T \to X$ is a continuous group action, that is $\forall x \in X, \ s,t \in T$: 
     \begin{enumerate}
@@ -29,15 +29,16 @@
 \end{definition}
 
 \begin{proposition}[Quotient system]
-  Let $(X,T)$ be a TDS with $X$ compact. Let $R \subset X \times X$ be a $T$-invariant\footnote{that is $\forall t \in T, \forall (x,x^\prime ) \in R : (xt ,x^\prime t) \in R$} and closed equivalence relation (ICER for short).
+  Let $(X,T)$ be a TDS. Let $R \subset X \times X$ be a $T$-invariant\footnote{that is $\forall t \in T, \forall (x,x^\prime ) \in R : (xt ,x^\prime t) \in R$} and closed equivalence relation (ICER for short).
   Let $\pi : X \to X/R$ be the quotient map.
   Endow $X/R$ with the quotient topology, that is $U \subset X/R$ open $: \Leftrightarrow \pi^{-1}(U)$ is open.
   Define the $T$-action by $[x] t := [x t]$.
   Then $(X/R, T)$ is a topological dynamical system with $X/R$ compact and $\pi$ is a factor map.
 \end{proposition}
 \begin{proof}
- The quotient $R/F$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed.
- The compactness of $R/F$ follows from $R/F = \pi (X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well definedness of the $T$-action.
+  The quotient $R/F$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed (not trivial).
+ The compactness of $R/F$ follows from $R/F = \pi (X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well-definedness of the $T$-action and that $\pi$ is a factor map.
+  \textbf{Warum ist die $T$-Wirkung stetig?!}
 \end{proof}
 
 \begin{definition}[Product system]
@@ -47,3 +48,42 @@
     X := \prod_{\alpha \in A} X_\alpha, \quad (x\cdot t)_{\alpha} := x \cdot_\alpha t.
   \end{equation*}
 \end{definition}
+
+\begin{definition}[Equicontinuous TDS]
+  Let $(X,T)$ be a TDS.
+  Then $(X,T)$ is called \emph{equicontinuous}, if for any $\alpha \in \mathcal{U}_X$ there is $\beta \in \mathcal{U}_X$ with $(x, x^\prime ) \in \beta \Rightarrow \forall t \in T: (xt,x^\prime t) \in \alpha$.
+\end{definition}
+
+\begin{proposition}
+  products of eq. cont. flows are eq. cont., subflows are eq. cont.
+\end{proposition}
+
+\begin{proposition}[Subsystem]
+  Let $(X,T)$ be a TDS and $A \subset X$ a closed, $T$-invariant set.
+  Then $(A,T)$ is also a TDS with the inherited $T$-action called the \emph{subsystem} of $(X,T)$ induced by $A$.
+\end{proposition}
+\begin{proof}
+  Since $A$ is a closed subset of a compact Hausdorff space it is a compact Hausdorff space. The invariance of $A$ implies that the $T$ action is well defined, continuity is clear. 
+\end{proof}
+
+\begin{theorem}
+  Let $(X,T)$ be a TDS.
+  Then there exists a smallest (with respect to set inclusion) ICER $R$ such that $(X/R, T)$ is equicontinuous.
+    The system $(X/R,T)$ is called the \emph{maximal equicontinuous factor} of $(X,T)$.
+\end{theorem}
+\begin{proof}
+  Let
+  \begin{equation*}
+    \mathcal{R} := \{ R \subset X \times X : R \ \text{ICER} \ \text{and} \ (X/R,T) \ \text{equicontinuous}\}.
+  \end{equation*}
+  Then $ X \times X \in \mathcal{R}$ and so the set is non empty.
+  Now let 
+  \begin{equation*}
+    R:= \cap \mathcal{R}.
+  \end{equation*}
+  Then $R$ is an ICER (because intersection of ICERs are ICERs).
+  It remains to show that $X/R$ is equicontinuous.
+  The product system $\prod_{R^\prime \in \mathcal{R}} X/R^\prime$ is equicontinuous, since products of equicontinuous systems are equicontinuous.
+  The map $(X/R, T) \ni  [x]_R  \mapsto ([x]_{R^\prime})_{R^\prime \in \mathcal{R}}$ is an isomorphism of systems and uniformly continuous and so $(X/R,T)$ is isomorphic to a subsystem of an equicontinous system and therefore equicontinuous.
+  $X/R$
+\end{proof}
