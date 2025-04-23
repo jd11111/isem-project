@@ -1,0 +1,105 @@
+\documentclass[10pt, a4paper]{article} % first option = text size, second = paper size, choose "article" for no chapters etc., else choose "report", only use "book" for irl printed book
+\usepackage[utf8]{inputenc} % better encoding of input
+\usepackage[T1]{fontenc} % better encoding of font
+\usepackage{lmodern} % better font
+\usepackage[english]{babel} %localization of document
+\usepackage{amssymb} %special math symbols + math fonts like frak cal etc...
+\usepackage{mathtools} %math env stuff (no need for amsmath)
+\usepackage{mathrsfs} % script math letters (\mathscr{})
+\usepackage{amsthm} % theorem, proposition env etc.
+\usepackage{hyperref} %links and pdf meta-data in document
+\usepackage{caption} %captions
+\usepackage{graphicx} %figures etc
+\usepackage{enumerate} %better enumerate e.g. different labeling (latin numerals, letters etc.)
+\usepackage{subfiles}%enable multifile project
+\usepackage{siunitx} %package to display physics units, uncertainties etc.
+\usepackage[version=4]{mhchem} %chemistry package e.g. to write molecule formulas
+\usepackage{tikz} %tikz can be used to construct figures in tex
+\usetikzlibrary{cd} %tikz libary for commutative diagrams
+\usepackage{csquotes} %better quotation enviroment
+%\usepackage[backend=biber, style=numeric,sorting=none]{biblatex}%bibliography as mentioned in text
+\usepackage{booktabs} %better tables
+\usepackage{thmtools} %list of theorems etc.
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage[a4paper, margin=1in]{geometry} %page margins
+%\usepackage[
+%backend=biber,
+%style=alphabetic,
+%sorting=ynt
+%]{biblatex}
+%\addbibresource{refs.bib}
+
+%SETTINGS:
+\renewcommand*\familydefault{\sfdefault} %default font
+\sisetup{separate-uncertainty = true} %display uncertainties with +/-
+%\numberwithin{equation}{subsection} %equation numbering (different counter for every level)
+%\addbibresource{sources.bib} %add the bibliography file:
+\hypersetup{%settings for hyperref
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={}
+}
+
+%the following block makes the optional text in amsthm envs bold:
+\makeatletter
+\def\th@plain{%
+  \thm@notefont{}% same as heading font
+  \itshape % body font
+}
+\def\th@definition{%
+  \thm@notefont{}% same as heading font
+  \normalfont % body font
+}
+\makeatother
+
+\setcounter{MaxMatrixCols}{20}%increase max number of matrix columns
+\numberwithin{equation}{section} %label equations by section
+%amsthm settings
+\theoremstyle{definition} %upright text
+\newtheorem{definition}{Definition}[section] %two part counter (first incremented at each section)
+\newtheorem{example}[definition]{Example} % all subsequent envs share counter with defi
+\newtheorem{remark}[definition]{Remark}
+\theoremstyle{plain} %italics
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{diagram}[definition]{Diagram}
+
+%definition of math operators
+\DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\lin}{lin}
+\DeclareMathOperator{\rad}{Rad}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\obj}{Obj}
+\DeclareMathOperator{\mor}{Mor}
+\DeclareMathOperator{\ev}{eval}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\essran}{essRan}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\der}{der}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\soln}{soln}
+\DeclareMathOperator{\out}{out}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\range}{range}
+
+
+\newcommand{\catname}[1]{\mathbf{#1}}
+
+\title{MEF}
+\date{\today}
+\author{Jannik Daun}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\subfile{sections/mef.tex}
+
+\end{document}
