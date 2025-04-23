@@ -107,7 +107,7 @@ But be warned, restoring a file will delete all uncommited changes.
 If you just want to see how the old file looked you can do a 
 ```bash
 git show <branch/commit> <filename> > <new-file-name-for-temporary-save>
-``
+```
 
 ---
 
