@@ -1,8 +1,64 @@
-\section{Regionally Proximal Equation}
+\section{Regionally Proximal Relation}
 
 \begin{definition}
+  \label{def:rpr}
   Let $(X, T)$ be a TDS.
   Two points $x,y \in X$ are called \emph{regionally proximal}
-  if and only if for each $\varepsilon > 0$ and $x' \in B_\varepsilon(x), y' \in B_\varepsilon(y)$
-  there is a $t \in T$ such that $d(tx', ty') < \varepsilon$.
+  if and only if for each $\varepsilon > 0$ there exist $x' \in B_\varepsilon(x), y' \in B_\varepsilon(y)$
+  and $t \in T$ such that $d(tx', ty') < \varepsilon$.
+  We denote the set of regionally proximal pairs by $Q_2(X) \subseteq X \times X$.
 \end{definition}
+
+
+\begin{theorem}
+  Let $(X, T)$ be a TDS.
+  The set of regionally proximal pairs is exactly
+  \[ Q_2(X) = \bigcap_{U \in \mathcal{U}(\Delta(X))} \overline{TU}  \]
+  where $\Delta(X) \subset X \times X$ is the diagonal of the product space.
+\end{theorem}
+
+\begin{proof}
+  For the first step, we see that Definition \ref{def:rpr} is equivalent to the following characterization:
+  The pair $(x, y) \in X \times X$ is regionally proximal if and only if there are sequences $(x_n)_n, (y_n)_n$ in $X$ and $(t_n)_n$ in $T$
+  such that
+  \begin{equation}
+    \label{eq:rprchar}
+    x_n \to x, \ y_n \to y \ \text{and} \ d(t_n x_n, t_n y_n) \to 0.
+  \end{equation}
+  {\color{red} Wie viel soll hier hin?}
+\end{proof}
+
+\begin{theorem}
+  The regionally proximal equation is closed, invariant, symmetric and reflexive.
+\end{theorem}
+
+\begin{proof}
+  Let $(X, T)$ be a TDS.
+  The set $Q_2(X)$ is an intersection of closed sets and therefore closed.
+  It is reflexive, since $\Delta(X) \subseteq \overline{TU}$ for each $U \in \mathcal{U}(\Delta(X))$.
+  The relation is symmetric since the definition is symmetric with regard to $x$ and $y$.
+  For invariance, let $(x, y) \in Q_2(X)$ and $t \in T$.
+  Choose sequences as defined in $\ref{eq:rprchar}$.
+  Then for $(tx_n)_n$, $(t y_n)_n$ and $(t_nt^{-1})_n$ we have $t x_n \to tx$ and $t y_n \to ty$ with $d(t_nt^{-1}x_n, t_nt^{-1}y_n) = d(x_n, y_n) \to 0$.
+\end{proof}
+
+Note that in general the regionally proximal relation is not transitive.
+{\color{red} Gegenbeispiel? Auslander sagt was von Kreisen und Spiralen...}
+
+\begin{theorem}
+  Let $(X, T)$ be an equicontinuous TDS.
+  Then $Q_2(X) = \Delta(X)$.
+\end{theorem}
+
+\begin{proof}
+  Let $d$ be an invariant metric.
+  Let $x \neq y \in X$ with a distance $D := d(x, y) > 0$.
+  Choose $\varepsilon = \frac{D}{4}$.
+  For each $x' \in B_\varepsilon(x)$, $y' \in B_\varepsilon(y)$ and $t \in T$ we have
+  \[ d(tx', ty') = d(x', y') \geq | d(x', y) - d(y, y') | \geq | | d(x, x') - d(x, y) | - d(y, y') | = D - d(x, x') - d(y, y') \geq \frac{D}{2} > \varepsilon. \]
+\end{proof}
+
+\begin{theorem}
+  Let $(X, T)$ be a minimal TDS with an invariant measure.
+  Then $Q_2(X)$ is an ICER.
+\end{theorem}
