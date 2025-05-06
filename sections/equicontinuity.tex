@@ -23,18 +23,33 @@
 
 \begin{definition}[Factor of TDS]
 	Let $(X, T)$ and $(Y, T)$ be topological dynamical systems and $\pi: X \to Y$ a homomorphism. Then $\pi$ is called a \emph{factor map} if it is surjective.
-	If there exists a factor map $X \to Y$ then $Y$ is called a \emph{factor} of $X$.
+	If there exists a factor map $X \to Y$ then $Y$ is called a \emph{factor} of $X$. If $\pi$ is an isomorphism then $(X, T)$ and $(Y, T)$ are \emph{conjugates}.
 \end{definition}
 
 \begin{proposition}[Quotient system]
-	Let $(X, T)$ be a TDS. Let $R \subset X \times X$ be a $T$-invariant (i.e. $\forall t \in T, \forall (x, x^\prime ) \in R : (tx, tx^\prime) \in R$) and closed equivalence relation (ICER for short). Let $\pi : X \to X/R$ be the quotient map. Endow $X/R$ with the quotient topology, that is $U \subset X/R$ open $: \Leftrightarrow \pi^{-1}(U)$ is open. Define the $T$-action by $t[x] := [tx]$. Then $(X/R, T)$ is a TDS and $\pi$ is a factor map.
+	Let $(X, T)$ be a TDS. Let $R \subset X \times X$ be a $T$-invariant (i.e. $\forall t \in T, \forall (x, x^\prime ) \in R : (tx, tx^\prime) \in R$) and closed equivalence relation (ICER). Then the \emph{quotient} $(X/R, T)$ with $T$-action defined by $t[x] := [tx]$ is a TDS.
 \end{proposition}
 \begin{proof}
-	The quotient $X/R$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed (not trivial). The compactness of $X/R$ follows from $X/R = \pi(X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well-definedness of the $T$-action and that $\pi$ is a factor map. To show that the $T$ action is continuous: Define the equivalence relation
+	Let $\pi: X \to X/R$ be the projection, which is continuous. The quotient $X/R$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed (not trivial). The compactness of $X/R$ follows from $X/R = \pi(X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well-definedness of the $T$-action. To show that the $T$ action is continuous: Define the equivalence relation
 	\begin{equation*}
 		R^\prime := \{ ((t_1,x_1), (t_2,x_2)) \in (T \times X) \times (T \times X): (x_1, x_2) \in R, t_1 = t_2\}.
 	\end{equation*}
 	Then the $T$-action induces a continuous map $\cdot : (T \times X)/R^\prime \to (T\times X)/R^\prime$ by the universal property of the quotient topology. The continuous map $(t, x) \mapsto (t, [x])$ induces the continuous and bijective map $(T\times X)/R^\prime \ni [(t, x)] \mapsto (t, [x])$. This map is closed\footnote{this is because $x \mapsto [x]$ is closed and proper + thm 5.17.5 of \url{https://stacks.math.columbia.edu/tag/005M}}, which implies that it is a homeomorphism.
+\end{proof}
+
+\begin{proposition}[Equivalence Factors and ICERs]
+	Let $(X, T)$ be a TDS. If $R \subset X \times X$ is an ICER, then the quotient map $\pi_R: X \to X/R$ defines a factor of map.
+	
+	If $(Y, T)$ is a factor of $(X, T)$ with factor map $\pi: X \to Y$, then
+	\begin{equation*}
+		R_\pi := \{(x, y) \in X \times X;\ \pi(x) = \pi(y)\}
+	\end{equation*}
+	defines an ICER and the systems $(Y, T)$ and $(X/R_\pi, T)$ are conjugates.
+	
+	If $(Z, T)$ is an other factor of $(X, T)$ with factor map $\rho: X \to Y$ and corresponding ICER $R_\rho$. Then $(Y, T)$ and $(Z, T)$ are conjugates if and only if $R_\pi = R_\rho$. {\color{red} I know the $\Leftarrow$ directions is wrong.}
+\end{proposition}
+\begin{proof}
+	 todo
 \end{proof}
 
 \begin{proposition}[Subsystem]
