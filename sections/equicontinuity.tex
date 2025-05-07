@@ -13,6 +13,21 @@
 	\end{itemize}
 \end{definition}
 
+\begin{proposition}[Subsystem]
+	Let $(X, T)$ be a TDS and $A \subseteq X$ a closed, $T$-invariant set.
+	Then $(A, T)$ is also a TDS with the inherited $T$-action called the \emph{subsystem} of $(X, T)$ induced by $A$.
+\end{proposition}
+\begin{proof}
+	Since $A$ is a closed subset of a compact Hausdorff space it is a compact Hausdorff space. The invariance of $A$ implies that the $T$ action is well defined, continuity is clear. 
+\end{proof}
+
+\begin{definition}[Product system]
+	Let $(X_\alpha, T)_{\alpha \in A}$ be an at most countable family of topological dynamical systems. Then the \emph{product system} $(X, T)$ of the family is defined by
+	\begin{equation*}
+		X := \prod_{\alpha \in A} X_\alpha, \quad t (x_\alpha)_{\alpha \in A} := (t x_\alpha)_{\alpha \in A}.
+	\end{equation*}
+\end{definition}
+
 \begin{definition}[Morphism of TDS]
 	Let $(X, T)$ and $(Y,T)$ be topological dynamical systems. A map $\pi : X \to Y$ is called a \emph{homomorphism} from $(X, T) \to (Y, T)$ if $\pi$ is continuous and $\forall x \in X, t \in T$:
 	\begin{equation*}
@@ -30,42 +45,55 @@
 	Let $(X, T)$ be a TDS. Let $R \subset X \times X$ be a $T$-invariant (i.e. $\forall t \in T, \forall (x, x^\prime ) \in R : (tx, tx^\prime) \in R$) and closed equivalence relation (ICER). Then the \emph{quotient} $(X/R, T)$ with $T$-action defined by $t[x] := [tx]$ is a TDS.
 \end{proposition}
 \begin{proof}
-	Let $\pi: X \to X/R$ be the projection, which is continuous. The quotient $X/R$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed (not trivial). The compactness of $X/R$ follows from $X/R = \pi(X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well-definedness of the $T$-action. To show that the $T$ action is continuous: Define the equivalence relation
+	Let $\pi_R: X \to X/R$ be the projection, which is continuous. The quotient $X/R$ is a Hausdorff space, because $X$ is a compact Hausdorff space and $R$ is closed (not trivial). The compactness of $X/R$ follows from $X/R = \pi(X)$ and the compactness of $X$ together with the continuity of $\pi$. The $T$-invariance of $R$ implies the well-definedness of the $T$-action. To show that the $T$ action is continuous: Define the equivalence relation
 	\begin{equation*}
 		R^\prime := \{ ((t_1,x_1), (t_2,x_2)) \in (T \times X) \times (T \times X): (x_1, x_2) \in R, t_1 = t_2\}.
 	\end{equation*}
 	Then the $T$-action induces a continuous map $\cdot : (T \times X)/R^\prime \to (T\times X)/R^\prime$ by the universal property of the quotient topology. The continuous map $(t, x) \mapsto (t, [x])$ induces the continuous and bijective map $(T\times X)/R^\prime \ni [(t, x)] \mapsto (t, [x])$. This map is closed\footnote{this is because $x \mapsto [x]$ is closed and proper + thm 5.17.5 of \url{https://stacks.math.columbia.edu/tag/005M}}, which implies that it is a homeomorphism.
 \end{proof}
 
-\begin{proposition}[Equivalence Factors and ICERs]
+\begin{proposition}[Connection between Factors and ICERs]
 	Let $(X, T)$ be a TDS. If $R \subset X \times X$ is an ICER, then the quotient map $\pi_R: X \to X/R$ defines a factor of map.
 	
 	If $(Y, T)$ is a factor of $(X, T)$ with factor map $\pi: X \to Y$, then
 	\begin{equation*}
 		R_\pi := \{(x, y) \in X \times X;\ \pi(x) = \pi(y)\}
 	\end{equation*}
-	defines an ICER and the systems $(Y, T)$ and $(X/R_\pi, T)$ are conjugates.
+	defines an ICER and the systems $(Y, T)$ and $(X/R_\pi, T)$ are conjugated.
+\end{proposition}
+\begin{proof}
+	The projection $\pi_R$ is continuous by definition of the quotient topology. For $x \in X$ and $t \in T$ we have
+	\begin{align*}
+		\pi_R(tx) = [tx] = t[x] = t\pi_R(x),
+	\end{align*}
+	so $\pi_R$ is indeed a factor map.
 	
-	If $(Z, T)$ is an other factor of $(X, T)$ with factor map $\rho: X \to Y$ and corresponding ICER $R_\rho$. Then $(Y, T)$ and $(Z, T)$ are conjugates if and only if $R_\pi = R_\rho$. {\color{red} I know the $\Leftarrow$ directions is wrong.}
-\end{proposition}
-\begin{proof}
-	 todo
+	It is clear that $R_\pi$ is closed, since $\pi$ is continuous. For $(x, y) \in R_\pi$ and $t \in T$ we have
+	\begin{align*}
+		\pi(tx) = t\pi(x) = t\pi(y) = \pi(ty),
+ 	\end{align*}
+ 	so $(tx, ty) \in R_\pi$, so $R_\pi$ is $T$-invariant. For $x \in X$ we have $\pi(x) = \pi(x)$ so $(x, x) \in R_\pi$, so $R_\pi$ is reflexive. Further for $(x, y) \in R_\pi$ we have $\pi(y) = \pi(x)$ so $(y, x) \in R_\pi$, which is therefore symmetric. Also for $x, y, z \in X$ with $(x, y) \in R_\pi$ and $(y, z) \i R_\pi$ we have $\pi(x) = \pi(y) = \pi(z)$, so $(x, z) \in R_\pi$ proving the transitivity of $R_\pi$. So we have shown that $R_\pi$ is an equivalence relation, hence an ICER.
+ 	
+ 	Define $\rho: X/R \to Y$ by $\rho([x]) = \pi(x)$. This is well defined, since $[x] = [y]$ implies $\pi(x) = \pi(y)$ by definition of $R_\pi$. For $U \subseteq Y$ open we have for all $x \in X$ that $\rho([x]) \in U$ if and only if $\pi(x) \in U$, so $[x] \in \rho^{-1}(U)$ if and only if $x \in \pi^{-1}(U)$. Thus $\pi_{R_\pi}^{-1}(\rho^{-1}(U)) = \pi^{-1}(U)$, which is open since $\pi$ is continuous. Thus by definition of the quotient topology $\rho^{-1}(U)$ is open, so $\rho$ is continuous. For $[x], [y] \in X/R_\pi$ with $\rho([x]) = \rho([y])$ we have $\pi(x) = \pi(y)$ so $[x] = [y]$, thus $\rho$ is injective. Also for $y \in Y$ there exists, since $\pi$ is surjective, a $x \in X$ such that $\pi(x) = y$. Therefore $\rho([x]) = \pi(x) = y$, proving that $\rho$ is surjective. Thus $\rho$ is bijective and since $X/R_\pi$ and $Y$ are compact Hausdorff $\rho$ is a homeomorphism. Lastly for $x \in X$ and $t \in T$
+ 	\begin{align*}
+ 		\rho(t[x]) = \rho([tx]) = \pi(tx) = t\pi(x) = t\rho([x])
+ 	\end{align*}
+ 	proves that $\rho$ is an isomorphism of TDSs.
 \end{proof}
 
-\begin{proposition}[Subsystem]
-	Let $(X, T)$ be a TDS and $A \subseteq X$ a closed, $T$-invariant set.
-	Then $(A, T)$ is also a TDS with the inherited $T$-action called the \emph{subsystem} of $(X, T)$ induced by $A$.
-\end{proposition}
-\begin{proof}
-	Since $A$ is a closed subset of a compact Hausdorff space it is a compact Hausdorff space. The invariance of $A$ implies that the $T$ action is well defined, continuity is clear. 
-\end{proof}
-
-\begin{definition}[Product system]
-	Let $(X_\alpha, T)_{\alpha \in A}$ be a family of topological dynamical systems. Then the \emph{product system} $(X, T)$ of the family is defined by
-	\begin{equation*}
-		X := \prod_{\alpha \in A} X_\alpha, \quad t (x_\alpha)_{\alpha \in A} := (t x_\alpha)_{\alpha \in A}.
-	\end{equation*}
+\begin{definition}[Equivalent and conjugated factors]
+	Let $(X, T)$ be a TDS and factors $(Y, T)$ and $(Z, T)$ factors of it with factor maps $\pi: X \to Y$ and $\rho: X \to Z$.	Then the factors are called \emph(equivalent) if $R_\pi = R_\rho$ and \emph(conjugated) if $(Y, T)$ and $(Z, T)$ are conjugated.
+	
+	Similarly if $R$ and $S$ are two ICERs of $(X, T)$, they are called \emph{equivalent} if $R = S$ and \emph{conjugated} if $(X/R, T)$ and $(X/S, T)$ are conjugated.
 \end{definition}
+
+\begin{example}
+	Let $(X, T)$ be a TDS. Let $\pi_i: X \times X \to X$ for $i = 1, 2$ be the projection on the $i$-th coordinate. Then $\pi_1$ and $\pi_2$ are factor maps of $(X \times X, T)$ to the factor $(X, T)$. They are clearly conjugates, as the factors are the same TDS. However it is easily verified that
+	\begin{align*}
+		R_{\pi_i} = \{((x_1, x_2), (y_1, y_2)) \in (X \times X)^2;\ x_i = y_i\}
+	\end{align*}
+	holds, so $R_{\pi_1} \neq R_{\pi_2}$, so the factors are not equivalent.
+\end{example}
 
 \begin{definition}[Equicontinuous TDS]
 	Let $(X,T)$ be a TDS. Then $(X,T)$ is called \emph{equicontinuous}, if
