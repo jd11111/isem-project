@@ -70,9 +70,36 @@
 \begin{definition}[Equicontinuous TDS]
 	Let $(X,T)$ be a TDS. Then $(X,T)$ is called \emph{equicontinuous}, if
 	\begin{equation*}
-		\forall \varepsilon \in (0, \infty) \exists \delta \in (0, \infty): \forall x , x^\prime \in X :  d(x, x^\prime) < \delta  \Rightarrow \forall t \in T: d(tx, tx^\prime) < \varepsilon.
+		\forall \varepsilon > 0\ \exists \delta > 0: \forall x , y \in X :  d(x, y) < \delta  \Rightarrow \forall t \in T: d(tx, ty) < \varepsilon.
 	\end{equation*}
 \end{definition}
+
+\begin{proposition}[Equicontinuity is independent on the choice of metric]
+	Let $(X, T)$ be a TDS and $d, d'$ two metrics on $X$ that give rise to the same topology. Then $(X, T)$ is $d$-equicontinuous if and only if it is $d'$-equicontinuous.
+\end{proposition}
+\begin{proof}
+	Fix $\varepsilon > 0$. The fact that $d$ and $d'$ give rise to the same topology, implies that $\mathrm{id}_X$ is $d$-$d'$ continuous. Since $X$ is compact it is even uniformly continuous, so there exists a $\tilde{\varepsilon} > 0$ such that
+	\begin{align*}
+		d(x, y) < \tilde{\varepsilon} \Rightarrow d'(x, y) < \varepsilon.
+	\end{align*}
+	Since $(X, T)$ is $d$-equicontinuous, there exists a $\tilde{\delta} > 0$ such that
+	\begin{align*}
+		d(x, y) < \tilde{\delta} \Rightarrow d(tx, ty) < \tilde{\varepsilon}
+	\end{align*}
+	holds for all $x, y \in X$ and $t \in T$. The identity map $\mathrm{id}_X$ is also $d'$-$d$ uniformly continuous, so there exists some $\delta > 0$ such that
+	\begin{align*}
+		d'(x, y) < \delta \Rightarrow d(x, y) < \tilde{\delta}
+	\end{align*}
+	holds for all $x, y \in X$. Thus we have
+	\begin{align*}
+		d'(x, y) < \delta \Rightarrow d(x, y) < \tilde{\delta} \Rightarrow d(tx, ty) < \tilde{\varepsilon} \Rightarrow d'(tx, ty) < \varepsilon
+	\end{align*}
+	for all $x, y \in X$ and $t \in T$. Hence $(X, T)$ is $d'$-equicontinuous.
+\end{proof}
+
+\begin{remark}
+	The above proposition justifies, that we will often not give an explicit metric.
+\end{remark}
 
 \begin{proposition}[Isomorphism invariance of equicontinuity]
 	Let $(X, T)$ and $(Y, T)$ be two isomorphic topological dynamical systems. If $(X, T)$ is equicontinuous, so is $(Y, T)$.
