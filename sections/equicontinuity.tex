@@ -143,11 +143,34 @@
 \end{proof}
 
 \begin{proposition}[Products of equicontinuous systems]
-	Let $(X_\alpha, T, \cdot_\alpha)_{\alpha \in A}$ be a family of equicontinuous dynamical systems. Then the product $(\prod_{\alpha \in A} X_\alpha, T, \cdot)$ is also equicontinuous.
+	Let $(X_n, T)_{n \in \mathbb{N}}$ be a family of equicontinuous dynamical systems. Then the product $(\prod_{n \in \mathbb{N}} X_n, T)$ is also equicontinuous.
 \end{proposition}
 \begin{proof}
-	todo
+	Set $X:= \prod_{n \in \mathbb{N}} X_n$. Fix for each $n \in \mathbb{N}$ a metric $d_n$ of $X_n$ which gives rise to the topology of $X_n$. Since $X_n$ is compact we have $\operatorname{diam}(X_n) = \sup_{x, y \in X_n} d_n(x, y) < \infty$, so we can rescale $d_n$, such that $\operatorname{diam}(X_n) < 1$. Then
+	\begin{align*}
+		&d: X \times X \to [0, \infty) &d((x_n)_{n \in \mathbb{N}}, (y_n)_{n \in \mathbb{N}}) := \sum_{n \in \mathbb{N}} 2^{-n} d(x_n, y_n) &&\forall (x_n)_{n \in \mathbb{N}}, (y_n)_{n \in \mathbb{N}} \in X
+	\end{align*}
+	defines a metric on $X$, which gives rise to the product topology. Fix $\varepsilon > 0$. Then there is some $N \in \mathbb{N}$ such that $\sum_{n=N+1}^\infty 2^{-n} < \frac{\varepsilon}{2}$. For $n = 1, \dots, N$ there exists a $\delta_n > 0$ such that
+	\begin{align*}
+		d_n(x_n, y_n) < \delta_n \Rightarrow d_n(tx_n, ty_n) < \frac{\varepsilon}{2N}
+	\end{align*}
+	holds for all $x_n, y_n \in X_n$ and $t \in T$. Set $\delta := \min_{n=1, \dots, N} 2^{-n}\delta_n$. Fix $(x_n)_{n \in \mathbb{N}}, (y_n)_{n \in \mathbb{N}} \in X$ with $d((x_n)_{n, \in \mathbb{N}}, (y_n)_{n \in \mathbb{N}}) < \delta$ and $t \in T$. For $n = 1, \dots, N$ we have
+	\begin{align*}
+		d_n(x_n, y_n) = 2^n 2^{-n} d_n(x_n, y_n) \leq 2^n \sum_{m \in \mathbb{N}} 2^{-m} d_m(x_m, y_m) = 2^n d((x_m)_{m \in \mathbb{N}}, (y_m)_{m \in \mathbb{N}}) < 2^n \delta \leq 2^n 2^{-n} \delta_n = \delta_n,
+	\end{align*}
+	so $d_n(tx_n, ty_n) < \frac{\varepsilon}{2N}$. Thus we have
+	\begin{align*}
+		d(t(x_n)_{n \in \mathbb{N}}, t(y_n)_{n \in \mathbb{N}}) &= d((tx_n)_{n \in \mathbb{N}}, (ty_n)_{n \in \mathbb{N}})\\
+		&= \sum_{n \in \mathbb{N}} 2^{-n} d_n(tx_n, ty_n)\\
+		&= \sum_{n=1}^N 2^{-n} d_n(tx_n, ty_n) + \sum_{n=N+1}^\infty 2^{-n} d_n(tx_n, ty_n)\\
+		&< \sum_{n=1}^N \frac{\varepsilon}{2N} + \sum_{n=N+1}^\infty 2^{-n}\\
+		&< \frac{\varepsilon}{2} + \frac{\varepsilon}{2} &= \varepsilon,
+	\end{align*}
+	which proves that $(X, T)$ is equicontinuous.
 \end{proof}
+\begin{remark}
+	The proposition above is clearly also true for finite products. If one extends the notion of equicontinuity from metric to uniform spaces it also holds for arbitrary products.
+\end{remark}
 
 \begin{proposition}[Subsystems of equicontinuous systems]
 	Let $(X, T)$ be an equicontinuous dynamical systems and $A \subseteq X$ a closed $T$-invariant set. Then $(A, T)$ is equicontinuous.
