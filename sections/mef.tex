@@ -58,6 +58,44 @@
   Showing that $\tilde{\varphi}$ is a homomorphism.
 \end{proof}
 
+\subsection{Computing the MEF}
+In this section let $(X,T)$ be a minimal TDS with $T$ abelian.
+We denote by $T^*$ the set of all characters.
+\begin{definition}[Koopman operator]
+  The \emph{Koopman operator} $U : T \to L(C(X))$ of $(X,T)$ is defined by $(U(t) f)(x) := f(t^{-1}x)$.
+\end{definition}
+\begin{definition}[Discrete spectrum]
+  The TDS $(X,T)$ has \emph{discrete spectrum} $:\Leftrightarrow $ $C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi)$.
+\end{definition}
+
+\begin{theorem}
+  $(X,T)$ is equicontinuous $\Leftrightarrow$ $(X,T)$ has discrete spectrum.
+\end{theorem}
+\begin{proof}
+  ISEM lecture notes CH 15 + Auslander.
+\end{proof}
+
+\begin{theorem}
+  Let $x_1,x_2 \in X$. Let $\pi$ be the projection onto the MEF.
+  Then
+  \begin{equation*}
+  \pi (x_1) = \pi (x_2) \Leftrightarrow 
+    \forall f \in \bigcup_{\chi \in T^*} \ker (U- \chi) : f(x_1) = f(x_2).
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  To \enquote{$\Rightarrow$}:
+  Let $f \in \bigcup_{\chi \in T^*} \ker (U- \chi)$ be an eigenfunction and $\chi$ the corresponding eigenvalue. If $f =0$, then clearly $f(x_1) = f(x_2)$.
+  Assume $f \neq 0$.
+  Let $x_0 \in X$ with $f(x_0) \neq 0$.
+  Then $g:= f/f(x_0)$ is an Eigenfunction too and consequently (by minimality) $g(x) \in \mathbb{T}$ for all $x \in X$.
+  Now $g: (X,T) \to (\mathbb{T},T)$ is a factor, where the action of $t \in T$ on $\mathbb{T}$ is given by multiplication with $\chi(-t)$.
+  Then for all $t \in T, x \in X$:
+  \begin{equation*}
+    t g(x) = \chi (-t) g (x) = g(tx).
+  \end{equation*}
+\end{proof}
+
 \begin{example}
   $(\mathbb{Z}, \mathbb{T}^2)$, $a \in \mathbb{T}$ not a root of unity, $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$ and $t (x,y) := \alpha^t (x,y)$.
   Is minimal and distal (somewhere in Auslander).
