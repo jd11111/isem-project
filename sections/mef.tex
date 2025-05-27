@@ -63,20 +63,23 @@ In this section let $(X,T)$ be a minimal TDS with $T$ abelian.
 We denote by $T^*$ the set of all characters.
 \begin{definition}[Koopman operator]
   The \emph{Koopman operator} $U : T \to L(C(X))$ of $(X,T)$ is defined by $(U(t) f)(x) := f(t^{-1}x)$.
+  $0 \neq f \in C(X)$ is called an \emph{eigenfunction} (of $U$) to \emph{eigenvalue} $\chi \in T^*$ if $f \in \ker (U-\chi):= \bigcap_{t \in T} \ker (U(t)- \chi (t)I)$.
 \end{definition}
 \begin{definition}[Discrete spectrum]
   The TDS $(X,T)$ has \emph{discrete spectrum} $:\Leftrightarrow $ $C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi)$.
 \end{definition}
 
 \begin{theorem}
+  \label{mef:thm:equiEQdiscrete}
   $(X,T)$ is equicontinuous $\Leftrightarrow$ $(X,T)$ has discrete spectrum.
 \end{theorem}
 \begin{proof}
   ISEM lecture notes CH 15 + Auslander.
 \end{proof}
 
-\begin{theorem}
-  Let $x_1,x_2 \in X$. Let $\pi$ be the projection onto the MEF.
+\begin{theorem}[MEF Eigenfunction Characterisation]
+  \label{thm:MEF_EFchar}
+  Let $x_1,x_2 \in X$. Let $\pi : (X,T) \to (X/R,T)$ be the MEF.
   Then
   \begin{equation*}
   \pi (x_1) = \pi (x_2) \Leftrightarrow 
@@ -85,23 +88,78 @@ We denote by $T^*$ the set of all characters.
 \end{theorem}
 \begin{proof}
   To \enquote{$\Rightarrow$}:
-  Let $f \in \bigcup_{\chi \in T^*} \ker (U- \chi)$ be an eigenfunction and $\chi$ the corresponding eigenvalue. If $f =0$, then clearly $f(x_1) = f(x_2)$.
-  Assume $f \neq 0$.
-  Let $x_0 \in X$ with $f(x_0) \neq 0$.
-  Then $g:= f/f(x_0)$ is an Eigenfunction too and consequently (by minimality) $g(x) \in \mathbb{T}$ for all $x \in X$.
-  Now $g: (X,T) \to (\mathbb{T},T)$ is a factor, where the action of $t \in T$ on $\mathbb{T}$ is given by multiplication with $\chi(-t)$.
-  Then for all $t \in T, x \in X$:
+  Let $f \in \bigcup_{\chi \in T^*} \ker (U- \chi)$ be an eigenfunction and $\chi$ the corresponding eigenvalue.  Then for all $t \in T, x \in X$:
   \begin{equation*}
-    t g(x) = \chi (-t) g (x) = g(tx).
+    t f(x) = \chi (-t) f (x) = (U(-t) f)(x) = f(tx).
   \end{equation*}
+  Therefore $f: (X,T) \to (f(X),T)$ is an equicontinuous factor, where the action of $t \in T$ on $f(X)$ is given by multiplication with $\chi(-t)$.
+  By the universal property of the MEF there exists a continuous $\tilde{f}  : X/R  \to \mathbb{C}$ with $\tilde{f} \circ \pi = f$.
+  Therefore $f(x_1) = \tilde{f} (\pi (x_1) )=  \tilde{f} ( \pi (x_2)) = f (x_2)$.\\
+  To \enquote{$\Leftarrow$}:
+  Assume $\pi (x_1) \neq \pi (x_2)$.
+  Then there exists an eigenfunction $h \in C(X/R)$ of $(X/R,T)$ with $h (\pi(x_1)) \neq h(\pi (x_2))$.
+  Assume otherwise: Then by theorem \ref{mef:thm:equiEQdiscrete} $g (\pi (x_1)) = g(\pi (x_2))$ for every $g \in C(X/R)$ contradicting the Hausdorffness of $X/R$.
+  Now $f:= h \circ \pi$ is an eigenfunction of $(X,T)$ with $f(x_1) \neq f(x_2)$ contradicting the assumption.
 \end{proof}
 
-\begin{example}
-  $(\mathbb{Z}, \mathbb{T}^2)$, $a \in \mathbb{T}$ not a root of unity, $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$ and $t (x,y) := \alpha^t (x,y)$.
-  Is minimal and distal (somewhere in Auslander).
+\begin{proposition}[MEF of skew rotation]
+Let $a \in \mathbb{T}$ and $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$.
+  Consider the TDS $(\mathbb{Z}, \mathbb{T}^2)$ with the $\mathbb{Z}$-action defined by $t (x,y) := \alpha^t (x,y)$.
+  Then the MEF is given by $\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \pr_1 (x,y) := x$, where the $\mathbb{Z}$-action on $\mathbb{T}$ is defined by $t x \mapsto a^t x$.
+\end{proposition}
+\begin{proof}
+  We want to apply theorem \ref{thm:MEF_EFchar}.
+  Let $\pi : (\mathbb{T}^2 , \mathbb{Z}) \to (\mathbb{T}^2/R, \mathbb{Z})$ be the MEF.
+  Let $(x_1, y_1), (x_2, y_2) \in \mathbb{T}^2$.
+  If $x_1 \neq x_2$, then $\pr_1$ is an eigenfunctions to eigenvalue $t \mapsto a^{-t}$ that takes different values on $x_1$ and $x_2$ and so $\pi(x_1) \neq \pi(x_2)$.
+  Assume $x_1 = x_2$.
+  Let $f \in C(\mathbb{T}^2)$ be an eigenfunction with eigenvalue $\chi$.
+  The goal is to show $f(x_1, y_1) = f(x_2,y_2)$.
+  Let $\lambda := \chi (-1)$.
+  We consider $f$ as an element of $L^2( \mathbb{T}^2)$.
+  Let $(e_n)_{n \in \mathbb{Z}}$, \ $e_n(x):= x^n$ be the monomials on $\mathbb{T}$.
+  They form an orthonormal basis of $L^2(\mathbb{T})$ and so $(e_n \otimes e_m)_{(n,m) \in \mathbb{Z}^2}$ is an orthonormal basis of $L^2(\mathbb{T}^2)$.
+  Therefore (in $L^2$)
   \begin{equation*}
-    \widehat{\mathbb{Z}} =  \{  \lambda^\bullet  : \lambda \in \mathbb{T}\}
+    f = \sum_{(n,m) \in \mathbb{Z}^2} \langle f, e_n \otimes e_m \rangle e_n \otimes e_m.
   \end{equation*}
-  Continuous Eigenfunction: $f: \mathbb{T}^2 \to \mathbb{C}$. ...
-  Eigenvalues powers of $a$?
-\end{example}
+  And the eigenvalue equation (lifted to $L^2$) implies
+  \begin{equation}
+    \label{eq:mef:eveq}
+    \lambda f = \chi(-1) f=  U(-1)f  = f \circ \alpha .
+  \end{equation}
+  Now for $(n,m) \in \mathbb{Z}^2$ and $(x,y) \in \mathbb{T}^2$:
+  \begin{equation*}
+    e_n \otimes e_m (\alpha (x,y)) = e_n \otimes e_m (a x, x y) = (ax)^n (xy)^m = a^n x^{m+n} y^m
+    = a^n e_{m+n} \otimes e_m (x,y).
+  \end{equation*}
+  Therefore the equation \ref{eq:mef:eveq} is equivalent to $\forall (n,m) \in \mathbb{Z}^2$:
+  \begin{equation*}
+    \sum_{(n,m) \in \mathbb{Z}^2} \lambda \langle f, e_n \otimes e_m \rangle e_n \otimes e_m = 
+    \sum_{(n,m) \in \mathbb{Z}^2} a^n \langle f, e_n \otimes e_m \rangle e_{n+m} \otimes e_m.
+  \end{equation*}
+  Which implies that
+$\forall (n,m) \in \mathbb{Z}^2$:
+\begin{equation*}
+  |\langle f, e_{n+m} \otimes e_m \rangle|  = |\langle f, e_n \otimes e_m \rangle|.
+\end{equation*}
+  Fix $m \in \mathbb{Z} \setminus \{0\}$.
+  We want to show that $\forall n \in \mathbb{Z}: |\langle f, e_n \otimes e_m \rangle| = 0$.
+  Let $n \in \mathbb{Z}$ with $|\langle f, e_n \otimes e_m \rangle| > 0$.
+  Then for all $k \in \mathbb{N}: |\langle f, e_{n+km} \otimes e_m \rangle| = |\langle f, e_n \otimes e_m \rangle|>0$.
+  Then
+  \begin{equation*}
+    \infty = \sum_{k \in \mathbb{N} } |\langle f, e_{n+km} \otimes e_m \rangle|^2
+    \leq   \sum_{(n,m) \in \mathbb{Z}^2} |\langle f, e_{n} \otimes e_m \rangle|^2 
+    =\|f\|_{L^2} < \infty.
+  \end{equation*}
+  A contradiction.
+  In total
+  \begin{equation*}
+    f = \sum_{n \in \mathbb{Z}} \langle f, e_n \otimes e_0 \rangle e_n \otimes e_0.
+  \end{equation*}
+  Therefore there is $h \in L^2(\mathbb{T})$ and a nullset $N \subset \mathbb{T}^2$ so that for all $(x,y) \in \mathbb{T}^2 \setminus N : f(x,y) = h(x)$.
+  Therefore for all  $(x,y) , (x,y^\prime) \in \mathbb{T}^2 \setminus N , f(x,y) = f(x,y^\prime)$. 
+  By continuity of $f$ (and a small null-set argument) this implies that $\forall (x,y), (x,y^\prime) \in \mathbb{T}^2 : f(x,y) = f(x,y^\prime)$.
+  In particular this shows, that $f(x_1,y_1) = f(x_2, y_2)$ since $x_1 = x_2$.
+\end{proof}
