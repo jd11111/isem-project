@@ -1,0 +1,46 @@
+\section{$m$-Equicontinuity}
+
+\begin{definition}[$m$-Equicontinuity]
+	Fix $m \in \mathbb{N}$. Then $(X, T)$ is \emph{$m$-equicontinuous} if for all $\varepsilon > 0$ there exists a $\delta > 0$, such that for all $U \subseteq X$ open with $\operatorname{diam}(U) < \delta$, $x_1, \dots, x_m \in U$ and $t \in T$ there are $i, j \in \{1, \dots, m\}$ with $i \neq j$ such that $d(tx, ty) < \varepsilon$.
+\end{definition}
+
+\begin{proposition}
+	If $(X, T)$ is $m$-equicontinuous for some $m \in \mathbb{N}$ it is also $m'$-equicontinuous for all $m' > m$.
+\end{proposition}
+\begin{proof}
+	This is clear from the definition.
+\end{proof}
+
+\begin{definition}[$m$-Sensitivity]
+	Fix $m \in \mathbb{N}$. Then $(X, T)$ is \emph{$m$-sensitive} if there exists a $\varepsilon > 0$ such that for all non-empty open $U \subseteq X$ there exist $x_1, \dots, x_m \in U$ and $t \in T$ such that $d(tx_i, tx_j) \geq \varepsilon$ for all $i, j \in \{1, \dots, m\}$ with $i \neq j$.
+\end{definition}
+
+\begin{theorem}
+	Fix $m \in \mathbb{N}$ and assume that $(X, T)$ is minimal. Then $(X, T)$ is either $m$-equicontinuous or $m$-sensitive.
+\end{theorem}
+
+\begin{definition}[$m$-MEF]
+	Fix $m \in \mathbb{N}$ with $m \geq 2$. Assume that $(X, T)$ is minimal and let its MEF be given by $\pi_{eq}: X \to X_{eq}$. A factor $\pi: X \to Y$ is called an \emph{$m$-MEF} if for all $A \in X/R_{pi_{eq}}$ there are $B_1, \dots, B_{m-1} \in X/R_\pi$ such that
+	\begin{align*}
+		A = \bigcup_{i=1}^{m-1} B_i.
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+	Note that the $B_i$ in the definition of an $m$-MEF need not be pairwise distinct, in particular any $m$-MEF is also an $m'$-MEF for all $m' > m$.
+\end{remark}
+
+\begin{proposition}
+	Fix $m \in \mathbb{N}$ with $m \geq 2$. Let $(Y, T)$ be an $m$-MEF of $(X, T)$. Then $(Y, T)$ is $m$-equicontinuous
+\end{proposition}
+
+\begin{proposition}
+	Assume that $(X, T)$ is minimal and that its MEF is finite. Then the MEF is the only $m$-MEF of $(X, T)$ for all $m \in \mathbb{N}$ with $m \geq 2$.
+\end{proposition}
+\begin{proof}
+	Denote by $R_{eq}$ the ICER corresponding to the MEF. Let $R$ be an $m$-MEF for $m \in \mathbb{N}$ with $m \geq 2$. Then for each $A \in X/R_{eq}$ there are $B_1, \dots B_{m-1} \in X/R$ such that $A = \bigcup_{i=1}^{m-1} B_i$, so $X/R$ is finite, hence it is equicontinuous. Therefore $R = R_{eq}$.
+\end{proof}
+
+\begin{theorem}
+	Assume $(X, T)$ is minimal. Let a TDS $(Y, T)$ be $m$-equicontinuous for some $m \in \mathbb{N}$ with $m > 2$, and let $\pi: X \to Y$ be a factor map. Then there exists an $m$-MEF $\rho: X \to Z$ of $(X, T)$ and a unique factor map $\pi': X/R \to Y$ with $\pi = \pi' \circ \rho$.
+\end{theorem}
