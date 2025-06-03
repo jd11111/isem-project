@@ -133,27 +133,27 @@
 \begin{example}[Dyadic odometer]
 	Take $X = \{0, 1\}^\mathbb{N}$. We define a map $o: X \to X$ inductively by
 	\begin{align*}
-		o(a_1a_2a_3\dots) :=
+		o(x_1x_2x_3\dots) :=
 		\begin{dcases}
-			1a_2a_3\dots &;\ a_1 = 0\\
-			0o(a_2a_3\dots) &;\ a_1 = 1
+			1x_2x_3\dots &;\ x_1 = 0\\
+			0o(x_2x_3\dots) &;\ x_1 = 1
 		\end{dcases}
 	\end{align*}
-	for all $a_1a_2a_3\dots \in X$. We will skip the proof that this gives rise to a well-defined map on $X$ and has the also inductively defined inverse
+	for all $x_1x_2x_3\dots \in X$. We will skip the proof that this gives rise to a well-defined map on $X$ and has the also inductively defined inverse
 	\begin{align*}
-		o^{-1}(a_1a_2a_3) :=
+		o^{-1}(x_1x_2x_3) :=
 		\begin{dcases}
-			1o^{-1}(a_2a_3\dots) &;\ a_1=0\\
-			0a_2a_3\dots &:\ a_1=1
+			1o^{-1}(x_2x_3\dots) &;\ x_1=0\\
+			0x_2x_3\dots &:\ x_1=1
 		\end{dcases}
 	\end{align*}
-	for all $a_1a_2a_3\dots \in X$.
+	for all $x_1x_2x_3\dots \in X$.
 	
 	It is immediate from the definition that if $x, y \in X$ agree on the first $n$ entries, so do $o(x)$ and $o(y)$ as well as $o^{-1}(x)$ and $o^{-1}(y)$. Thus if we equip $X$ with the metric
 	\begin{align*}
-		d(a_1a_2\dots, b_1b_2\dots) := \min\{\frac{1}{n};\ a_n=b_n\}
+		d(x_1x_2\dots, y_1y_2\dots) := \max\{\frac{1}{n};\ x_n=y_n\}
 	\end{align*}
-	for $a_1a_2\dots, b_1b_2\dots \in X$ we have that $o$ and $o^{-1}$ are $1$-Lipschitz, which in turn implies that they must be isometries. Thus they are continuous and $(X, \mathbb{Z})$ is equicontinuous.
+	for $x_1x_2\dots, y_1y_2\dots \in X$ we have that $o$ and $o^{-1}$ are $1$-Lipschitz, which in turn implies that they must be isometries. Thus they are continuous and $(X, \mathbb{Z})$ is equicontinuous.
 	
 	We will skip the proof that every $x \in X$ has dense orbit under this $\mathbb{Z}$ action, so in particular $(X, \mathbb{Z})$ is minimal.
 \end{example}

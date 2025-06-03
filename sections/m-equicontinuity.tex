@@ -19,6 +19,17 @@
 	Fix $m \in \mathbb{N}$ and assume that $(X, T)$ is minimal. Then $(X, T)$ is either $m$-equicontinuous or $m$-sensitive.
 \end{theorem}
 
+\begin{example}
+	Let $o$ be the dyadic odometer on $X = \{0, 1\}^\mathbb{N}$ defined in the first section. For $p \in \mathbb{N}$ define $a: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/p\mathbb{Z}$ by
+	\begin{align*}
+		a(x_1x_2\dots, z + p\mathbb{Z}) := (o(x_1x_2\dots), z + \min \{n \in \mathbb{N};\ a_n = 0\} + p\mathbb{Z}
+	\end{align*}
+	for all $(x_1x_2\dots, z + p\mathbb{Z}) \in X \times \mathbb{Z}/p\mathbb{Z}$. This map gives rise to a minimal TDS $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ which is $m$-equicontinuous if and only if $p < m$.
+\end{example}
+\begin{proof}
+	todo
+\end{proof}
+
 \begin{definition}[$m$-MEF]
 	Fix $m \in \mathbb{N}$ with $m \geq 2$. Assume that $(X, T)$ is minimal and let its MEF be given by $\pi_{eq}: X \to X_{eq}$. A factor $\pi: X \to Y$ is called an \emph{$m$-MEF} if for all $A \in X/R_{pi_{eq}}$ there are $B_1, \dots, B_{m-1} \in X/R_\pi$ such that
 	\begin{align*}
@@ -44,3 +55,17 @@
 \begin{theorem}
 	Assume $(X, T)$ is minimal. Let a TDS $(Y, T)$ be $m$-equicontinuous for some $m \in \mathbb{N}$ with $m > 2$, and let $\pi: X \to Y$ be a factor map. Then there exists an $m$-MEF $\rho: X \to Z$ of $(X, T)$ and a unique factor map $\pi': X/R \to Y$ with $\pi = \pi' \circ \rho$.
 \end{theorem}
+
+\begin{example}
+	Fix $p \in \mathbb{N}$ and look at $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ from above. For $m \in \mathbb{N}$ with $m \geq 2$ all $m$-MEFs (up to isomorphism) of $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ are given by $(X \times \mathbb{Z}/q\mathbb{Z}, \mathbb{Z})$ for $q \in \mathbb{N}$ with $q < m$ and $q$ divides $p$. The corresponding factor map $\pi_{pq}: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/q\mathbb{Z}$ is given by
+	\begin{align*}
+		\pi_{pq}(x, z + p\mathbb{Z}) := (x, z + q\mathbb{Z})
+	\end{align*}
+	for all $(x, z + p\mathbb{Z}) \in X \times \mathbb{Z}/p\mathbb{Z}$. In particular the MEF is given by
+	\begin{align*}
+		(X \times \mathbb{Z}/1\mathbb{Z}, \mathbb{Z}) \cong (X, \mathbb{Z}).
+	\end{align*}
+\end{example}
+\begin{proof}
+	todo
+\end{proof}
