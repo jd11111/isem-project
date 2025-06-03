@@ -103,6 +103,34 @@
 	\end{equation*}
 \end{definition}
 
+\begin{example}[Dyadic odometer]
+	Take $X = \{0, 1\}^\mathbb{N}$. We define a map $o: X \to X$ inductively by
+	\begin{align*}
+		o(a_1a_2a_3\dots) :=
+		\begin{dcases}
+			1a_2a_3\dots &;\ a_1 = 0\\
+			0o(a_2a_3\dots) &;\ a_1 = 1
+		\end{dcases}
+	\end{align*}
+	for all $a_1a_2a_3\dots \in X$. We will skip the proof that this gives rise to a well-defined map on $X$ and has the also inductively defined inverse
+	\begin{align*}
+		o^{-1}(a_1a_2a_3) :=
+		\begin{dcases}
+			1o^{-1}(a_2a_3\dots) &;\ a_1=0\\
+			0a_2a_3\dots &:\ a_1=1
+		\end{dcases}
+	\end{align*}
+	for all $a_1a_2a_3\dots \in X$.
+	
+	It is immediate from the definition that if $x, y \in X$ agree on the first $n$ entries, so do $o(x)$ and $o(y)$ as well as $o^{-1}(x)$ and $o^{-1}(y)$. Thus if we equip $X$ with the metric
+	\begin{align*}
+		d(a_1a_2\dots, b_1b_2\dots) := \min\{\frac{1}{n};\ a_n=b_n\}
+	\end{align*}
+	for $a_1a_2\dots, b_1b_2\dots \in X$ we have that $o$ and $o^{-1}$ are $1$-Lipschitz, which in turn implies that they must be isometries. Thus they are continuous and $(X, \mathbb{Z})$ is equicontinuous.
+	
+	We will skip the proof that every $x \in X$ has dense orbit under this $\mathbb{Z}$ action, so in particular $(X, \mathbb{Z})$ is minimal.
+\end{example}
+
 \begin{proposition}[Equicontinuity is independent on the choice of metric]
 	Let $(X, T)$ be a TDS and $d, d'$ two metrics on $X$ that give rise to the same topology. Then $(X, T)$ is $d$-equicontinuous if and only if it is $d'$-equicontinuous.
 \end{proposition}
