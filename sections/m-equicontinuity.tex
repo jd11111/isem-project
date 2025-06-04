@@ -22,7 +22,7 @@
 \begin{example}
 	Let $o$ be the dyadic odometer on $X = \{0, 1\}^\mathbb{N}$ defined in the first section. For $p \in \mathbb{N}$ define $a: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/p\mathbb{Z}$ by
 	\begin{align*}
-		a(x_1x_2\dots, z + p\mathbb{Z}) := (o(x_1x_2\dots), z + \min \{n \in \mathbb{N};\ a_n = 0\} + p\mathbb{Z}
+		a(x_1x_2\dots, z + p\mathbb{Z}) := (o(x_1x_2\dots), z + \min \{n \in \mathbb{N};\ x_n = 0\} + p\mathbb{Z})
 	\end{align*}
 	for all $(x_1x_2\dots, z + p\mathbb{Z}) \in X \times \mathbb{Z}/p\mathbb{Z}$. This map gives rise to a minimal TDS $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ which is $m$-equicontinuous if and only if $p < m$.
 \end{example}
@@ -53,7 +53,7 @@
 \end{proof}
 
 \begin{theorem}
-	Assume $(X, T)$ is minimal. Let a TDS $(Y, T)$ be $m$-equicontinuous for some $m \in \mathbb{N}$ with $m > 2$, and let $\pi: X \to Y$ be a factor map. Then there exists an $m$-MEF $\rho: X \to Z$ of $(X, T)$ and a unique factor map $\pi': X/R \to Y$ with $\pi = \pi' \circ \rho$.
+	Assume $(X, T)$ is minimal. Let a TDS $(Y, T)$ be $m$-equicontinuous for some $m \in \mathbb{N}$ with $m > 2$, and let $\pi: X \to Y$ be a factor map. Then there exists an $m$-MEF $\rho: X \to Z$ of $(X, T)$ and a unique factor map $\pi': X/R_\rho \to Y$ with $\pi = \pi' \circ \rho$.
 \end{theorem}
 
 \begin{example}
