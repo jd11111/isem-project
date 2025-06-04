@@ -105,6 +105,7 @@
 
 \begin{proposition}[Equicontinuity is independent on the choice of metric]
 	Let $(X, T)$ be a TDS and $d, d'$ two metrics on $X$ that give rise to the same topology. Then $(X, T)$ is $d$-equicontinuous if and only if it is $d'$-equicontinuous.
+	\label{prop:metricindipendent}
 \end{proposition}
 \begin{proof}
 	Fix $\varepsilon > 0$. The fact that $d$ and $d'$ give rise to the same topology, implies that $\mathrm{id}_X$ is $d$-$d'$ continuous. Since $X$ is compact it is even uniformly continuous, so there exists a $\tilde{\varepsilon} > 0$ such that
@@ -129,6 +130,26 @@
 \begin{remark}
 	The above proposition justifies, that we will often not give an explicit metric.
 \end{remark}
+
+\begin{corollary}
+	Let $(X, T)$ be a $d$-equicontinuous TDS.
+	Then $(X, T)$ admits an invariant metric
+	\[ \tilde{d}(x, y) := \sup_{t \in T} d(tx, ty) \]	
+	such that $(X, T)$ is $\tilde{d}$-equicontinuous
+	and $((X, d), T)$ and $((X, \tilde{d}), T)$ are conjugate.
+\end{corollary}
+
+\begin{proof}
+	Since $X$ is compact and ... $\tilde{d}$ is finite. {\color{red} equicontinuous, invertability in BA?}
+	It is clear from the definition that $\tilde{d}$ is $T$-invariant
+	and one can easily check that $\tilde{d}$ is a metric.
+	The identity map $\text{Id} : (X, \tilde{d}) \to (X, d)$ is continuous {\color{red} falsch rum?},
+	since $d(x, y) \leq \tilde{d}(x, y)$ for each $x, y \in X$.
+	Since both spaces are compact Hausdorff {\color{red} woher wissen wir das eig bei $\tilde{d}$?}
+	$\text{Id}$ is a homeomorphism and thus both metrics induce the same topology.
+	By Proposition \ref{prop:metricindipendent} we have that the system is $\tilde{d}$-equicontinuous.
+	And the 
+\end{proof}
 
 \begin{example}[Dyadic odometer]
 	Take $X = \{0, 1\}^\mathbb{N}$. We define a map $o: X \to X$ inductively by

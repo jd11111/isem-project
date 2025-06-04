@@ -19,6 +19,7 @@
 	Fix $m \in \mathbb{N}$ and assume that $(X, T)$ is minimal. Then $(X, T)$ is either $m$-equicontinuous or $m$-sensitive.
 \end{theorem}
 
+
 \begin{example}
 	Let $o$ be the dyadic odometer on $X = \{0, 1\}^\mathbb{N}$ defined in the first section. For $p \in \mathbb{N}$ define $a: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/p\mathbb{Z}$ by
 	\begin{align*}
@@ -39,6 +40,18 @@
 
 \begin{remark}
 	Note that the $B_i$ in the definition of an $m$-MEF need not be pairwise distinct, in particular any $m$-MEF is also an $m'$-MEF for all $m' > m$.
+\end{remark}
+
+\begin{definition}[$m$-Regionally Proximal Realtion]
+	Let $(X, T)$ be a TDS and $m \geq 2$.
+	A tupel $(x_1, \dots, x_m) \in X^m$ is called $m$-regionally proximal if for each $\varepsilon > 0$
+	there are $(x_1', \dots, x_m') \in B_\varepsilon((x_1, \dots, x_m))$ and $t \in T$ such that $d(tx_i', tx_j') < \varepsilon$ for all $i, j \in \{1, \dots, m\}$.
+	We denote the set of $m$-regionally proximal tupels by $Q_m$.
+\end{definition}
+
+\begin{remark}
+	In the case of $m = 2$ the definition of the $m$-regionally proximal relation and the regionally proximal relation coincide,
+	so the notation $Q_m$ is justified.
 \end{remark}
 
 \begin{proposition}
