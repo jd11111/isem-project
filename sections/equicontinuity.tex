@@ -172,7 +172,7 @@
 	
 	It is immediate from the definition that if $x, y \in X$ agree on the first $n$ entries, so do $o(x)$ and $o(y)$ as well as $o^{-1}(x)$ and $o^{-1}(y)$. Thus if we equip $X$ with the metric
 	\begin{align*}
-		d(x_1x_2\dots, y_1y_2\dots) := \max\{\frac{1}{n};\ x_n=y_n\}
+		d(x_1x_2\dots, y_1y_2\dots) := \inf\{\frac{1}{n};\ x_n \neq y_n\}
 	\end{align*}
 	for $x_1x_2\dots, y_1y_2\dots \in X$ we have that $o$ and $o^{-1}$ are $1$-Lipschitz, which in turn implies that they must be isometries. Thus they are continuous and $(X, \mathbb{Z})$ is equicontinuous.
 	

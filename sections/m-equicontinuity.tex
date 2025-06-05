@@ -19,16 +19,53 @@
 	Fix $m \in \mathbb{N}$ and assume that $(X, T)$ is minimal. Then $(X, T)$ is either $m$-equicontinuous or $m$-sensitive.
 \end{theorem}
 
+\begin{definition}[$m$-Regionally Proximal Realtion]
+	Let $(X, T)$ be a TDS and $m \geq 2$.
+	A tupel $(x_1, \dots, x_m) \in X^m$ is called $m$-regionally proximal if for each $\varepsilon > 0$
+	there are $(x_1', \dots, x_m') \in B_\varepsilon((x_1, \dots, x_m))$ and $t \in T$ such that $d(tx_i', tx_j') < \varepsilon$ for all $i, j \in \{1, \dots, m\}$.
+	We denote the set of $m$-regionally proximal tupels by $Q_m$.
+\end{definition}
+
+\begin{remark}
+	In the case of $m = 2$ the definition of the $m$-regionally proximal relation and the regionally proximal relation coincide,
+	so the notation $Q_m$ is justified.
+\end{remark}
 
 \begin{example}
 	Let $o$ be the dyadic odometer on $X = \{0, 1\}^\mathbb{N}$ defined in the first section. For $p \in \mathbb{N}$ define $a: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/p\mathbb{Z}$ by
 	\begin{align*}
 		a(x_1x_2\dots, z + p\mathbb{Z}) := (o(x_1x_2\dots), z + \min \{n \in \mathbb{N};\ x_n = 0\} + p\mathbb{Z})
 	\end{align*}
-	for all $(x_1x_2\dots, z + p\mathbb{Z}) \in X \times \mathbb{Z}/p\mathbb{Z}$. This map gives rise to a minimal TDS $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ which is $m$-equicontinuous if and only if $p < m$.
+	for all $(x_1x_2\dots, z + p\mathbb{Z}) \in X \times \mathbb{Z}/p\mathbb{Z}$. This map gives rise to a minimal TDS $(X \times \mathbb{Z}/p\mathbb{Z}, \mathbb{Z})$ which is $m$-equicontinuous if and only if $p < m$. \color{red} This example is wrong. The function $a$ is not defined everywhere and can not be extended continuously.
 \end{example}
 \begin{proof}
-	todo
+	We equip $X$ with the metric
+	\begin{align*}
+		d_X(x_1x_2\dots, y_1y_2\dots) := \inf\{\frac{1}{n};\ x_n \neq y_n\}
+	\end{align*}
+	for all $(x_1x_2\dots), (y_1y_2\dots) \in X$ and $\mathbb{Z}/p\mathbb{Z}$ with the discrete metric $d_d$. Then we equip $X \times \mathbb{Z}/p\mathbb{Z}$ with the metric
+	\begin{align*}
+		d((x, \alpha), (y, \beta)) := d_X(x, y) + d_d(\alpha, \beta)
+	\end{align*}
+	for all $(x, \alpha), (y, \beta) \in X \times \mathbb{Z}/p\mathbb{Z}$.
+	
+	Fix $m \in \mathbb{N}$ with $m \geq 2$. Let $\pi_X: X \times \mathbb{Z}/p\mathbb{Z} \to X$ be the projections onto the first component, which is clearly a factor. We prove that
+	\begin{align*}
+		Q_m = \{(u_1, \dots, u_m) \in (X \times \mathbb{Z}/p\mathbb{Z})^m;\ \pi_X(u_i) = \pi_X(u_j)\ \forall i, j \in \{1, \dots, m\}\}
+	\end{align*}
+	holds.
+	
+	First take $(u_1, \dots u_m) \in (X \times \mathbb{Z}/p\mathbb{Z})^m$ such that there are $i, j \in \{1, \dots, m\}$ such that $\pi_X(u_i) \neq \pi_X(u_j)$. Choose $\varepsilon < \frac{1}{3} d_X(\pi_x(u_i), \pi_X(u_j))$. Then for any $(u_1', \dots, u_m') \in B_\varepsilon(u_1, \dots, u_m)$ and any $n \in \mathbb{Z}$ we have
+	\begin{align*}
+		d(a^nu_i', a^nu_j') &\geq d_X(\pi_X(a^nu_i'), \pi_X(a^nu_j'))\\
+		&= d_X(o^n\pi_X(u_i'), o^n\pi_X(u_j'))\\
+		&= d_X(\pi_X(u_i'), \pi_X(u_j'))\\
+		&\geq d(\pi_X(u_i), \pi_X(u_j)) - d(\pi_X(u_i), \pi_X(u_i')) - d(\pi_X(u_j'), \pi_X(u_j))\\
+		&> 3\varepsilon - \varepsilon - \varepsilon = \varepsilon
+	\end{align*}
+	so $(u_1, \dots, u_m) \notin Q_m$.
+	
+	Now fix $(u_1, \dots, u_m) \in (X \times \mathbb{Z}/p\mathbb{Z})^m$ with $x = \pi_X(u_i)$ for all $i \in \{1, \dots, m\}$ and some $x \in X$ and let $\varepsilon > 0$ be given. There is some $k \in \mathbb{N}$ such that $\frac{1}{k} < \frac{\varepsilon}{m}$ and some $n \in \mathbb{N}$ such that $o^m x$ starts with $n$ zeroes.
 \end{proof}
 
 \begin{definition}[$m$-MEF]
@@ -40,18 +77,6 @@
 
 \begin{remark}
 	Note that the $B_i$ in the definition of an $m$-MEF need not be pairwise distinct, in particular any $m$-MEF is also an $m'$-MEF for all $m' > m$.
-\end{remark}
-
-\begin{definition}[$m$-Regionally Proximal Realtion]
-	Let $(X, T)$ be a TDS and $m \geq 2$.
-	A tupel $(x_1, \dots, x_m) \in X^m$ is called $m$-regionally proximal if for each $\varepsilon > 0$
-	there are $(x_1', \dots, x_m') \in B_\varepsilon((x_1, \dots, x_m))$ and $t \in T$ such that $d(tx_i', tx_j') < \varepsilon$ for all $i, j \in \{1, \dots, m\}$.
-	We denote the set of $m$-regionally proximal tupels by $Q_m$.
-\end{definition}
-
-\begin{remark}
-	In the case of $m = 2$ the definition of the $m$-regionally proximal relation and the regionally proximal relation coincide,
-	so the notation $Q_m$ is justified.
 \end{remark}
 
 \begin{proposition}
