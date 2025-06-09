@@ -11,6 +11,7 @@
 
 
 \begin{theorem}
+  \label{rprchar}
   Let $(X, T)$ be a TDS.
   The set of regionally proximal pairs is exactly
   \[ Q_2(X) = \bigcap_{U \in \mathcal{U}(\Delta(X))} \overline{TU}  \]
@@ -25,7 +26,20 @@
     \label{eq:rprchar}
     x_n \to x, \ y_n \to y \ \text{and} \ d(t_n x_n, t_n y_n) \to 0.
   \end{equation}
-  {\color{red} Wie viel soll hier hin?}
+  We can rewrite this statement to say
+  \[ (x_n, y_n) \to (x, y) \ \text{and} \ t_n(x_n, y_n) \in B_\varepsilon(\Delta(X)) \]
+  for each $\varepsilon > 0$ and using that $X$ is compact this is equivalent to for each $U \in \mathcal{U}(\Delta(X))$
+  \[ (x_n, y_n) \to (x, y) \ \text{and} \ t_n(x_n, y_n) \in U \]
+  and it follows
+  \[ (x_n, y_n) \to (x, y) \ \text{and} \ (x_n, y_n) \in TU \]
+  and therefore $(x, y) \in \overline{TU}$.
+  Since $U$ was arbitrary this shows the first direction of the equivalence.
+
+  Since $X$ is metrizable we can choose a countable system of neighborhoods $B_n$ of $\Delta(X)$.
+  We can follow from the characterization in \cref{rprchar} that if $(x, y) \in Q_2(X)$
+  we have that for each $U \in \mathcal{U}(\Delta(X))$ and in particular $B_n \in \mathcal{U}(\Delta(X))$
+  there is $(x_n, y_n) \to (x, y)$ such that $(x_n, y_n) \in TU$ and thus $t_n(x_n, y_n) \in U$.
+  The diagonal sequence over all neighborhoods $B_n$ ordered by inclusion satisfies \ref{eq:rprchar}.
 \end{proof}
 
 \begin{theorem}
