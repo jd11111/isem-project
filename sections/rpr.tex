@@ -57,7 +57,34 @@
 \end{proof}
 
 Note that in general the regionally proximal relation is not transitive.
-{\color{red} Gegenbeispiel? Auslander sagt was von Kreisen und Spiralen...}
+The next construction is a counterexample.
+
+\begin{example}
+  Consider the compact set $X = [0, 2]$ and the group $\mathbb{R}$ under addition.
+  The real numbers act on $[0, 2]$ by the group actions defined by
+  \begin{equation*}
+    \mathbb{R} \times X \to X, \ (t, x) \mapsto 
+    tx := \begin{cases}
+      0 & x = 0 \\
+      \frac{1}{1 + (\frac{1}{x} - 1)e^{-t}} & x \in (0, 1] \\
+      \frac{1}{1 + (\frac{1}{x - 1} - 1)e^{-t}} & x \in (1, 2]
+    \end{cases}
+  \end{equation*}
+  One can check that $0x = x$ and $t(sx) = (t + s)x$ for all $r, s \in \mathbb{R}$ and $x \in X$.
+  Also the singeltons $\{ 0 \}, \{ 1 \}$ and $\{ 2 \}$ are closed invariant subspaces.
+  So the TDS is not minimal.
+
+  {\color{red} Hier ein Bild}
+  It is easy to see that $0$ and $1$ are a regionally proximal pair,
+  since one can choose a point arbitrarily larger than $0$ and smaller than $1$.
+  Both will tend to $1$ but never reach $1$ as $t$ gets bigger,
+  so their distance will get arbitrarily small.
+  The same is true for the points $1$ and $2$.
+
+  At the same time $0$ and $2$ are not regionally proximal,
+  since a point in a (small enough) neighborhood will tend to $1$ and a point in a neighborhood of $2$ will tend to $2$ as $t$ gets bigger
+  (and similarly if $t$ gets smaller).
+\end{example}
 
 \begin{theorem}
   Let $(X, T)$ be an equicontinuous TDS.
