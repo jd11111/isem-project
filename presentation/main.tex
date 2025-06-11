@@ -1,0 +1,105 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{transparent}
+\usepackage{siunitx}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\numberwithin{equation}{section}
+\usepackage{tikz}
+
+\usepackage{verbatim}
+\usepackage[
+backend=biber,
+style=authoryear,
+%sorting=ynt
+]{biblatex}
+\addbibresource{references.bib}
+\setbeamertemplate{bibliography item}{}
+\DeclareNameAlias{sortname}{given-family}
+
+\usetheme{Warsaw}
+
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\AtBeginSection[]
+{
+\begingroup 
+    \setbeamertemplate{headline}{}
+  \begin{frame}<beamer>{Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+\endgroup
+}
+
+
+\AtBeginSubsection[]
+{
+\begingroup 
+    \setbeamertemplate{headline}{}
+  \begin{frame}<beamer>{Contents}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+\endgroup
+}
+
+\input{sections/header.tex}
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\newtheorem{remark}[theorem]{Remark}
+% \newtheorem{definition}[theorem]{Definition}
+
+
+\title[MEF]{Project 8: Maximal Equicontinuous Factor}
+\author{Matti Bleckmann, Jannik Daun, Pablo Lummerzheim}
+%\institute{}
+\date{ISEM28, 2025}
+
+\begin{document}
+\setlength{\abovedisplayshortskip}{1pt}
+\setlength{\belowdisplayshortskip}{1pt} 
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}  %removes large barrier around eq
+\begingroup 
+    \setbeamertemplate{headline}{}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+\endgroup
+
+\subfile{sections/mef.tex}
+
+
+\section*{}
+\begingroup 
+    \setbeamertemplate{headline}{}
+\begin{frame}{Conclusion}
+    \begin{itemize}
+    \item ...
+    \end{itemize}
+    %\pause
+    \hrule
+    \begin{center}
+\Large
+    Thanks for your attention!
+\end{center}
+\end{frame}
+  \begin{frame}
+  references ...
+   \frametitle{References}
+    \printbibliography[heading=none]
+  \end{frame}
+\endgroup
+\end{document}
