@@ -2,13 +2,47 @@
 \begin{lemma}
   \label{lem:countableSubIntersection}
   Let $(X,d)$ be a compact metric space and $(A_j)_{j \in J}$ a family of closed sets in $X$.
-  Then there exists $I \subset \mathbb{N}$, $f: I \to J$ injective with
+  Then there exists a countable subset $I \subset J$ with
   \begin{equation*}
-    \bigcup_{j \in J} A_j = \bigcup_{i \in I} A_{f(i)}.
+    \bigcap_{j \in J} A_j = \bigcap_{i \in I} A_{i}.
   \end{equation*}
 \end{lemma}
 \begin{proof}
-  Linos bachelor thesis.
+Let $A:=\bigcap_{j \in J} A_j$.
+  For $n \in \mathbb{N}$ let $U_n := \bigcup_{ x \in A} B(x, 1/n)$ and $C_n := X \setminus U_n$.
+  Let $n \in \mathbb{N}$. Then
+  \begin{equation*}
+    \varnothing =  A \cap C_n.
+  \end{equation*}
+  Note that $C_n$ is compact, because it is a closed subset of a compact space.
+  $(X \setminus A_j)_{j \in J}$ is an open cover of $C_n$,
+  because
+  \begin{equation*}
+    C_n \subset X \setminus A = X \setminus \bigcap_{j \in J} A_j = \bigcup_{j \in J} X \setminus A_j
+  \end{equation*}
+  and so there exists a finite set $J_n \subset J$ with
+  \begin{equation*}
+    X \setminus U_n = C_n \subset \bigcup_{j \in J_n} X \setminus A_j = X \setminus \bigcap_{j \in J_n} A_j
+  \end{equation*}
+  and so
+  \begin{equation*}
+ \bigcap_{j \in J_n} A_j \subset U_n.
+  \end{equation*}
+  Now set $I := \bigcup_{n \in \mathbb{N}} I_n$.
+  Then $I$ is countable being a countable union of finite sets.
+  Furthermore
+  \begin{equation*}
+    \bigcap_{i \in I} A_i \subset \bigcap_{n \in \mathbb{N}} U_n = A.
+  \end{equation*}
+  For the last equality: It is clear that $\bigcap_{n \in \mathbb{N}} U_n \supset A$.
+  To show $\bigcap_{n \in \mathbb{N}}U_n \subset A$:
+  Assume (towards a contradiction) that $x \in \bigcap_{n \in \mathbb{N}}U_n $ with $x \notin A$.
+  Since $A$ is closed there exists $m \in \mathbb{N}$ with $B(x,1/m) \subset X \setminus A$.
+  But then for every $y \in A$:
+  \begin{equation*}
+    d(y,x) \geq 1/m
+  \end{equation*}
+  and so $x \notin \bigcap_{n \in \mathbb{N}}U_n$ contradicting the assumption.
 \end{proof}
 \begin{theorem}[Maximal equicontinuous factor]
   Let $(X,T)$ be a TDS.
