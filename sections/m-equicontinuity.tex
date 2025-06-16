@@ -38,6 +38,21 @@ We define $\Delta^m(X) = \{ (x_1, \dots, x_m) \in X^m \ | \ \text{there are} \ i
 	Then $(X, T)$ is equicontinuous if and only if $Q_m(X) \setminus \Delta^m(X)$ for $2 \leq m \in \mathbb{N}$.
 \end{theorem}
 
+\begin{proof}
+	Let $(x_1, \dots, x_m) \in Q_m(X) \setminus \Delta^m(X)$.
+	We will show that $(X, T)$ is not equicontinuous.
+	Let $A_1, \dots, A_m$ be disjoined closed neighborhoods of $x_1, \dots, x_m$ respectively.
+	Define $\varepsilon = \min_{i, j} d(A_i, A_j)$.
+	Let $\delta > 0$.
+	Since $X$ is compact and minimal (so every orbit is dense) we find a finite cover $\bigcup_{g \in F} gB_\delta(1) = \bigcup_{g \in G} gB_\delta(1)$ of $X$ for some finite $F \subset G$
+	and define $\lambda$ to be the Lebesgue covering number.
+	Because $(x_1, \dots, x_m) \in Q_m$ for all $i \neq j \in \{1, \dots, m\}$ we have that there is a $g_0 \in G$ and $x_j' \in A_i$ such that $g_0x_i'$ and $g_0 x_j'$ get arbitrarily close, in particular $d(g_0 x_i', g_0 x_j') < \lambda$.
+	Therefore, the set $\{ g_0x_1', \dots, g_0x_m' \} \subset hB_\delta(1)$ for some $h \in G$ and $\{ h^{-1}g_0x_1', \dots, h^{-1}g_0x_m' \} \subset B_\delta(1)$.
+	But now
+	\[ d(g_0h(h^{-1g_0}x_i'), \dots, g_0h(h^{-1g_0}x_j')) = d(x_i', x_j') > d(A_1, A_m) \geq \varepsilon \]
+	for all $i \neq j \in \{1, \dots, m\}$ contradicting $m$-equicontinuity since $\delta$ was arbitrary.
+ \end{proof}
+
 \begin{example}
 	Let $o$ be the dyadic odometer on $X = \{0, 1\}^\mathbb{N}$ defined in the first section. For $p \in \mathbb{N}$ define $a: X \times \mathbb{Z}/p\mathbb{Z} \to X \times \mathbb{Z}/p\mathbb{Z}$ by
 	\begin{align*}
