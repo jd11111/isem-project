@@ -131,24 +131,24 @@
 	The above proposition justifies, that we will often not give an explicit metric.
 \end{remark}
 
-\begin{corollary}
+\begin{lemma}
 	Let $(X, T)$ be a $d$-equicontinuous TDS.
 	Then $(X, T)$ admits an invariant metric
 	\[ \tilde{d}(x, y) := \sup_{t \in T} d(tx, ty) \]	
 	such that $(X, T)$ is $\tilde{d}$-equicontinuous
 	and $((X, d), T)$ and $((X, \tilde{d}), T)$ are conjugate.
-\end{corollary}
+\end{lemma}
 
 \begin{proof}
-	Since $X$ is compact and ... $\tilde{d}$ is finite. {\color{red} equicontinuous, invertability in BA?}
+	Since $X$ is compact $\tilde{d}$ is finite.
 	It is clear from the definition that $\tilde{d}$ is $T$-invariant
 	and one can easily check that $\tilde{d}$ is a metric.
-	The identity map $\text{Id} : (X, \tilde{d}) \to (X, d)$ is continuous {\color{red} falsch rum?},
+	The identity map $\text{Id} : (X, \tilde{d}) \to (X, d)$ is continuous,
 	since $d(x, y) \leq \tilde{d}(x, y)$ for each $x, y \in X$.
-	Since both spaces are compact Hausdorff {\color{red} woher wissen wir das eig bei $\tilde{d}$?}
-	$\text{Id}$ is a homeomorphism and thus both metrics induce the same topology.
-	By Proposition \ref{prop:metricindipendent} we have that the system is $\tilde{d}$-equicontinuous.
-	And the 
+	Since the $T$-action is equicontinuous we know that for each $\varepsilon > 0$ and $x, y \in X$ with $d(x, y) < \delta$ there is a $\delta >0$ such that
+	\[ \tilde{d}(x, y) = \sup_{t \in T} d(tx, ty) < \varepsilon \]
+	and therefore the inverse map is continuous.
+	Thus, $Id$ is a homeomorphism and the systems are conjugate.
 \end{proof}
 
 \begin{example}[Dyadic odometer]
