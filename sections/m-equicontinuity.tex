@@ -44,13 +44,31 @@ We define $\Delta^m(X) = \{ (x_1, \dots, x_m) \in X^m \ | \ \text{there are} \ i
 	Let $A_1, \dots, A_m$ be disjoined closed neighborhoods of $x_1, \dots, x_m$ respectively.
 	Define $\varepsilon = \min_{i, j} d(A_i, A_j)$.
 	Let $\delta > 0$.
-	Since $X$ is compact and minimal (so every orbit is dense) we find a finite cover $\bigcup_{g \in F} gB_\delta(1) = \bigcup_{g \in G} gB_\delta(1)$ of $X$ for some finite $F \subset G$
-	and define $\lambda$ to be the Lebesgue covering number.
+	Since $X$ is compact and minimal (so every orbit is dense) we find a finite cover $\bigcup_{g \in F} gB_\delta(x) = \bigcup_{g \in G} gB_\delta(x)$ of $X$ for some finite $F \subset G$ and $x \in X$ (the choice of $x$ does not matter).
+	We define $\lambda$ to be the Lebesgue covering number of that finite cover.
 	Because $(x_1, \dots, x_m) \in Q_m$ for all $i \neq j \in \{1, \dots, m\}$ we have that there is a $g_0 \in G$ and $x_j' \in A_i$ such that $g_0x_i'$ and $g_0 x_j'$ get arbitrarily close, in particular $d(g_0 x_i', g_0 x_j') < \lambda$.
-	Therefore, the set $\{ g_0x_1', \dots, g_0x_m' \} \subset hB_\delta(1)$ for some $h \in G$ and $\{ h^{-1}g_0x_1', \dots, h^{-1}g_0x_m' \} \subset B_\delta(1)$.
+	Therefore, the set $\{ g_0x_1', \dots, g_0x_m' \} \subset hB_\delta(x)$ for some $h \in G$ and $\{ h^{-1}g_0x_1', \dots, h^{-1}g_0x_m' \} \subset B_\delta(x)$.
 	But now
 	\[ d(g_0h(h^{-1g_0}x_i'), \dots, g_0h(h^{-1g_0}x_j')) = d(x_i', x_j') > d(A_1, A_m) \geq \varepsilon \]
 	for all $i \neq j \in \{1, \dots, m\}$ contradicting $m$-equicontinuity since $\delta$ was arbitrary.
+
+	For the converse statement let $(X, T)$ be a TDS that is not $m$-equicontinuous.
+	Therefore, there exists an $\varepsilon > 0$ such that for all $n \in \mathbb{N}$ there are $(x_1, \dots, x_n) \in O_{n}$,
+	where $\text{diam}(O_n) < \frac{1}{n}$, and $g^{(n)} \in G$ such that
+	we have a sequence $(x_1^{(n)}, \dots, x_m^{(n)})_{n \in \mathbb{N}}$ with
+	\[ d(g^{(n)}x_i^{(n)}, g^{(n)}x_j^{(n)}) > \varepsilon \]
+ 	for all $i \neq j \in \{1, \dots, m\}$ and $n \in \mathbb{N}$.
+	Since $X$ is compact we have a converging subsequence and we can say that without loss of generality $g^{(n)}x_i^{(n)} \to y_i$ for all $i \in \{1, \dots, m\}$.
+	Note that $(y_1, \dots, y_m)$ is not in $\Delta^m(X)$, since their distance is pairwise bounded from below by $\varepsilon$.
+	We will show that $(y_1, \dots, y_m) \in Q_m(X)$.
+	Let $\varepsilon' > 0$ and $N \in \mathbb{N}$ such that $d(g^{(N)}x_i^{N}, y_i) < \varepsilon'$ for all $i \in \{1, \dots, m\}$.
+	Define $y_i' := g_k^{(N)} x_i^{(N)}$.
+	Then we have
+	\[ d((g^{(N)})^{-1} y_i', (g^{(N)})^{-1} y_j') = d(x_i^{(N)}, x_j^{(N)}) < \varepsilon' \]
+	for all $i \neq j \in \{1, \dots, m\}$.
+	And therefore $(y_1, \dots, y_m) \in Q_m(X)$.
+
+	{ \color{red} where do we need $T$ to be abelian?}
  \end{proof}
 
 \begin{example}
