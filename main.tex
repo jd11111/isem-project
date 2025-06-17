@@ -24,12 +24,12 @@
 \usepackage{comment}
 \usepackage{cleveref}
 \usepackage[a4paper, margin=1in]{geometry} %page margins
-%\usepackage[
-%backend=biber,
-%style=alphabetic,
-%sorting=ynt
-%]{biblatex}
-%\addbibresource{refs.bib}
+\usepackage[
+backend=biber,
+style=alphabetic,
+sorting=ynt
+]{biblatex}
+\addbibresource{references.bib}
 
 %SETTINGS:
 \renewcommand*\familydefault{\sfdefault} %default font
@@ -59,6 +59,7 @@
 \setcounter{MaxMatrixCols}{20}%increase max number of matrix columns
 \numberwithin{equation}{section} %label equations by section
 %amsthm settings
+\swapnumbers
 \theoremstyle{definition} %upright text
 \newtheorem{definition}{Definition}[section] %two part counter (first incremented at each section)
 \newtheorem{example}[definition]{Example} % all subsequent envs share counter with defi
@@ -94,7 +95,7 @@
 
 \title{MEF}
 \date{\today}
-\author{Jannik Daun}
+\author{Matti Bleckmann, Jannik Daun, Pablo Lummerzheim}
 
 \begin{document}
 
@@ -106,4 +107,5 @@
 \subfile{sections/rpr.tex}
 \subfile{sections/m-equicontinuity}
 
+\printbibliography[heading=none]
 \end{document}
