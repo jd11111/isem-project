@@ -56,6 +56,7 @@ Let $A:=\bigcap_{j \in J} A_j$.
 \begin{theorem}[Existence and uniqueness of the MEF]
   Let $(X,T)$ be a TDS.
   Then $(X,T)$ has a maximal equicontinuous factor and any two maximal equicontinuous factors are equivalent.
+  We therefore simply speak of the maximal equicontinuous factor.
   \end{theorem}
 \begin{proof}
   Existence:
@@ -112,7 +113,7 @@ Let $A:=\bigcap_{j \in J} A_j$.
 \end{proof}
 \section{Computing the MEF}
 In this section let $(X,T)$ be a TDS with $T$ abelian.
-We denote by $T^*$ the set of all (continuous) characters.
+We denote by $T^*$ the set of all (continuous) characters of $T$.
 \begin{definition}[Koopman operator]
   The \emph{Koopman operator} $U : T \to L(C(X))$ of $(X,T)$ is defined by $(U(t) f)(x) := f(t^{-1}x)$.
   $0 \neq f \in C(X)$ is called an \emph{eigenfunction} (of $U$) to \emph{eigenvalue} $\chi \in T^*$ if $f \in \ker (U-\chi):= \bigcap_{t \in T} \ker (U(t)- \chi (t)I)$.
@@ -141,11 +142,13 @@ We denote by $T^*$ the set of all (continuous) characters.
 \end{theorem}
 \begin{proof}
   To \enquote{$\Rightarrow$}:
-  Let $f \in \bigcup_{\chi \in T^*} \ker (U- \chi)$ be an eigenfunction and $\chi$ the corresponding eigenvalue.  Then for all $t \in T, x \in X$:
+  Let $f \in \bigcup_{\chi \in T^*} \ker (U- \chi)$ be an eigenfunction and $\chi$ the corresponding eigenvalue.
+  $(f(X),T)$ is an equicontinuous factor, where the action of $t \in T$ on $f(X)$ is given by multiplication with $\chi(-t)$ and $f(X)$ carries the metric induced from $\mathbb{C}$ (the equicontinuity follows from $|\chi|=1$).
+  For all $t \in T, x \in X$:
   \begin{equation*}
     t f(x) = \chi (-t) f (x) = (U(-t) f)(x) = f(tx).
   \end{equation*}
-  Therefore $f: (X,T) \to (f(X),T)$ is an equicontinuous factor, where the action of $t \in T$ on $f(X)$ is given by multiplication with $\chi(-t)$.
+  Therefore $f: (X,T) \to (f(X),T)$ is an equicontinuous factor.
   By the universal property of the MEF there exists a continuous $\tilde{f}  : X_m  \to \mathbb{C}$ with $\tilde{f} \circ \pi = f$.
   Therefore $f(x_1) = \tilde{f} (\pi (x_1) )=  \tilde{f} ( \pi (x_2)) = f (x_2)$.\\
   To \enquote{$\Leftarrow$}:
@@ -157,11 +160,11 @@ We denote by $T^*$ the set of all (continuous) characters.
 
 \begin{proposition}[MEF of skew rotation]
 Let $a \in \mathbb{T}$ and $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$.
-  Consider the TDS $(\mathbb{T}^2,\mathbb{Z})$ with the $\mathbb{Z}$-action defined by $t (x,y) := \alpha^t (x,y)$.
-  Then the MEF is given by $\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \pr_1 (x,y) := x$, where the $\mathbb{Z}$-action on $\mathbb{T}$ is defined by $t x \mapsto a^t x$.
+  Consider the TDS $(\mathbb{T}^2,\mathbb{Z})$ with the $\mathbb{Z}$-action defined by $t \cdot (x,y) := \alpha^t (x,y)$.
+  Then the MEF is given by $\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \pr_1 (x,y) := x$, where the $\mathbb{Z}$-action on $\mathbb{T}$ is defined by $t\cdot  x := a^t x$.
 \end{proposition}
 \begin{proof}
-  Well definedness of the TDS:
+  Well-definedness of the TDS:
   Clearly $\mathbb{T}^2$ is a compact metric space and $\mathbb{Z}$ a topological group.
   $\alpha$ is a homeomorphism with inverse $\alpha^{-1} (x,y):= (a^{-1} x, a x^{-1} y)$.
   This shows the well-definedness of the $T$-action.
@@ -169,7 +172,7 @@ Let $a \in \mathbb{T}$ and $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y
   We want to apply \cref{thm:MEF_EFchar}.
   Let $\pi : (\mathbb{T}^2 , \mathbb{Z}) \to (X_m, \mathbb{Z})$ be the MEF.
   Let $(x_1, y_1), (x_2, y_2) \in \mathbb{T}^2$.
-  If $x_1 \neq x_2$, then $\pr_1$ is an eigenfunctions to eigenvalue $t \mapsto a^{-t}$ that takes different values on $x_1$ and $x_2$ and so $\pi(x_1) \neq \pi(x_2)$.
+  If $x_1 \neq x_2$, then $\pr_1$ is an eigenfunction to eigenvalue $t \mapsto a^{-t}$ that takes different values on $x_1$ and $x_2$ and so $\pi(x_1) \neq \pi(x_2)$.
   Assume $x_1 = x_2$.
   Let $f \in C(\mathbb{T}^2)$ be an eigenfunction with eigenvalue $\chi$.
   The goal is to show $f(x_1, y_1) = f(x_2,y_2)$.
