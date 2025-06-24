@@ -41,4 +41,6 @@ Thumbs.db
 latexmkrc
 *.lwr
 
+*.run.xml
+*.bcf
 
