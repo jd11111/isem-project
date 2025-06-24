@@ -40,7 +40,7 @@ Let $m \in \mathbb{N}$ and $X$ any set.
 \end{definition}
 
 \begin{theorem}[Theorem 4.6 in \cite{Garcia-Ramos2024}]
-	Let $(X, T)$ be a minimal TDS and $T$ abelian.
+	Let $(X, T)$ be a minimal TDS.
 	Then $(X, T)$ is $m$-equicontinuous if and only if $Q_m(X) \setminus \Delta^m(X) = \varnothing$ for $2 \leq m \in \mathbb{N}$.
 \end{theorem}
 \begin{proof}
@@ -54,7 +54,7 @@ Let $m \in \mathbb{N}$ and $X$ any set.
 	Because $(x_1, \dots, x_m) \in Q_m$ for all $i \neq j \in \{1, \dots, m\}$ we have that there is a $g_0 \in G$ and $x_j' \in A_i$ such that $g_0x_i'$ and $g_0 x_j'$ get arbitrarily close, in particular $d(g_0 x_i', g_0 x_j') < \lambda$.
 	Therefore, the set $\{ g_0x_1', \dots, g_0x_m' \} \subset hB_\delta(x)$ for some $h \in G$ and $\{ h^{-1}g_0x_1', \dots, h^{-1}g_0x_m' \} \subset B_\delta(x)$.
 	But now
-	\[ d(g_0h(h^{-1g_0}x_i'), \dots, g_0h(h^{-1g_0}x_j')) = d(x_i', x_j') > d(A_1, A_m) \geq \varepsilon \]
+	\[ d(g_0h(h^{-1}g_0x_i'), \dots, g_0h(h^{-1}g_0x_j')) = d(x_i', x_j') > d(A_1, A_m) \geq \varepsilon \]
 	for all $i \neq j \in \{1, \dots, m\}$ contradicting $m$-equicontinuity since $\delta$ was arbitrary.
 
 	For the converse statement let $(X, T)$ be a TDS that is not $m$-equicontinuous.
@@ -72,8 +72,6 @@ Let $m \in \mathbb{N}$ and $X$ any set.
 	\[ d((g^{(N)})^{-1} y_i', (g^{(N)})^{-1} y_j') = d(x_i^{(N)}, x_j^{(N)}) < \varepsilon' \]
 	for all $i \neq j \in \{1, \dots, m\}$.
 	And therefore $(y_1, \dots, y_m) \in Q_m(X)$.
-
-	{ \color{red} where do we need $T$ to be abelian?}
  \end{proof}
 
 \begin{example}
