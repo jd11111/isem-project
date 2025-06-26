@@ -110,29 +110,44 @@ The next construction is a counterexample.
 \end{proof}
 
 \begin{example}
-	We consider the one dimensional torus as $\mathbb{T} = \mathbb{R}/\mathbb{Z}$. We return to the skew-rotation $\alpha: \mathbb{T}^2 \to \mathbb{T}^2$ defined by $\alpha(x + \mathbb{Z}, y + \mathbb{Z}) = (a + x + \mathbb{Z}, x + y + \mathbb{Z})$ for all $x + \mathbb{Z}, y + \mathbb{Z} \in \mathbb{T}$, with a fixed $a \in \mathbb{R}$. Then
+	We consider the one dimensional torus as $\mathbb{T} = \mathbb{R}/\mathbb{Z}$, where we write $[x]$ for the coset $x + \mathbb{Z}$ for $x \in \mathbb{R}$. The metric on $\mathbb{T}$ it is given by
 	\begin{align*}
-		Q_2(\mathbb{T}^2) = \{((x_1 + \mathbb{Z}, y_1 + \mathbb{Z}), (x_2 + \mathbb{Z}, y_2 + \mathbb{Z})) \in \mathbb{T}^2 \times \mathbb{T}^2;\ x_1=x_2\}.
+		d_\mathbb{T}([x], [y]) := \min_{n \in \mathbb{Z}} |x - y + n|
+	\end{align*}
+	for all $[x], [y] \in \mathbb{T}$ and the on $\mathbb{T}^2$ by
+	\begin{align*}
+		d_{\mathbb{T}^2}(([x_1], [y_1]), ([x_2], [y_1])) := d_\mathbb{T}([x_1], [x_2]) + d_\mathbb{T}([y_1], [y_2])
+	\end{align*}
+	for all $([x_1], [y_1]), ([x_2], [y_2]) \in \mathbb{T}^2$.
+	
+	We look the $\mathbb{Z}$-action arising from to the skew-rotation $\alpha: \mathbb{T}^2 \to \mathbb{T}^2$ defined by $\alpha([x], [y]) = ([x + a], [y + x])$ for all $x, y \in \mathbb{T}$, with a fixed $a \in \mathbb{R}$. Then
+	\begin{align*}
+		Q_2(\mathbb{T}^2) = \{(([x_1], [y_1]), ([x_2], [y_2])) \in \mathbb{T}^2 \times \mathbb{T}^2;\ [x_1]=[x_2]\}.
 	\end{align*}
 \end{example}
 \begin{proof}
-	Fix $x + \mathbb{Z}, y_1 + \mathbb{Z}, y_2 + \mathbb{Z} \in \mathbb{T}$ and $\varepsilon > 0$. Without loss of generality assume $y_1, y_2 \in [0, 1)$ and $y_1 \leq y_2$. Then there are $0 \leq b < \frac{\varepsilon}{2}$ and $n \in \mathbb{N}_0$ such that $\frac{n(n+1)}{2}b \leq  y_2 - y_1$ and $y_2 - \frac{n(n-1)}{2}b < \frac{\varepsilon}{2}$. Then $(b + x + \mathbb{Z}, y_1 + \mathbb{Z}) \in \operatorname{B}_\varepsilon(x + \mathbb{Z}, y_1 + \mathbb{Z})$ and $(x + \mathbb{Z}, y_2 + \mathbb{Z}) \in \operatorname{B}_\varepsilon(x + \mathbb{Z}, y_2 + \mathbb{Z})$ and we have
+	Fix $[x], [y_1], [y_2] \in \mathbb{T}$ and $\varepsilon > 0$. Without loss of generality assume $y_1, y_2 \in [0, 1)$ and $y_1 \leq y_2$. Then there are $0 \leq b < \frac{\varepsilon}{2}$ and $n \in \mathbb{N}_0$ such that
 	\begin{align*}
-		&d(n(b + x + \mathbb{Z}, y_1 + \mathbb{Z}), n(x + \mathbb{Z}, y_2 + \mathbb{Z}))\\
-		= &d((na + b + x + \mathbb{Z}, \frac{n(n+1)}{2}(b+x) + y_1 + \mathbb{Z}), na + x + \mathbb{Z}, \frac{n(n+1)}{2}x + y_2 + \mathbb{Z})\\
-		= &b + y_2 - y_1 - \frac{n(n+1)}{2}b\\
+		0 < y_2 - y_1 - \frac{n(n-1)}{2}b < \frac{\varepsilon}{2}.
+	\end{align*}
+	Then $([b+x], [y_1]) \in \operatorname{B}_\varepsilon[x], [y_1])$ and $([x],[y_2]) \in \operatorname{B}_\varepsilon([x], [y_2])$ and we have
+	\begin{align*}
+		&d_{\mathbb{T}^2}(n([b+x], [y_1]), n([x], [y_2]))\\
+		= &d_{\mathbb{T}^2}(([na+b+x], [\frac{n(n-1)}{2}a + n(b+x) + y_1]), ([na+x], [\frac{n(n-1)}{2}a + nx + y_2]))\\
+		= &d_\mathbb{T}([na+b+x], [na+x]) + d_\mathbb{T}([\frac{n(n-1)}{2}a + n(b+x) + y_1], [\frac{n(n-1)}{2}a + nx + y_2])\\
+		\leq &b + y_2 - y_1 - \frac{n(n-1)}{2}b\\
 		< &\frac{\varepsilon}{2} + \frac{\varepsilon}{2}\\
 		= &\varepsilon,
 	\end{align*}
-	so $((x + \mathbb{Z}, y_1 + \mathbb{Z}), (x + \mathbb{Z}, y_2 + \mathbb{Z}) \in Q_2(\mathbb{T}^2)$, which proves the "$\supseteq$-direction.
+	so $(([x], [y_1]), ([x], [y_2]) \in Q_2(\mathbb{T}^2)$, which proves the "$\supseteq$"-direction.
 	
-	Now fix $(x_1 + \mathbb{Z}, y_1 + \mathbb{Z}), (x_2 + \mathbb{Z}, y_2 + \mathbb{Z}) \in \mathbb{T}^2$ and assume $x_1 \neq x_2$. Without loss of generality we can assume $x_1, x_2 \in [0, 1)$ and $x_1 < x_2$. Choose $0 < \varepsilon < \max\{\frac{x_2-x_1}{3}, \frac{x_1}{3}, \frac{1 - x_2}{3}\}$. Now let $(x_1' + \mathbb{Z}, y_1' + \mathbb{Z}) \in \operatorname{B}_\varepsilon(x_1 + \mathbb{Z}, y_1 + \mathbb{Z})$, $(x_2' + \mathbb{Z}, y_2' + \mathbb{Z}) \in \operatorname{B}_\varepsilon(x_2 + \mathbb{Z}, y_2 + \mathbb{Z})$ and $n \in \mathbb{N}_0$. Again we can assume without loss of generality that $x_1', x_2' \in [0, 1)$. By the choice of $\varepsilon$ we have
+	Now fix $([x_1], [y_1]), ([x_2], [y_2]) \in \mathbb{T}^2$ and assume $x_1 \neq x_2$. Without loss of generality we can assume $x_1, x_2 \in [0, 1)$ and $x_1 < x_2$. Choose $0 < \varepsilon < \min\{\frac{x_2-x_1}{3}, \frac{x_1}{3}, \frac{1 - x_2}{3}\}$. Now let $([x_1'], [y_1']) \in \operatorname{B}_\varepsilon([x_1], [y_1])$, $([x_2'], [y_2']) \in \operatorname{B}_\varepsilon([x_2], [y_2])$ and $n \in \mathbb{N}_0$. Again we can assume without loss of generality that $x_1', x_2' \in [0, 1)$. By the choice of $\varepsilon$ we have
 	\begin{align*}
-		&d(\pm n(x_1' + \mathbb{Z}, y_1' + \mathbb{Z}), \pm n(x_2' + \mathbb{Z}, y_2' + \mathbb{Z}))\\
-		= &d((\pm \frac{n(n+1)}{2}a + x_1' + \mathbb{Z}, \pm \frac{n(n+1)}{2} x_1' + y_1' + \mathbb{Z}), (\pm \frac{n(n+1)}{2}a + x_2' + \mathbb{Z}, \pm \frac{n(n+1)}{2} x_2' + y_2' + \mathbb{Z}))\\
-		\geq &d(\pm \frac{n(n+1)}{2} a + x_1' + \mathbb{Z}, \pm \frac{n(n+1)}{2} a + x_2' + \mathbb{Z})\\
+		&d_{\mathbb{T}^2}(\pm n([x_1'], [y_1']), \pm n([x_2'], [y_2']))\\
+		= &d_{\mathbb{T}^2}(([\pm na + x_1'], [\pm \frac{n(n-1)}{2} \pm nx_1' + y_1'], ([\pm \frac{n(n-1)}{2}a \pm nx_1' + y_1], [\pm \frac{n(n-1)}{2}a \pm nx_2' + y_2']))\\
+		\geq &d_\mathbb{T}([\pm na + x_1'], [\pm na + x_2'])\\
 		= &x_2' - x_1'\\
 		> &\varepsilon,
 	\end{align*}
-	so $((x_1 + \mathbb{Z}, y_1 + \mathbb{Z}), (x_2 + \mathbb{Z}, y_2 + \mathbb{Z})) \notin Q_2(\mathbb{T}^2)$, which proves the "$\subseteq$"-direction.
+	so $(([x_1], [y_1]), ([x_2], [y_1])) \notin Q_2(\mathbb{T}^2)$, which proves the "$\subseteq$"-direction.
 \end{proof}
