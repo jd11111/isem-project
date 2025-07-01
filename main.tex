@@ -5,6 +5,7 @@
 \usepackage[english]{babel} %localization of document
 \usepackage{amssymb} %special math symbols + math fonts like frak cal etc...
 \usepackage{mathtools} %math env stuff (no need for amsmath)
+%\usepackage{amsmath}
 \usepackage{mathrsfs} % script math letters (\mathscr{})
 \usepackage{amsthm} % theorem, proposition env etc.
 \usepackage{hyperref} %links and pdf meta-data in document
@@ -92,6 +93,9 @@ sorting=ynt
 \DeclareMathOperator{\pr}{pr}
 
 \newcommand{\catname}[1]{\mathbf{#1}}
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
 
 \title{MEF}
 \date{\today}
@@ -106,6 +110,7 @@ sorting=ynt
 \subfile{sections/mef.tex}
 \subfile{sections/rpr.tex}
 \subfile{sections/m-equicontinuity}
+\subfile{sections/example}
 
 \printbibliography[heading=none]
 \end{document}

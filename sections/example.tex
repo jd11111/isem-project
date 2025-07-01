@@ -1,0 +1,118 @@
+\section{Example: Thue Morse Subshift}
+
+We consider the finite alphabet $\Ac := \{ 0, 1 \}$.
+The set of finite words is given as
+\[ \Ac^* := \bigcup_{n\in\N} \Ac^n \]
+and the infinite sequences are given by $\Ac^\N$.
+Consider the following substitution
+\[ T: \Ac \longrightarrow \Ac^*,\; a \longmapsto	\begin{cases} 01 & a=0 \\ 10 & a=1 \end{cases} \,.\]
+This of course extends to a substitution
+\[ \hat T: \Ac^* \longrightarrow \Ac^*,\; a_1\ldots a_n \longmapsto	T(a_1)\ldots T(a_n) \,. \]
+
+Define the iterates $\tau^{(n)} = {\hat T}^n(0)$.
+And consider the bitwise flip
+\[ \overline{a} = 1-a \,.\]
+Note that $\hat T$ and the bitwise flip commute.
+%and note that $|\tau^{(n)}| = 2^n$ and
+%\[
+%\tau^{(n+1)} = \tau^{(n)}\,\tau^{(n)}
+%\quad\text{and}\quad
+%\bigl(\tau^{(n)}\bigr)_{2^n} \equiv n \pmod2.
+%\]
+
+\begin{lemma}[Recursive structure]
+	\label{lem:tm-recursion}
+	For all $n \geqslant 0$, one has
+	\[
+	\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}},
+	\qquad |\tau^{(n)}|=2^n,
+	\qquad (\tau^{(n)})_{2^n}\equiv n\pmod2.
+	\]
+\end{lemma}
+\begin{proof}
+	We only show $\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}}$ as the other two statements are direct corollaries.
+	The base case is $\tau^{(0)}=0$, $\tau^{(1)}=01=\tau^{(0)}\,\overline{\tau^{(0)}}$.
+	Now assume that 
+	$\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}}$
+	then
+	\begin{align*}
+		\tau^{(n+2)} &= \hat T\left(\tau^{(n+1)}\right)\\
+		&= \hat T\left( \tau^{(n)}\,\overline{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \hat T\left(\overline{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \overline{\hat T(\tau^{(n)})}\\
+		&= \tau^{(n+1)} \overline{\tau^{(n+1)}} \qedhere
+	\end{align*}
+\end{proof}
+
+Let $\tau=\lim_{n\to\infty}\tau^{(n)}$ and define the shift space
+\[
+X_\tau = \overline{\{\sigma^k \tau\mid k\in\Z\}}\subset\{0,1\}^\Z,
+\]
+where $\sigma$ is the left shift.  One easily checks that $X_\tau$ is minimal and uniquely ergodic:
+\begin{lemma}[Strict ergodicity]\label{lem:tm-ergodic}
+The subshift $(X_\tau,\sigma)$ is minimal and uniquely ergodic.
+\end{lemma}
+\begin{proof}
+Almost periodicity follows from the recursive structure in Lemma~\ref{lem:tm-recursion}, giving uniform return times for every finite subword; unique ergodicity then follows by the standard Perron–Frobenius argument for constant‑length substitutions.  (Cf. Lemma 4.2 in Jäger 2025.)
+\end{proof}
+
+\subsection{The Period Doubling Substitution}
+Define another constant‑length substitution
+\[
+P:\ 0 \mapsto 01,\quad 1 \mapsto 00,
+\]
+and set $\gamma^{(n)}=P^n(0)$.  One shows by induction:
+\begin{lemma}[Period doubling recursion]\label{lem:pd-recursion}
+For all $n\ge1$,
+\[
+\gamma^{(n+1)} = \gamma^{(n)}\,\gamma^{(n-1)}\,\gamma^{(n-1)},
+\qquad |\gamma^{(n)}|=2^n,
+\qquad (\gamma^{(n)})_{2^n}\equiv n\pmod2.
+\]
+\end{lemma}
+\begin{proof}
+Direct induction using the definition of $P$.  (See Lemma 3.13 in Jäger 2025.)
+\end{proof}
+
+Let $\gamma=\lim_{n\to\infty}\gamma^{(n)}$ in $\{0,1\}^\N$ and extend to the two‑sided flow
+\[
+X_\gamma=\overline{\{\sigma^k\gamma\mid k\in\Z\}},
+\]
+called the \emph{period doubling subshift}.  One shows that $\gamma$ is a regular one‑sided
+Toeplitz sequence and hence $(X_\gamma,\sigma)$ is a regular Toeplitz flow whose maximal equi\-con\-ti\-nuous factor is the dyadic odometer~$\Omega$.  The factor map
+\[
+p:\ X_\gamma\to\Omega
+\quad\text{is uniquely determined by requiring }p(\gamma)=0.
+\]
+This completes the construction of the period doubling system.  (See Lemma 3.14 in Jäger 2025.)
+
+\subsection{Factor Map from Thue–Morse to Period Doubling}
+Define
+\[
+h:\ X_\tau\to X_\gamma,
+\qquad
+h(x)_n = \begin{cases}0,&x_{n+1}\neq x_n,\\1,&x_{n+1}=x_n.\end{cases}
+\]
+\begin{theorem}[Two‑to‑one factor]\label{thm:tm-to-pd}
+The map $h$ is a continuous onto factor map which satisfies
+\[
+h\circ\sigma = \sigma\circ h,
+\]
+every fiber $h^{-1}(y)$ has cardinality exactly $2$, and thus $(X_\tau,\sigma)$ is a 2‑fold extension of $(X_\gamma,\sigma)$.
+\end{theorem}
+\begin{proof}
+One checks at the level of finite approximants that $h(\tau^{(n)})=\gamma^{(n-1)}$ and hence by continuity $h(\tau)=\gamma$.  Commutation with $\sigma$ is immediate from the definition of $h$, minimality of both systems gives surjectivity, and injectivity fails only in identifying each sequence with its bit‑complement reflection.  (Cf. Theorem 4.4 in Jäger 2025.)
+\end{proof}
+
+\subsection{Dyadic Odometer Extension and Almost‑Surely One‑to‑One Property}
+We now consider the factor
+\[
+\pi:\ X_\gamma\to\Omega,
+\]
+to the dyadic odometer defined above.  Since $\gamma$ is regular, Theorem 3.7 in Jäger 2025 shows that $\pi$ is almost‑surely one‑to‑one under the Haar measure on $\Omega$.  Moreover, one checks from the Toeplitz construction that each fiber has at most two points, corresponding to the two ways of filling the unique "hole" at each stage.  Hence:
+\begin{proposition}
+The period doubling subshift $(X_\gamma,\sigma)$ is an almost‑surely (Haar‑measure) one‑to‑one, and at most two‑to‑one, extension of the dyadic odometer.
+\end{proposition}
+\begin{proof}
+Regularity of $\gamma$ gives $\pi$ is $m$‑a.s.\;injective, while the Toeplitz skeleton has exactly one hole per level, so topologically each orbit in $\Omega$ has at most two preimages in $X_\gamma$.  (See Theorems 3.7 and 3.11, and Remark 3.15 in Jäger 2025.)
+\end{proof}
