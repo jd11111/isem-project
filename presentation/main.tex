@@ -15,8 +15,11 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage{subfiles}
-\numberwithin{equation}{section}
 \usepackage{tikz}
+\usetikzlibrary{cd}
+
+\tikzcdset{every label/.append style = {font = \small}}
+\numberwithin{equation}{section}
 
 \usepackage{verbatim}
 \usepackage[
@@ -60,6 +63,9 @@ style=authoryear,
 
 \newtheorem{remark}[theorem]{Remark}
 % \newtheorem{definition}[theorem]{Definition}
+\DeclareMathOperator{\lin}{lin}
+\DeclareMathOperator{\pr}{pr}
+
 
 \title[MEF]{Project 8: Maximal Equicontinuous Factor}
 \author{Matti Bleckmann, Jannik Daun, Pablo Lummerzheim}
@@ -96,7 +102,6 @@ style=authoryear,
 \end{center}
 \end{frame}
   \begin{frame}
-  references ...
    \frametitle{References}
     \printbibliography[heading=none]
   \end{frame}
