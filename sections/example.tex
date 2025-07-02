@@ -11,7 +11,7 @@ This of course extends to a substitution
 
 Define the iterates $\tau^{(n)} = {\hat T}^n(0)$.
 And consider the bitwise flip
-\[ \overline{a} = 1-a \,.\]
+\[ \tilde{a} = 1-a \,.\]
 Note that $\hat T$ and the bitwise flip commute.
 %and note that $|\tau^{(n)}| = 2^n$ and
 %\[
@@ -24,29 +24,29 @@ Note that $\hat T$ and the bitwise flip commute.
 	\label{lem:tm-recursion}
 	For all $n \geqslant 0$, one has
 	\[
-	\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}},
+	\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}},
 	\qquad |\tau^{(n)}|=2^n,
 	\qquad (\tau^{(n)})_{2^n}\equiv n\pmod2.
 	\]
 \end{lemma}
 \begin{proof}
-	We only show $\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}}$ as the other two statements are direct corollaries.
-	The base case is $\tau^{(0)}=0$, $\tau^{(1)}=01=\tau^{(0)}\,\overline{\tau^{(0)}}$.
+	We only show $\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}}$ as the other two statements are direct corollaries.
+	The base case is $\tau^{(0)}=0$, $\tau^{(1)}=01=\tau^{(0)}\,\tilde{\tau^{(0)}}$.
 	Now assume that 
-	$\tau^{(n+1)} = \tau^{(n)}\,\overline{\tau^{(n)}}$
+	$\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}}$
 	then
 	\begin{align*}
 		\tau^{(n+2)} &= \hat T\left(\tau^{(n+1)}\right)\\
-		&= \hat T\left( \tau^{(n)}\,\overline{\tau^{(n)}}\right)\\
-		&= \hat T\left( \tau^{(n)} \right) \hat T\left(\overline{\tau^{(n)}}\right)\\
-		&= \hat T\left( \tau^{(n)} \right) \overline{\hat T(\tau^{(n)})}\\
-		&= \tau^{(n+1)} \overline{\tau^{(n+1)}} \qedhere
+		&= \hat T\left( \tau^{(n)}\,\tilde{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \hat T\left(\tilde{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \tilde{\hat T(\tau^{(n)})}\\
+		&= \tau^{(n+1)} \tilde{\tau^{(n+1)}} \qedhere
 	\end{align*}
 \end{proof}
 
 Let $\tau=\lim_{n\to\infty}\tau^{(n)}$ and define the shift space
 \[
-X_\tau = \overline{\{\sigma^k \tau\mid k\in\Z\}}\subset\{0,1\}^\Z,
+X_\tau = \tilde{\{\sigma^k \tau\mid k\in\Z\}}\subset\{0,1\}^\Z,
 \]
 where $\sigma$ is the left shift.  One easily checks that $X_\tau$ is minimal and uniquely ergodic:
 \begin{lemma}[Strict ergodicity]\label{lem:tm-ergodic}
