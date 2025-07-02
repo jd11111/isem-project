@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+  \draw[->] (-0.5,0) -- (4.5,0) node[right] {};
+  % Draw ticks and labels
+  \foreach \x in {0,1,2} {
+    \draw (2*\x,0.1) -- (2*\x,-0.1) node[below] {\x};
+  }
+
+  \draw[thick, red] (0,0) circle (15pt);
+  \fill[red] (0,0) circle (2pt);
+  \fill[red!50] (0.3,0) circle (2pt);
+
+  \draw[thick, blue] (2,0) circle (15pt);
+  \fill[blue] (2,0) circle (2pt);
+  \fill[blue!50] (1.7,0) circle (2pt);
+\end{tikzpicture}

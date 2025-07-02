@@ -1,0 +1,35 @@
+\begin{tikzpicture}
+  % Coordinates of the main points
+  \coordinate (A) at (2,3);
+  \coordinate (B) at (4,1.5);
+
+  % Off-center lighter points initial positions
+  \coordinate (Alight) at ($(A) + (5pt,2pt)$);
+  \coordinate (Blight) at ($(B) + (-5pt,-2pt)$);
+
+  % Midpoint of lighter points
+  \coordinate (Mid) at ($0.5*(Alight) + 0.5*(Blight)$);
+
+  % Meeting point shifted 2 cm to the right of Mid
+  \coordinate (M) at ($(Mid) + (2cm,0)$);
+
+  % Draw dotted circles around main points
+  \draw[dotted, thick] (A) circle (10pt);
+  \draw[dotted, thick] (B) circle (10pt);
+
+  % Draw main points (smaller)
+  \fill[red] (A) circle (2pt);
+  \fill[blue] (B) circle (2pt);
+
+  % Draw lighter points at initial positions
+  \fill[red!50] (Alight) circle (1.5pt);
+  \fill[blue!50] (Blight) circle (1.5pt);
+
+  % Draw trajectories of lighter points toward the meeting point
+  \draw[red!50, thick, ->] (Alight) to[out=0,in=145] ($(M) + (0, 0.2)$);
+  \draw[blue!50, thick, ->] (Blight) to[out=0,in=-145] (M);
+
+  % Draw meeting point
+  \draw[dotted, thick] (M) circle (10pt);
+
+\end{tikzpicture}
