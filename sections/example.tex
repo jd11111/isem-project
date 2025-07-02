@@ -11,7 +11,7 @@ This of course extends to a substitution
 
 Define the iterates $\tau^{(n)} = {\hat T}^n(0)$.
 And consider the bitwise flip
-\[ \tilde{a} = 1-a \,.\]
+\[ \widetilde{a} = 1-a \,.\]
 Note that $\hat T$ and the bitwise flip commute.
 %and note that $|\tau^{(n)}| = 2^n$ and
 %\[
@@ -24,36 +24,148 @@ Note that $\hat T$ and the bitwise flip commute.
 	\label{lem:tm-recursion}
 	For all $n \geqslant 0$, one has
 	\[
-	\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}},
+	\tau^{(n+1)} = \tau^{(n)}\,\widetilde{\tau^{(n)}},
 	\qquad |\tau^{(n)}|=2^n,
 	\qquad (\tau^{(n)})_{2^n}\equiv n\pmod2.
 	\]
 \end{lemma}
 \begin{proof}
-	We only show $\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}}$ as the other two statements are direct corollaries.
-	The base case is $\tau^{(0)}=0$, $\tau^{(1)}=01=\tau^{(0)}\,\tilde{\tau^{(0)}}$.
+	We only show $\tau^{(n+1)} = \tau^{(n)}\,\widetilde{\tau^{(n)}}$ as the other two statements are direct corollaries.
+	The base case is $\tau^{(0)}=0$, $\tau^{(1)}=01=\tau^{(0)}\,\widetilde{\tau^{(0)}}$.
 	Now assume that 
-	$\tau^{(n+1)} = \tau^{(n)}\,\tilde{\tau^{(n)}}$
+	$\tau^{(n+1)} = \tau^{(n)}\,\widetilde{\tau^{(n)}}$
 	then
 	\begin{align*}
 		\tau^{(n+2)} &= \hat T\left(\tau^{(n+1)}\right)\\
-		&= \hat T\left( \tau^{(n)}\,\tilde{\tau^{(n)}}\right)\\
-		&= \hat T\left( \tau^{(n)} \right) \hat T\left(\tilde{\tau^{(n)}}\right)\\
-		&= \hat T\left( \tau^{(n)} \right) \tilde{\hat T(\tau^{(n)})}\\
-		&= \tau^{(n+1)} \tilde{\tau^{(n+1)}} \qedhere
+		&= \hat T\left( \tau^{(n)}\,\widetilde{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \hat T\left(\widetilde{\tau^{(n)}}\right)\\
+		&= \hat T\left( \tau^{(n)} \right) \widetilde{\hat T(\tau^{(n)})}\\
+		&= \tau^{(n+1)} \widetilde{\tau^{(n+1)}} \qedhere
 	\end{align*}
 \end{proof}
 
 Let $\tau=\lim_{n\to\infty}\tau^{(n)}$ and define the shift space
 \[
-X_\tau = \tilde{\{\sigma^k \tau\mid k\in\Z\}}\subset\{0,1\}^\Z,
+X_\tau = \overline{\{\sigma^k \tau\mid k\in\Z\}}\subset\{0,1\}^\Z,
 \]
-where $\sigma$ is the left shift.  One easily checks that $X_\tau$ is minimal and uniquely ergodic:
+where $\sigma$ is the left shift.
+One easily checks that $X_\tau$ is minimal and uniquely ergodic:
 \begin{lemma}[Strict ergodicity]\label{lem:tm-ergodic}
 The subshift $(X_\tau,\sigma)$ is minimal and uniquely ergodic.
 \end{lemma}
 \begin{proof}
-Almost periodicity follows from the recursive structure in Lemma~\ref{lem:tm-recursion}, giving uniform return times for every finite subword; unique ergodicity then follows by the standard Perron–Frobenius argument for constant‑length substitutions.  (Cf. Lemma 4.2 in Jäger 2025.)
+	Minimality is equivalent to almost periodicity.
+	By the follows from the recursive structure in Lemma~\ref{lem:tm-recursion} $\tau$ is indeed almost periodic.
+
+	Here are the details.
+	Let $w$ appear anywhere in $\tau$.
+	Then there is $n \in \N$ such that $w \in \tau^{(n)}$.
+	Furthermore we know that $\widetilde{w}$ appears in $\widetilde{\tau^{(n)}}$.
+	Hence, both $w$ and $\widetilde{w}$ appear in $\tau^{(n+1)}$.
+	Thus, also both $w$ and $\widetilde{w}$ appear in $\widetilde{\tau^{(n+1)}}$.
+	Therefore, $w$ appears in both $\tau^{(n+1)}$ and $\widetilde{\tau^{(n+1)}}$.
+	Now the recursive structure shows that
+	\[ \tau = F^{\tau_1}(\tau^{(n+1)})F^{\tau_2}(\tau^{(n+1)})F^{\tau_3}(\tau^{(n+1)}) \ldots = \bigoplus_{k \in \N} F^{\tau_1}(\tau^{(n+1)} ) \,,\]
+	where $F(v) = \widetilde{v}$ and thus $F^1(v) = F(v) = \widetilde{v}$ and $F^0(v) = \Id(v) = v$.
+	This shows that $w$ appears in every block of lenght $2^{n+2}$ --- as each such block contains one copy of $\tau^{(n+1)}$ or $\widetilde{\tau^{(n+1)}}$ completely.
+	So $\tau$ is almost periodic.
+	In order to show the minimality we must show that every orbit is dense.
+	This means that every infinite word contains the same finite words.
+	Let $\omega \in X_\tau = \overline{\{ \sigma^n(\tau) \; \vert \; n \in \N \}}$.
+	Then clearly every finite word occuring in $\omega$ must occur in $\tau$,
+	as $\omega$ is the limit of bigger and bigger finite subwords of $\tau$.
+	Let now $w$ be a finite subword of $\tau$.
+	Then there is $N \in \N$ such that $w$ appears in every subword of $\tau$ of lenght $N$.
+	As $\omega$ is in the orbit closure of $\tau$ there is $n \in \N$ such that
+	$\omega_i = \tau_{n+i}$ for $i \in \{ 1,\ldots,N\}$.
+	So $w$ appears in $\omega$. 
+
+	Unique ergodicity is equivalent to uniform convergence of ergodic averages for a dense set of continuous functions.
+	Let $w \in \Ac^*$ be any finite word with lenght $n$.
+	The cylinder set $[w]$ associated to $w$ is given by
+	\[ [w] := \left\{ \omega \in X_\tau \; \vert \; \forall i \in \{ 1,\ldots,n\}: \omega_i = w_i \} \right\} \]
+	As the set of cylinder sets forms a base of the topology consisting of open and closed sets we learn that the set of its indicator functions is dense in the space of all continuous functions.
+	For $k\in\N$ let
+	\[
+	c_k\;:=\;\#_{w}\!\bigl(\tau^{(k)}\bigr)
+	\quad\text{and}\quad
+	\widetilde c_k\;:=\;\#_{\widetilde w}\!\bigl(\tau^{(k)}\bigr),
+	\]
+	where $\#_{u}(v)$ denotes the number of (possibly overlapping)
+	occurrences of a word $u$ inside $v$ and $\widetilde{w}=F(w)$ is the
+	reflection defined in Lemma~\ref{lem:tm-recursion}.
+	Note that 
+	\[ c_k = \sum_{i=1}^{2^k} \1_{[w]}(\sigma^i(\tau)) \,.\]
+	By the recursive structure
+	\[
+	\tau^{(k+1)}\;=\;\tau^{(k)}\,\widetilde{\tau^{(k)}},
+	\]
+	we obtain
+	\[
+	c_{k+1}\;=\;c_{k}\;+\;\widetilde c_{k} + E \,,
+	\tag{$\ast$}
+	\]
+	where $E$ is at most the lenght of $w$.
+	Because $F$ is an involution we also have, $\widetilde c_{k+1} = c_{k}+\widetilde c_{k} + E$.
+	The reason for this additional summand is that copies of $w$ could appear around the position where we glue $\tau^{(n)}$ and $\widetilde{\tau^{(n)}}$ together which we have not yet counted.
+	well.
+	Let $N \in \N$ be large enough such that $w$ appears in both $\tau^{(N)}$ and $\widetilde{\tau^{(N)}}$.
+	Then $|c^{(N+k)} - \widetilde{c^{(N+k)}}| \leqslant n$ for any $k \in \N$ and thus
+	\[ 2^k c^{(N)} - 2n\cdot k \leqslant c^{(N+k)} \leqslant 2^k c^{(N)} + 2n\cdot k \,. \]
+    Therefore,	
+	\begin{align*}
+		\lim_{k \to \infty} \frac{c^{(k)}}{2^k} &= \lim_{k \to \infty} \frac{c^{(N+k)}}{2^{N+k}} \\
+		&= \lim_{k \to \infty} \frac{c^{(N)}}{2^{N}} \\
+	\end{align*}
+	Dividing by $2^{k+1}$ and noting that $|\tau^{(k)}|=2^{k}$, we get
+	\[
+	\Bigl|\frac{c_{k+1}}{2^{k+1}}
+		  -\frac{c_{k}}{2^{k}}\Bigr|
+	\;\le\;\frac{n-1}{2^{k+1}}
+	\;\xrightarrow[k\to\infty]{}0.
+	\]
+	Hence the sequence $\bigl(c_{k}/2^{k}\bigr)_{k}$ is Cauchy and therefore
+	convergent.
+	Write $\mu([w])$ for its limit.
+	This value will turn out to be the measure of $[w]$ for the unique
+	invariant measure $\mu$.
+
+	\medskip
+	Now let $\omega\in X_\tau$ and choose integers $m_j\to\infty$ with
+	\[
+	\omega\;=\;\lim_{j\to\infty}\sigma^{m_j}\tau
+	\quad\text{in }X_\tau.
+	\]
+	For $N>n$ pick $k$ such that $2^{k}\le N<2^{k+1}$.
+	Partition the first $N$ symbols of $\omega$ into consecutive blocks of
+	length $2^{k}$ (the last block may be shorter).
+	Each such block is either $\tau^{(k)}$ or $\widetilde{\tau^{(k)}}$ up to at
+	most $n-1$ boundary symbols, because every length-$2^{k}$ window in
+	$\tau$ is of that form and the same holds for any limit point
+	$\omega$.
+	A direct counting argument using $(\ast)$ yields
+	\[
+	\Bigl|A_N(\mathbf 1_{[w]},\omega)-\frac{c_k}{2^{k}}\Bigr|
+	\;\le\;\frac{2n}{2^{k}}
+	\;\le\;\frac{2n}{N}.
+	\]
+	Taking $N\to\infty$ we conclude
+	\[
+	\lim_{N\to\infty}A_N(\mathbf 1_{[w]},\omega)\;=\;\mu([w]),
+	\qquad
+	\text{uniformly in }\omega\in X_\tau.
+	\]
+
+	\medskip
+	Uniform convergence for the indicators of all cylinder sets extends,
+	by density and a standard $\varepsilon/3$ argument, to every
+	$f\in C(X_\tau)$.
+	Therefore the limiting functional $\int f\,d\mu$ defines a
+	\emph{unique} $\sigma$-invariant Borel probability measure $\mu$ on
+	$X_\tau$.
+	Combining unique ergodicity with minimality proved above, we have
+	shown that $(X_\tau,\sigma)$ is strictly ergodic.
+	\qedhere
 \end{proof}
 
 \subsection{The Period Doubling Substitution}
