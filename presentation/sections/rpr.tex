@@ -9,12 +9,35 @@
     and $t \in T$ such that $d(tx', ty') < \varepsilon$.
     We denote the set of regionally proximal pairs by $Q_2(X) \subseteq X \times X$.
   \end{definition}
-  \include{tikz/rpr-def}
+  \begin{center}
+    \include{tikz/rpr-def}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  \begin{columns}
+  \column{0.45\textwidth}
+  Let $X = [0, 2]$ and $T = \mathbb{R}$.
+  Then the following map is an $\mathbb{R}$-action on $[0, 2]$
+  and defines a TDS.
+
+  \begin{align*}
+    &\mathbb{R} \times [0, 2] \to [0, 2] \\
+    &(t, x) \mapsto
+    tx := \begin{cases}
+      0 & x = 0 \\
+      \frac{1}{1 + (\frac{1}{x} - 1)e^{-t}} & x \in (0, 1] \\
+      \frac{1}{1 + (\frac{1}{x - 1} - 1)e^{-t}} & x \in (1, 2]
+    \end{cases}
+  \end{align*} 
+  \column{0.45\textwidth}
+  \include{tikz/rpr-ex0}
+  \end{columns} 
 \end{frame}
 
 \begin{frame}
   Example of regionally proximal pair $(0, 1)$ with the system \ref{}:
   \include{tikz/rpr-ex1}
   with $t$ large enough:
-  \include{tikz/rpr-ex2}
+    \include{tikz/rpr-ex2}
 \end{frame}

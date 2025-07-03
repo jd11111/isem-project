@@ -1,4 +1,4 @@
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 1.4]
   % Coordinates of the main points
   \coordinate (A) at (2,3);
   \coordinate (B) at (4,1.5);
@@ -17,6 +17,9 @@
   \draw[dotted, thick] (A) circle (10pt);
   \draw[dotted, thick] (B) circle (10pt);
 
+  \node[red, above left] at (A) {$x$};
+  \node[blue, below right] at (B) {$y$};
+
   % Draw main points (smaller)
   \fill[red] (A) circle (2pt);
   \fill[blue] (B) circle (2pt);
@@ -24,6 +27,9 @@
   % Draw lighter points at initial positions
   \fill[red!50] (Alight) circle (1.5pt);
   \fill[blue!50] (Blight) circle (1.5pt);
+
+  \node[red!50, above right] at (Alight) {$x'$};
+  \node[blue!50, below left] at (Blight) {$y'$};
 
   % Draw trajectories of lighter points toward the meeting point
   \draw[red!50, thick, ->] (Alight) to[out=0,in=145] ($(M) + (0, 0.2)$);
