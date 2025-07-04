@@ -43,7 +43,7 @@
 \end{proof}
 
 \begin{theorem}
-  The regionally proximal equation is closed, invariant, symmetric and reflexive.
+  The regionally proximal relation is closed, invariant, symmetric and reflexive.
 \end{theorem}
 
 \begin{proof}
@@ -67,7 +67,7 @@ The next construction is a counterexample.
     tx := \begin{cases}
       0 & x = 0 \\
       \frac{1}{1 + (\frac{1}{x} - 1)e^{-t}} & x \in (0, 1] \\
-      \frac{1}{1 + (\frac{1}{x - 1} - 1)e^{-t}} & x \in (1, 2]
+      \frac{1}{1 + (\frac{1}{x - 1} - 1)e^{-t}} + 1 & x \in (1, 2]
     \end{cases}
   \end{equation*}
   One can check that $0x = x$ and $t(sx) = (t + s)x$ for all $r, s \in \mathbb{R}$ and $x \in X$.
