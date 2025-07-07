@@ -1,4 +1,5 @@
 \section{Maximal Equicontinuous Factor}
+\subsection{Definition, Existence, Uniqueness, Universal Property}
 \begin{lemma}
   \label{lem:countableSubIntersection}
   Let $(X,d)$ be a compact metric space and $(A_j)_{j \in J}$ a family of closed sets in $X$.
@@ -130,13 +131,21 @@ Let $A:=\bigcap_{j \in J} A_j$.
   Showing that $\tilde{\varphi}$ is a homomorphism.
 \end{proof}
 
-\section{Computing the MEF}
+\subsection{Computing the MEF}
 In this section let $(X,T)$ be a TDS with $T$ abelian.
 Let $T^*$ be the set of all (continuous) characters of $T$.
 \begin{definition}[Koopman operator]
   The \emph{Koopman operator} $U : T \to L(C(X))$ of $(X,T)$ is defined by $(U(t) f)(x) := f(t^{-1}x)$.
   $0 \neq f \in C(X)$ is called an \emph{eigenfunction} (of $U$) to \emph{eigenvalue} $\chi \in T^*$ if and only if $f \in \ker (U-\chi):= \bigcap_{t \in T} \ker (U(t)- \chi (t)I)$.
 \end{definition}
+\begin{proposition}
+  Assume $(X,T)$ minimal and $x_0 \in X$ arbitary. Let $F$ be the set of eigenfunctions normalized such that they have value $1$ at $x_0$ and $V$ the set of eigenvalues. Let $J: V \to F$, $J(\chi):=$ the unique continuous extension of the map $T x_0 \ni t x_0 \mapsto \chi(t^{-1})$. Then $J$ is a bijection.
+\end{proposition}
+\begin{proof}
+  Injectivity is obvious.
+  To show surjectivity:
+  Let $f \in F$. Let $\chi \in V$ be the corresponding eigenvalue and $t \in T$. Then $ f(t x_0) = (U(t^{-1}) f)(x_0) = \chi(t^{-1}) f(x_0) = \chi (t^{-1})$. Therefore $J(\chi ) = f$.
+\end{proof}
 \begin{definition}[Discrete spectrum]
   \begin{equation*}
     (X,T) \ \text{has \emph{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
@@ -243,3 +252,12 @@ $\forall (n,m) \in \mathbb{Z}^2$:
   By continuity of $f$ (and a small null-set argument) this implies that $\forall (x,y), (x,y^\prime) \in \mathbb{T}^2 : f(x,y) = f(x,y^\prime)$.
   In particular this shows, that $f(x_1,y_1) = f(x_2, y_2)$ since $x_1 = x_2$.
 \end{proof}
+
+\subsection{MEF vs. Kronecker factor}
+Let $(X,T)$ be a TDS with $T$ abelian.
+Consider the TDS $(X,T)$.
+Assume that there is a $T$-invariant Borel probability measure $\mu$ on $X$.
+Then $(X,T)$ is also a measure preserving system and we can consider its Kronecker factor:
+\begin{equation*}
+  L^2 (X)_{\mathrm{ds}}:= \overline{\lin}^{L^2(X)}  \bigcup_{\chi \in T^*} \ker \tilde{U} - \chi
+\end{equation*}
