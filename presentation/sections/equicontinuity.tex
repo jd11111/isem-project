@@ -80,9 +80,32 @@
 	\frametitle{Example: Circle Rotations}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
+			We look at the circle $\mathbb{S} := \mathbb{R}/\mathbb{Z}$ (identify $[x] = x + \mathbb{Z}$ for $x \in \mathbb{R}$ with $e^{2\pi ix}$ in $\mathbb{C}$). The metric on $\mathbb{S}$ is given by
+			\begin{align*}
+				d_\mathbb{S}([x], [y]) := \min_{n \in \mathbb{Z}} |x - y + n|.
+			\end{align*}
+			
+			\medskip			
+			Fix $a \in \mathbb{R}$ and define
+			\begin{align*}
+				\alpha([x]) := [x + a].
+			\end{align*}
+			
+			\medskip
+			The TDS $(\mathbb{S}, \alpha)$ is minimal iff $a \notin \mathbb{Q}$.
+			
+			\medskip
+			We have for $[x], [y] \in \mathbb{S}$ and $n \in \mathbb{Z}$ that
+			\begin{align*}
+				d_\mathbb{S}(\alpha^n([x]), \alpha^n([y])) = d_\mathbb{S}([x], [y]),
+			\end{align*}
+			i.e. $\alpha$ is isometric. Equicontinuity is an immediate consequence.
+		\end{column}
+		\begin{column}{0.5\textwidth}
 			\begin{figure}[h]
 				\begin{tikzpicture}
 					\draw[very thick] (0, 0) circle (2) node[scale=1.5] {$\mathbb{S}$};
+					\draw[very thick] (1.8, 0) -- (2.2, 0);
 					
 					\filldraw[color=red] (0, 2) circle (.1) node[anchor=south, scale=1.5] {$x$};
 					\filldraw[color=red] (-1.284, -1.532) circle (.1) node[anchor=east, scale=1.5] {$\alpha(x)$};
@@ -100,28 +123,6 @@
 					\draw[ultra thick, color=orange] (1.970, .347) arc (10:30:2) node[left, midway, scale=1.5] {$\delta$};
 				\end{tikzpicture}
 			\end{figure}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			We look at the circle $\mathbb{S} := \mathbb{R}/\mathbb{Z}$ (identify $[x] = x + \mathbb{Z}$ for $x \in \mathbb{R}$ with $e^{2\pi ix}$ in $\mathbb{C}$). The metric on $\mathbb{S}$ is given by
-			\begin{align*}
-				d_\mathbb{S}([x], [y]) := \min_{n \in \mathbb{Z}} |x - y + n|.
-			\end{align*}
-		
-			\medskip			
-			Fix $a \in \mathbb{R}$ and define
-			\begin{align*}
-				\alpha([x]) := [x + a].
-			\end{align*}
-			
-			\medskip
-			The TDS $(\mathbb{S}, \alpha)$ is minimal iff $a \notin \mathbb{Q}$.
-			
-			\medskip
-			We have for $[x], [y] \in \mathbb{S}$ and $n \in \mathbb{Z}$ that
-			\begin{align*}
-				d_\mathbb{S}(\alpha^n([x]), \alpha^n([y])) = d([x], [y]),
-			\end{align*}
-			i.e. $\alpha$ is isometric. Equicontinuity is an immediate consequence.
 		\end{column}
 	\end{columns}
 \end{frame}
