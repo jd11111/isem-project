@@ -1,4 +1,5 @@
 \section{Maximal equicontinuous factor}
+\subsection{Definition, $\exists!$, universal property}
 \begin{frame}
   Let $(X,T)$ be a TDS.
   \begin{definition}[Maximal equicontinuous factor (MEF)]
@@ -35,7 +36,7 @@
     \end{tikzcd}
   \end{center}
 \end{frame}
-\section{Eigenfunction characterisation of the MEF}
+\subsection{Eigenfunction characterisation of the MEF}
 \begin{frame}
   $(X,T)$ TDS with $T$ abelian, $T^*$ the set of all (continuous) characters of $T$.
 \begin{definition}[Koopman operator]
@@ -83,37 +84,41 @@
 \end{frame}
 \begin{frame}
   \begin{columns}
+    \begin{column}{0.6\textwidth}
+    \centering
+      \includegraphics[width=8cm]{imgs/torusSkewRot.pdf}
+    \end{column}
     \begin{column}{0.4\textwidth}
   \begin{example}[MEF of skew rotation]
-Let $a \in \mathbb{T}$.
+Let $a \in \mathbb{T}$. Homeomorphism:
 \begin{equation*}
   \begin{split}
     &\alpha: \mathbb{T}^2 \to \mathbb{T}^2,\\
-  &\alpha (x,y) := (ax,xy).
+  &\alpha (z,w) := (az,zw).
   \end{split}
   \end{equation*}
-     Consider the \emph{skew rotation} TDS $(\mathbb{T}^2,\mathbb{Z})$ with $\mathbb{Z}$-action
+     TDS $(\mathbb{T}^2,\mathbb{Z})$, $\mathbb{Z}$-action:
      \begin{equation*}
-     t \cdot (x,y) := \alpha^t (x,y).
+     t \cdot (z,w) := \alpha^t (z,w).
      \end{equation*}
      \pause
-  Then the MEF is 
+  MEF is 
   \begin{equation*}
     \begin{split}
-     &\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}) \\
-    &\pr_1 (x,y) := x,
+     &\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \\
+    &\pr_1 (z,w) := z.
     \end{split}
   \end{equation*}
-  with the $\mathbb{Z}$-action on $\mathbb{T}$ defined by
+  $\mathbb{Z}$-action on $\mathbb{T}$:
   \begin{equation*}
-   t\cdot  x := a^t x.
+   t\cdot  z := a^tz.
   \end{equation*}
 \end{example}
-    \end{column}
-    \begin{column}{0.6\textwidth}
-      \centering
-      \includegraphics[width=8cm]{imgs/test.pdf}
-     \end{column}
+       \end{column}
   \end{columns}
+\end{frame}
+\subsection{Relationship of MEF and Kronecker factor}
+\begin{frame}
+  ... to be continued
 \end{frame}
 
