@@ -83,6 +83,9 @@
 \end{alertblock}
 \end{frame}
 \begin{frame}
+  
+\end{frame}
+\begin{frame}
   \begin{columns}
     \begin{column}{0.6\textwidth}
     \centering
@@ -117,8 +120,44 @@ Let $a \in \mathbb{T}$. Homeomorphism:
        \end{column}
   \end{columns}
 \end{frame}
-\subsection{Relationship of MEF and Kronecker factor}
-\begin{frame}
-  ... to be continued
+\subsection{Relationship to measure preserving system concepts}
+\begin{frame}{TDS with invariant measure as MPS}
+Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$.
+\begin{itemize}
+  \item $(X,T,\mu)$ is a concrete measure preserving system (MPS)
+  \item \emph{MPS Koopman operator}
+\begin{equation*}
+  \begin{split}
+    &V : T \to L(L^2(X)),\\
+    & (V(t) f)(x) := f (t^{-1} x). 
+  \end{split}
+\end{equation*}
+\item
+  $(X,T,\mu)$ has \emph{MPS discrete spectrum} if and only if
+  \begin{equation*}
+    L^2(X) = \clin \bigcup_{\chi \in T^*} \ker (V - \chi).
+  \end{equation*}
+\end{itemize}
+\pause
+\begin{proposition}
+  If $(X,T)$ has TDS discrete spectrum, then $(X,T,\mu)$ has MPS discrete spectrum.
+  \end{proposition}
+  The converse is false.
 \end{frame}
+\begin{frame}[fragile]{MEF is subsystem of the Kronecker subsystem}
+  Let $\pi : (X,T) \to (X_m,T)$ be the MEF of $(X,T)$.
+  \begin{itemize}
+    \item $(X_m,T, \nu)$ with $\nu(A):=  \mu(\pi^{-1}(A))$ is concrete MPS with discrete spectrum,
+  \item $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$ and $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the induced extension,
+  \item Let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
+  \item Maximality of Kronecker subsystem: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
+\end{itemize}
+  \begin{center}
+    \begin{tikzcd}[sep=large]
+      \mathcal{X}_m \arrow[d, "J"'] \arrow[r, "\pi^*"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
+      & \mathcal{X}  \\
+      \mathcal{K}  \arrow[ur,"K"'] & \phantom{a} \\
+    \end{tikzcd}
+  \end{center}
+  \end{frame}
 

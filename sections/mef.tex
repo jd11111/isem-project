@@ -186,6 +186,11 @@ Let $T^*$ be the set of all (continuous) characters of $T$.
   Now $f:= h \circ \pi$ is an eigenfunction of $(X,T)$ with $f(x_1) \neq f(x_2)$ contradicting the assumption.
 \end{proof}
 
+\begin{proposition}[MEF via $C^*$-algebras]
+  Let $\mathcal{A} \subset C(X)$ be the smallest $C^*$-algebra containing $\bigcup_{\chi \in T^*} \ker (U- \chi)$. Let $\iota : \mathcal{A} \to C(X)$ the inclusion. $T$-action on $\widehat{\mathcal{A}}$.
+  The map $\ev_\bullet : X \to \widehat{C(X)}$ is a homeomorphism.
+  To be continued...
+\end{proposition}
 \begin{proposition}[MEF of skew rotation]
 Let $a \in \mathbb{T}$ and $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$.
   Consider the TDS $(\mathbb{T}^2,\mathbb{Z})$ with the $\mathbb{Z}$-action defined by $t \cdot (x,y) := \alpha^t (x,y)$.
@@ -264,9 +269,9 @@ We have the MPS Koopman operator
   \end{split}
 \end{equation*}
 According to the ISEM lectures
-  $(X,T,\mu)$ has discrete spectrum if and only if
+  $(X,T,\mu)$ has MPS discrete spectrum if and only if
   \begin{equation*}
-    L^2(X) = \clin^{L^2} \bigcup_{\chi \in T^*} \ker V - \chi.
+    L^2(X) = \clin \bigcup_{\chi \in T^*} \ker V - \chi.
   \end{equation*}
   \begin{proposition}
     Let $(X,T)$ be a TDS with $T$ abelian and $\mu$ a $T$-invariant Borel probability measure on $X$.
@@ -283,9 +288,9 @@ According to the ISEM lectures
   Let $(X,T)$ be a TDS with $T$ abelian and $\mu$ a $T$-invariant Borel probability measure on $X$.
     Let $\pi : (X,T) \to (X_m,T)$ be the MEF.
   Then $\nu:= \pi_* \mu$ is a $T$-invariant probability measure on $X_m$ and therefore $(X_m,T,\nu)$ is also a concrete MPS, which has discrete spectrum (in the MPS sense) and $\pi$ is a factor (of concrete MPS).
-  Let $\mathcal{X}$/$\mathcal{X}_m$ be the measure preserving system associated to $(X,T,\mu)$/$(X_m,T,\nu)$ and $\Pi: \mathcal{X}_m \to \mathcal{X}$ the associated extension.
+  Let $\mathcal{X}$/$\mathcal{X}_m$ be the measure preserving system associated to $(X,T,\mu)$/$(X_m,T,\nu)$ and $\Pi: \mathcal{X}_m \to \mathcal{X}$ the extension associated to $\pi$.
   Let $K: \mathcal{K} \to \mathcal{X}$ be the Kronecker subsystem of $\mathcal{X}$.
-  Since $\mathcal{X}_m$ has discrete spectrum we can apply the universal property of the Kronecker subsystem to obtain an extension $J: \mathcal{X}_m \to \mathcal{K}$ such that the following diagram commutes:
+  Since $\mathcal{X}_m$ has discrete spectrum we can apply the maximality property of the Kronecker subsystem to obtain an extension $J: \mathcal{X}_m \to \mathcal{K}$ such that the following diagram commutes:
   \begin{center}
     \begin{tikzcd}[sep=large]
       \mathcal{X}_m \arrow[d, "J"'] \arrow[r, "\Pi"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
@@ -293,4 +298,5 @@ According to the ISEM lectures
       \mathcal{K}  \arrow[ur,"K"'] & \phantom{a} \\
     \end{tikzcd}
   \end{center}
+  Therefore the MEF is subsystem the Kronecker subsystem.
 
