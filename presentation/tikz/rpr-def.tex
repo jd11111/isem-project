@@ -1,7 +1,7 @@
 \begin{tikzpicture}[scale = 1.4]
   % Coordinates of the main points
   \coordinate (A) at (2,3);
-  \coordinate (B) at (4,1.5);
+  \coordinate (B) at (2.5,1.5);
 
   % Off-center lighter points initial positions
   \coordinate (Alight) at ($(A) + (5pt,2pt)$);
@@ -37,5 +37,8 @@
 
   % Draw meeting point
   \draw[dotted, thick] (M) circle (10pt);
+
+  \node[red!50, above right] at (M) {$tx'$};
+  \node[blue!50, below right] at (M) {$ty'$};
 
 \end{tikzpicture}
