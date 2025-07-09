@@ -148,7 +148,7 @@ Let $T^*$ be the set of all (continuous) characters of $T$.
 \end{proof}
 \begin{definition}[Discrete spectrum]
   \begin{equation*}
-    (X,T) \ \text{has \emph{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
+    (X,T) \ \text{has \emph{discrete spectrum}}:\Leftrightarrow C(X) = \clin \bigcup_{\chi \in T^*} \ker (U- \chi).
   \end{equation*}
 \end{definition}
 \begin{theorem}
@@ -186,6 +186,11 @@ Let $T^*$ be the set of all (continuous) characters of $T$.
   Now $f:= h \circ \pi$ is an eigenfunction of $(X,T)$ with $f(x_1) \neq f(x_2)$ contradicting the assumption.
 \end{proof}
 
+\begin{proposition}[MEF via $C^*$-algebras]
+  Let $\mathcal{A} \subset C(X)$ be the smallest $C^*$-algebra containing $\bigcup_{\chi \in T^*} \ker (U- \chi)$. Let $\iota : \mathcal{A} \to C(X)$ the inclusion. $T$-action on $\widehat{\mathcal{A}}$.
+  The map $\ev_\bullet : X \to \widehat{C(X)}$ is a homeomorphism.
+  To be continued...
+\end{proposition}
 \begin{proposition}[MEF of skew rotation]
 Let $a \in \mathbb{T}$ and $\alpha: \mathbb{T}^2 \to \mathbb{T}^2,$ $\alpha (x,y) := (ax,xy)$.
   Consider the TDS $(\mathbb{T}^2,\mathbb{Z})$ with the $\mathbb{Z}$-action defined by $t \cdot (x,y) := \alpha^t (x,y)$.
@@ -253,11 +258,45 @@ $\forall (n,m) \in \mathbb{Z}^2$:
   In particular this shows, that $f(x_1,y_1) = f(x_2, y_2)$ since $x_1 = x_2$.
 \end{proof}
 
-\subsection{MEF vs. Kronecker factor}
-Let $(X,T)$ be a TDS with $T$ abelian.
-Consider the TDS $(X,T)$.
-Assume that there is a $T$-invariant Borel probability measure $\mu$ on $X$.
-Then $(X,T)$ is also a measure preserving system and we can consider its Kronecker factor:
+\subsection{MEF vs. Kronecker subsystem}
+Let $(X,T)$ be a TDS with $T$ abelian and $\mu$ a $T$-invariant Borel probability measure on $X$.
+Then $(X,T,\mu)$ is a concrete measure preserving system (MPS).
+We have the MPS Koopman operator
 \begin{equation*}
-  L^2 (X)_{\mathrm{ds}}:= \overline{\lin}^{L^2(X)}  \bigcup_{\chi \in T^*} \ker \tilde{U} - \chi
+  \begin{split}
+    &V : T \to L(L^2(X)),\\
+    & (V(t) f)(x) := f (t^{-1} x). 
+  \end{split}
 \end{equation*}
+According to the ISEM lectures
+  $(X,T,\mu)$ has MPS discrete spectrum if and only if
+  \begin{equation*}
+    L^2(X) = \clin \bigcup_{\chi \in T^*} \ker V - \chi.
+  \end{equation*}
+  \begin{proposition}
+    Let $(X,T)$ be a TDS with $T$ abelian and $\mu$ a $T$-invariant Borel probability measure on $X$.
+  If $(X,T)$ has TDS discrete spectrum, then $(X,T,\mu)$ has MPS discrete spectrum.
+  \end{proposition}
+  \begin{proof}
+    Consider the following:
+  \begin{itemize}
+    \item continuous eigenfunctions are also $L^2$-eigenfunctions,
+    \item $C(X)$ is dense in $L^2(X)$,
+    \item $C(X)$ convergence implies convergence in $L^2(X)$, because $\mu$ is a finite measure.
+  \end{itemize}
+  \end{proof}
+  Let $(X,T)$ be a TDS with $T$ abelian and $\mu$ a $T$-invariant Borel probability measure on $X$.
+    Let $\pi : (X,T) \to (X_m,T)$ be the MEF.
+  Then $\nu:= \pi_* \mu$ is a $T$-invariant probability measure on $X_m$ and therefore $(X_m,T,\nu)$ is also a concrete MPS, which has discrete spectrum (in the MPS sense) and $\pi$ is a factor (of concrete MPS).
+  Let $\mathcal{X}$/$\mathcal{X}_m$ be the measure preserving system associated to $(X,T,\mu)$/$(X_m,T,\nu)$ and $\Pi: \mathcal{X}_m \to \mathcal{X}$ the extension associated to $\pi$.
+  Let $K: \mathcal{K} \to \mathcal{X}$ be the Kronecker subsystem of $\mathcal{X}$.
+  Since $\mathcal{X}_m$ has discrete spectrum we can apply the maximality property of the Kronecker subsystem to obtain an extension $J: \mathcal{X}_m \to \mathcal{K}$ such that the following diagram commutes:
+  \begin{center}
+    \begin{tikzcd}[sep=large]
+      \mathcal{X}_m \arrow[d, "J"'] \arrow[r, "\Pi"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
+      & \mathcal{X}  \\
+      \mathcal{K}  \arrow[ur,"K"'] & \phantom{a} \\
+    \end{tikzcd}
+  \end{center}
+  Therefore the MEF is subsystem the Kronecker subsystem.
+
