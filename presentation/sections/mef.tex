@@ -3,7 +3,7 @@
 \begin{frame}
   Let $(X,T)$ be a TDS.
   \begin{definition}[Maximal equicontinuous factor (MEF)]
-    A factor $\pi : (X,T) \to (Y,T)$ is called a \emph{MEF} of $(X,T)$ if and only if
+    A factor $\pi : (X,T) \to (Y,T)$ is a \emph{MEF} of $(X,T)$ if and only if
   \begin{itemize}
     \item $\pi$ is equicontinuous,
     \item $\pi$ is maximal, i.e. $\forall \varphi : (X,T) \to (Y,T)$ equicontinuous factor: $R_\pi \subset R_\varphi$.
@@ -43,7 +43,7 @@
   \begin{equation*}
     \begin{split}
       &U : T \longrightarrow L(C(X)) \\
-      &(U(t) f)(x) := f(t^{-1}x).
+      &(U(t) f)(x) \coloneq f(tx).
     \end{split}
   \end{equation*}
    \end{definition}
@@ -52,7 +52,7 @@
    \begin{equation*}
     \begin{split}
       &0 \neq f \in C(X) \ \text{\emph{eigenfunction} of} \ U \ \text{to \emph{eigenvalue}} \ \chi \in T^*   \\
- &:\Leftrightarrow f \in \ker (U-\chi):= \bigcap_{t \in T} \ker (U(t)- \chi (t)I).
+ &:\Leftrightarrow f \in \ker (U-\chi)\coloneq \bigcap_{t \in T} \ker (U(t)- \chi (t)I).
     \end{split}
       \end{equation*}
    \end{definition}
@@ -64,7 +64,7 @@
   \end{equation*}
 \end{definition}
 \pause 
-  \begin{alertblock}{Theorem}%
+  \begin{alertblock}{Theorem (equicontinuity $\Leftrightarrow$ discrete spectrum)}%
   \begin{equation*}
     (X,T) \ \text{is equicontinuous} \Leftrightarrow (X,T) \ \text{has discrete spectrum}
   \end{equation*}
@@ -82,9 +82,69 @@
   \end{equation*}
 \end{alertblock}
 \end{frame}
-\begin{frame}
-  
-\end{frame}
+\begin{frame}{Intermezzo: Duality of categories!}
+  \begin{itemize}
+    \item $\mathbf{C}\coloneq$ category of commutative unital $C^*$-algebras,
+    \item $\mathbf{D} \coloneq$ category of compact Hausdorff spaces,
+      \pause
+    \item Contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
+      \begin{equation*}
+        \begin{split}
+          & G(\mathscr{A}) \coloneq \{ \varphi : \mathscr{A} \to \mathbb{C} \ | \ \varphi \ \text{morphism}\} \ \text{with the weak-* topology}, \\
+          & G( \Psi : \mathscr{A} \to \mathscr{B}) : G(\mathscr{B} ) \to G(\mathscr{A}), \ \varphi \mapsto \varphi \circ \Psi,
+        \end{split}
+    \end{equation*}
+    \pause
+  \item Contravariant continuous function functor $C: \mathbf{D} \to \mathbf{C}$, $X \mapsto C(X)$, 
+    \begin{equation*}
+       C(f:X \to Y) : C(Y) \to C(X), \ g \mapsto g \circ f,
+    \end{equation*}
+    \pause
+  \item Evaluation map $\ev : I \Rightarrow GC$, $\ev (x) f\coloneq f(x)$ is natural isomorphism,
+  \item Gelfand transform $\widehat{\phantom{a}} : I \Rightarrow CG$, $\widehat{a}(\varphi)\coloneq\varphi (a)$ is natural isomorphism.
+      \end{itemize}
+      \end{frame}
+\begin{frame}[fragile]{MEF via $C^*$-algebras}
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+     \begin{itemize}
+    \item $\mathscr{A}\subset C(X)$ smallest $C^*$-algebra containing all eigenfunctions of $U$,
+    \item $\iota : \mathscr{A} \to C(X)$ natural injection,
+      \pause
+    \item $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
+    \begin{tikzcd}[sep=large]
+      \mathscr{A} \arrow[d, "\iota"'] \arrow[r, "\widehat{\phantom{a}}"]  \arrow[dr, phantom, "\circlearrowleft"] 
+      & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
+      C(X)  \arrow[r,"\widehat{\phantom{a}}"] & C(G(C(X))) \\
+    \end{tikzcd}
+     \end{itemize}
+    \end{column}
+    \begin{column}{0.5 \textwidth}
+ \begin{itemize}
+     \pause
+   \item $G(\iota)$ is surjective:
+  \begin{equation*}
+        \begin{split}
+          G(\iota) \ \text{surjective} &\Leftrightarrow C (G( \iota )) \ \text{injective} \\
+          &\Leftrightarrow \iota \ \text{injective}
+        \end{split}
+              \end{equation*}
+              \pause
+   \item $T$-action on $G(\mathscr{A})$:
+      \begin{equation*}
+      t\cdot \varphi \coloneq G(U(t))\varphi,
+      \end{equation*}
+    \item The MEF of $(X,T)$ is
+      \begin{equation*}
+        \begin{split}
+          &\rho : (X,T) \to (G(\mathscr{A}),T)\\ 
+          &\rho\coloneq G(\iota) \circ \ev
+        \end{split}
+      \end{equation*}
+   \end{itemize}
+    \end{column}
+  \end{columns}
+  \end{frame}
 \begin{frame}
   \begin{columns}
     \begin{column}{0.6\textwidth}
@@ -97,24 +157,24 @@ Let $a \in \mathbb{T}$. Homeomorphism:
 \begin{equation*}
   \begin{split}
     &\alpha: \mathbb{T}^2 \to \mathbb{T}^2,\\
-  &\alpha (z,w) := (az,zw).
+  &\alpha (z,w) \coloneq (az,zw).
   \end{split}
   \end{equation*}
      TDS $(\mathbb{T}^2,\mathbb{Z})$, $\mathbb{Z}$-action:
      \begin{equation*}
-     t \cdot (z,w) := \alpha^t (z,w).
+     t \cdot (z,w) \coloneq \alpha^t (z,w).
      \end{equation*}
      \pause
   MEF is 
   \begin{equation*}
     \begin{split}
      &\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \\
-    &\pr_1 (z,w) := z.
+    &\pr_1 (z,w) \coloneq z.
     \end{split}
   \end{equation*}
   $\mathbb{Z}$-action on $\mathbb{T}$:
   \begin{equation*}
-   t\cdot  z := a^tz.
+   t\cdot  z \coloneq a^tz.
   \end{equation*}
 \end{example}
        \end{column}
@@ -129,7 +189,7 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
 \begin{equation*}
   \begin{split}
     &V : T \to L(L^2(X)),\\
-    & (V(t) f)(x) := f (t^{-1} x). 
+    & (V(t) f)(x) \coloneq f (t x). 
   \end{split}
 \end{equation*}
 \item
@@ -147,10 +207,10 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
 \begin{frame}[fragile]{MEF is subsystem of the Kronecker subsystem}
   Let $\pi : (X,T) \to (X_m,T)$ be the MEF of $(X,T)$.
   \begin{itemize}
-    \item $(X_m,T, \nu)$ with $\nu(A):=  \mu(\pi^{-1}(A))$ is concrete MPS with discrete spectrum,
+    \item $(X_m,T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS with discrete spectrum,
   \item $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$ and $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the induced extension,
   \item Let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
-  \item Maximality of Kronecker subsystem: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
+  \item Kronecker subsystem maximality: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
 \end{itemize}
   \begin{center}
     \begin{tikzcd}[sep=large]
