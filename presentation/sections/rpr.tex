@@ -55,6 +55,7 @@ Not transitive in general! See Example.
 \begin{frame}
   \begin{columns}
   \column{0.5\textwidth}
+  \only<1>{%
   Let $X = [0, 2]$ and $T = \mathbb{R}$.
   Then the following map is an $\mathbb{R}$-action on $[0, 2]$
   and defines a TDS.
@@ -68,8 +69,15 @@ Not transitive in general! See Example.
       \frac{1}{1 + (\frac{1}{x - 1} - 1)e^{-t}} + 1 & x \in (1, 2]
     \end{cases}
   \end{align*}
+  }%
+  \only<2->{%
+  Every point greater $0$ tends to $1$ with $t \to \infty$
+  and every point greater $1$ tends to $2$.
+  }
 
-  We observe that $\{0\}$, $\{1\}$ and $\{2\}$ are closed invariant.
+  \only<3->{%
+  We also observe that $\{0\}$, $\{1\}$ and $\{2\}$ are closed invariant.
+  }
   \column{0.5\textwidth}
   \include{tikz/rpr-ex0}
   \end{columns} 
