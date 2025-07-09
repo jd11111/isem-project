@@ -26,7 +26,7 @@
     and $t \in T$ such that $d(tx', ty') < \varepsilon$.
     We denote the set of regionally proximal pairs by $Q_2(X) \subseteq X \times X$.
   \end{definition}
-  Equivalently:
+  Equivalently: There is $(x_n)$, $(y_n)$ in $X$ and $(t_n)$ in $T$, s.t.
   \begin{equation}
       \label{eq:rprchar}
       x_n \to x, \ y_n \to y \ \text{and} \ d(t_n x_n, t_n y_n) \to 0.
@@ -35,6 +35,7 @@
   \begin{equation*}
     Q_2(X) = \bigcap_{U \in \mathcal{U}(\Delta(X))} \overline{TU} 
   \end{equation*}
+  with $\Delta(X) = \{(x, x) \ | \ x \in X\}$ the diagonal in $X \times X$.
 \end{frame}
 
 \begin{frame}
@@ -45,8 +46,7 @@
 \begin{enumerate}
   \item symmetric and reflexive by definition
   \item closed, since intersection of closed sets
-  \item invariant: if $(x, y)$ is regionally proximal with $t$,
-  $(t_0x, t_0y)$ is with $t t_0^{-1}$ 
+  \item invariant: $(x, y) \in Q_2(X)$, i.e. $d(t_n x_n, t_n y_n) \to 0$ then $d(t_n t_0^{-1} t_0 x_n, t_n t_0^{-1} t_0 y_n) \to 0$.
 \end{enumerate}
 
 Not transitive in general! See Example.
@@ -126,11 +126,40 @@ The equicontinuous factor is the identity map with $\Delta(X)$ as ICER.
   \begin{definition}[weakly mixing]
     Let $(X,T)$ be a TDS. Then $(X,T)$ is called \emph{weakly mixing} if and only if every non-empty, $T$-invariant and open $U\subset X \times X$ is dense in $X \times X$.
   \end{definition}
+  \pause
   \begin{proposition}[weakly mixing systems have trivial $Q_2$]
     Let $(X,T)$ be a weakly mixing TDS. Then $Q_2(X) = X \times X$.
   \end{proposition}
   Using the theorem of Baire and the characterization of the
   regionally proximal equation using intersections.
+  \pause
+  \begin{corollary}[MEF of weakly mixing system]
+    The MEF of a weakly mixing system is trivial.
+  \end{corollary}
+  Since $Q_2(X) = X \times X \subseteq R_\text{MEF}$.
+\end{frame}
+
+\begin{frame}
+  \begin{minipage}{0.45\textwidth}
+    \begin{center}
+      $(X, T)$ equicontinuous
+      \vspace{2em}
+      \begin{enumerate}
+        \item MEF is the identity map, biggest possible subsystem
+        \only<2->{\item $Q_2(X) = \Delta(X)$, smallest possible reflexive relation}
+      \end{enumerate}
+    \end{center}
+  \end{minipage}%
+  \begin{minipage}{0.45\textwidth}
+    \begin{center}
+      $(X, T)$ weakly mixing
+      \vspace{2em}
+      \begin{enumerate}
+        \item MEF is one-point system, smallest possible subsystem
+        \only<2->{\item $Q_2(X) = X \times X$, biggest possible relation}
+      \end{enumerate}
+    \end{center}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}
