@@ -11,8 +11,7 @@
 \end{definition}
 \pause
   \begin{alertblock}{Theorem (Existence and uniqueness of the MEF)}
-  Let $(X,T)$ be a TDS.
-  Then $(X,T)$ has a MEF that is unique up to equivalence.
+  $(X,T)$ has a MEF that is unique up to equivalence.
   \end{alertblock}
   \pause
 \begin{example}[MEF of equicontinuous TDS is trivial]
@@ -27,7 +26,7 @@
   \begin{equation*}
     \begin{split}
       &\forall \, \varphi : (X,T) \to (Y,T) \ \text{equicontinuous factor}: \\
-      & \exists!\tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi.
+      & \exists! \text{factor} \ \tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi.
     \end{split}
       \end{equation*}
   \end{proposition}
@@ -51,7 +50,7 @@
   \end{equation*}
    \end{definition}
    \pause
-   \begin{definition}[Eigenvalue, Eigenfunction]
+   \begin{definition}[eigenvalue, eigenfunction]
    \begin{equation*}
     \begin{split}
       &0 \neq f \in C(X) \ \text{\emph{eigenfunction} of} \ U \ \text{to \emph{eigenvalue}} \ \chi \in T^*   \\
@@ -61,7 +60,7 @@
    \end{definition}
 \end{frame}
 \begin{frame}[fragile]
- \begin{definition}[Discrete spectrum]
+ \begin{definition}[discrete spectrum]
   \begin{equation*}
     (X,T) \ \text{has \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
   \end{equation*}
@@ -77,8 +76,8 @@
 \pause
   \begin{alertblock}{Theorem (MEF eigenfunction characterisation)}
   \label{thm:MEF_EFchar}
-  Let $x_1,x_2 \in X$. Let $\pi : (X,T) \to (X_m,T)$ be the MEF.
-  Then
+  Let $\pi : (X,T) \to (X_m,T)$ be the MEF.
+  Then $\forall x_1, x_2 \in X$:
   \begin{equation*}
   \pi (x_1) = \pi (x_2) \Leftrightarrow 
     \forall f \in \bigcup_{\chi \in T^*} \ker (U- \chi) : f(x_1) = f(x_2).
@@ -89,21 +88,19 @@
   \begin{itemize}
     \item $\mathbf{C}\coloneq$ category of commutative unital $C^*$-algebras,
     \item $\mathbf{D} \coloneq$ category of compact Hausdorff spaces,
-      \pause
-    \item Contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
+          \item \pause
+contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       \begin{equation*}
         \begin{split}
           & G(\mathscr{A}) \coloneq \{ \varphi : \mathscr{A} \to \mathbb{C} \ | \ \varphi \ \text{morphism}\} \ \text{with the weak-* topology}, \\
           & G( \Psi : \mathscr{A} \to \mathscr{B}) : G(\mathscr{B} ) \to G(\mathscr{A}), \ \varphi \mapsto \varphi \circ \Psi,
         \end{split}
     \end{equation*}
-    \pause
-  \item Contravariant continuous function functor $C: \mathbf{D} \to \mathbf{C}$, $X \mapsto C(X)$, 
+  \item \pause contravariant continuous function functor $C: \mathbf{D} \to \mathbf{C}$, $X \mapsto C(X)$, 
     \begin{equation*}
        C(f:X \to Y) : C(Y) \to C(X), \ g \mapsto g \circ f,
     \end{equation*}
-    \pause
-  \item Evaluation map $\ev : I \Rightarrow GC$, $\ev (x) f\coloneq f(x)$ is natural isomorphism,
+  \item \pause  evaluation map $\ev : I \Rightarrow GC$, $\ev (x) f\coloneq f(x)$ is natural isomorphism,
   \item Gelfand transform $\widehat{\phantom{a}} : I \Rightarrow CG$, $\widehat{a}(\varphi)\coloneq\varphi (a)$ is natural isomorphism.
       \end{itemize}
       \end{frame}
@@ -114,8 +111,8 @@
        \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
     \item  $\mathscr{A}$ is smallest $C^*$-subalgebra containing all eigenfunctions of $U$,
     \item $\iota : \mathscr{A} \to C(X)$ natural injection,
-      \pause
-    \item $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
+    \item \pause
+$\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
     \begin{tikzcd}[sep=large]
       \mathscr{A} \arrow[d, "\iota"'] \arrow[r, "\widehat{\phantom{a}}"]  \arrow[dr, phantom, "\circlearrowleft"] 
       & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
@@ -125,16 +122,15 @@
     \end{column}
     \begin{column}{0.5 \textwidth}
  \begin{itemize}
-     \pause
-   \item $G(\iota)$ is surjective:
-  \begin{equation*}
+   \item \pause $G(\iota)$ is surjective:
+       \begin{equation*}
         \begin{split}
           G(\iota) \ \text{surjective} &\Leftrightarrow C (G( \iota )) \ \text{injective} \\
           &\Leftrightarrow \iota \ \text{injective}
         \end{split}
               \end{equation*}
-              \pause
-   \item $T$-action on $G(\mathscr{A})$:
+    \item \pause
+$T$-action on $G(\mathscr{A})$:
       \begin{equation*}
       t\cdot \varphi \coloneq G(U(t))\varphi,
       \end{equation*}
@@ -187,8 +183,7 @@ $X$ topological space, $T$ acting by homeomorphisms on $X$,
 Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$.
 \begin{itemize}
   \item $(X,T,\mu)$ is a concrete measure preserving system,
-    \pause
-  \item MPS Koopman operator
+      \item \pause MPS Koopman operator
 \begin{equation*}
   \begin{split}
     &V : T \to L(L^2(X)),\\
@@ -198,18 +193,19 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
 \end{itemize}
 \pause
 \begin{proposition}
-  If $(X,T)$ has TDS discrete spectrum, then $(X,T,\mu)$ has MPS discrete spectrum.
+  \begin{equation*}
+    (X,T) \ \text{has TDS discrete spectrum} \Rightarrow (X,T,\mu) \ \text{has MPS discrete spectrum}
+  \end{equation*}
   \end{proposition}
 \end{frame}
-\begin{frame}[fragile]{MEF is subsystem of the Kronecker subsystem}
+\begin{frame}[fragile]{Relationship of MEF and Kronecker subsystem}
   Let $\pi : (X,T) \to (X_m,T)$ be the MEF of $(X,T)$.
   \begin{itemize}
-    \item $(X_m,T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS with discrete spectrum,
-      \pause
-  \item $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$,
-  \item $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the extension induced by $\pi$,
-\pause
-  \item Let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
+    \item $(X_m,T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS,
+    \item $(X_m,T, \nu)$ has MPS discrete spectrum,
+    \item \pause let $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$,
+  \item let $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the extension induced by $\pi$,
+  \item \pause let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
   \item Kronecker subsystem maximality: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
 \end{itemize}
   \begin{center}
@@ -219,5 +215,7 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
       \mathcal{K}  \arrow[ur,"K"'] & \phantom{a} \\
     \end{tikzcd}
   \end{center}
+  \pause
+  \textbf{MEF factors through Kronecker subsystem!}
   \end{frame}
 
