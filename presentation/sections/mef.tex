@@ -3,10 +3,10 @@
 \begin{frame}
   Let $(X,T)$ be a TDS.
   \begin{definition}[Maximal equicontinuous factor (MEF)]
-    A factor $\pi : (X,T) \to (Y,T)$ is a \textbf{MEF} of $(X,T)$ if and only if
+    A factor $\pi : (X,T) \to (X_m,T)$ is a \textbf{MEF} of $(X,T)$ if and only if
   \begin{itemize}
-    \item $\pi$ is equicontinuous,
-    \item $\pi$ is maximal, i.e. $\forall \varphi : (X,T) \to (Y,T)$ equicontinuous factor: $R_\pi \subset R_\varphi$.
+    \item $(X_m,T)$ is equicontinuous,
+    \item $\pi$ is maximal: $\forall \varphi : (X,T) \to (Y,T)$ factor with $(Y,T)$ equicontinuous: $R_\pi \subset R_\varphi$.
   \end{itemize}
 \end{definition}
 \pause
@@ -22,7 +22,6 @@
 \begin{frame}[fragile]
 \begin{proposition}[Universal property of the MEF]
   Let $\pi : (X, T) \to  (X_m,T)$ be the MEF.
-  Then:
   \begin{equation*}
     \begin{split}
       &\forall \, \varphi : (X,T) \to (Y,T) \ \text{equicontinuous factor}: \\
@@ -105,14 +104,13 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       \end{itemize}
       \end{frame}
 \begin{frame}[fragile]{MEF via $C^*$-algebras}
-  \begin{columns}[t]
+  \begin{columns}
     \begin{column}{0.5\textwidth}
      \begin{itemize}
        \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
     \item  $\mathscr{A}$ is smallest $C^*$-subalgebra containing all eigenfunctions of $U$,
-    \item $\iota : \mathscr{A} \to C(X)$ natural injection,
-    \item \pause
-$\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
+    \item \pause $\iota : \mathscr{A} \to C(X)$ natural injection,
+    \item $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
     \begin{tikzcd}[sep=large]
       \mathscr{A} \arrow[d, "\iota"'] \arrow[r, "\widehat{\phantom{a}}"]  \arrow[dr, phantom, "\circlearrowleft"] 
       & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
@@ -147,9 +145,10 @@ $T$-action on $G(\mathscr{A})$:
   \end{frame}
 \subsection{Relationship to measure preserving system concepts}
 \begin{frame}{MEF vs. Kronecker subsystem}
-  \begin{columns}[t]
+  \onslide<1>$T$ still abelian
+  \begin{columns}
     \begin{column}{0.5\textwidth}
-      $(X,T)$ TDS
+      \onslide<1->$(X,T)$ TDS
       \begin{itemize}
               \item \onslide+<2->
 $X$ topological space, $T$ acting by homeomorphisms on $X$,
@@ -210,12 +209,10 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
 \end{itemize}
   \begin{center}
     \begin{tikzcd}[sep=large]
-      \mathcal{X}_m \arrow[d, "J"'] \arrow[r, "\pi^*"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
-      & \mathcal{X}  \\
-      \mathcal{K}  \arrow[ur,"K"'] & \phantom{a} \\
+      \phantom{a}       & \mathcal{K} \arrow[d,"K"]  \\
+      \mathcal{X}_m \arrow[r,"\pi^*"'] \arrow[ur,"J"]  &  \arrow[ul, phantom, "\circlearrowright", near start] 
+\mathcal{X} \\
     \end{tikzcd}
-  \end{center}
-  \pause
   \textbf{MEF factors through Kronecker subsystem!}
+  \end{center}
   \end{frame}
-
