@@ -3,7 +3,7 @@
 \begin{frame}
   Let $(X,T)$ be a TDS.
   \begin{definition}[Maximal equicontinuous factor (MEF)]
-    A factor $\pi : (X,T) \to (Y,T)$ is a \emph{MEF} of $(X,T)$ if and only if
+    A factor $\pi : (X,T) \to (Y,T)$ is a \textbf{MEF} of $(X,T)$ if and only if
   \begin{itemize}
     \item $\pi$ is equicontinuous,
     \item $\pi$ is maximal, i.e. $\forall \varphi : (X,T) \to (Y,T)$ equicontinuous factor: $R_\pi \subset R_\varphi$.
@@ -12,7 +12,7 @@
 \pause
   \begin{alertblock}{Theorem (Existence and uniqueness of the MEF)}
   Let $(X,T)$ be a TDS.
-  Then $(X,T)$ has a MEF and any two MEF's are equivalent.
+  Then $(X,T)$ has a MEF that is unique up to equivalence.
   \end{alertblock}
   \pause
 \begin{example}[MEF of equicontinuous TDS is trivial]
@@ -25,8 +25,11 @@
   Let $\pi : (X, T) \to  (X_m,T)$ be the MEF.
   Then:
   \begin{equation*}
-    \forall \, \varphi : (X,T) \to (Y,T) \ \text{equicontinuous factor} \ \exists!\tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi.
-  \end{equation*}
+    \begin{split}
+      &\forall \, \varphi : (X,T) \to (Y,T) \ \text{equicontinuous factor}: \\
+      & \exists!\tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi.
+    \end{split}
+      \end{equation*}
   \end{proposition}
   \begin{center}
     \begin{tikzcd}[sep=large]
@@ -38,7 +41,7 @@
 \end{frame}
 \subsection{Eigenfunction characterisation of the MEF}
 \begin{frame}
-  $(X,T)$ TDS with $T$ abelian, $T^*$ the set of all (continuous) characters of $T$.
+  $(X,T)$ TDS with $T$ abelian, $T^\sharp$ ($T^*$) the set of all (continuous) characters of $T$.
 \begin{definition}[Koopman operator]
   \begin{equation*}
     \begin{split}
@@ -60,7 +63,7 @@
 \begin{frame}[fragile]
  \begin{definition}[Discrete spectrum]
   \begin{equation*}
-    (X,T) \ \text{has \emph{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
+    (X,T) \ \text{has \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
   \end{equation*}
 \end{definition}
 \pause 
@@ -108,7 +111,8 @@
   \begin{columns}[t]
     \begin{column}{0.5\textwidth}
      \begin{itemize}
-    \item $\mathscr{A}\subset C(X)$ smallest $C^*$-algebra containing all eigenfunctions of $U$,
+       \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
+    \item  $\mathscr{A}$ is smallest $C^*$-subalgebra containing all eigenfunctions of $U$,
     \item $\iota : \mathscr{A} \to C(X)$ natural injection,
       \pause
     \item $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
@@ -145,70 +149,66 @@
     \end{column}
   \end{columns}
   \end{frame}
-\begin{frame}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-    \centering
-      \includegraphics[width=8cm]{imgs/torusSkewRot.pdf}
-    \end{column}
-    \begin{column}{0.4\textwidth}
-  \begin{example}[MEF of skew rotation]
-Let $a \in \mathbb{T}$. Homeomorphism:
-\begin{equation*}
-  \begin{split}
-    &\alpha: \mathbb{T}^2 \to \mathbb{T}^2,\\
-  &\alpha (z,w) \coloneq (az,zw).
-  \end{split}
-  \end{equation*}
-     TDS $(\mathbb{T}^2,\mathbb{Z})$, $\mathbb{Z}$-action:
-     \begin{equation*}
-     t \cdot (z,w) \coloneq \alpha^t (z,w).
-     \end{equation*}
-     \pause
-  MEF is 
-  \begin{equation*}
-    \begin{split}
-     &\pr_1 : (\mathbb{T}^2,\mathbb{Z}) \to (\mathbb{T},\mathbb{Z}), \\
-    &\pr_1 (z,w) \coloneq z.
-    \end{split}
-  \end{equation*}
-  $\mathbb{Z}$-action on $\mathbb{T}$:
-  \begin{equation*}
-   t\cdot  z \coloneq a^tz.
-  \end{equation*}
-\end{example}
-       \end{column}
-  \end{columns}
-\end{frame}
 \subsection{Relationship to measure preserving system concepts}
+\begin{frame}{MEF vs. Kronecker subsystem}
+  \begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+      $(X,T)$ TDS
+      \begin{itemize}
+              \item \onslide+<2->
+$X$ topological space, $T$ acting by homeomorphisms on $X$,
+        \item \onslide+<3-> Koopman operator $U : T \to L(C(X))$,
+        \item $(X,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^*} \ker (U- \chi) = C(X)$,
+        \item \onslide<4-> MEF: associated to the $U$-invariant $C^*$-subalgebra
+          \begin{equation*}
+            \clin \bigcup_{\chi \in T^*} \ker (U- \chi)  \subset C(X).
+          \end{equation*}
+      \end{itemize}
+    \end{column}
+\begin{column}{0.5\textwidth}
+  \onslide<1->
+  $(Y,T)$ measure preserving system (MPS)
+  \begin{itemize}
+    \onslide<2->\item $Y$ probability space, $T$ acting on $\Sigma (Y)$ by automorphisms,
+    \item \onslide<3-> Koopman op. $V: T \to L(L^2(Y))$,
+    \item $(Y,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi) = L^2(Y)$,
+    \item \onslide<4-> Kronecker subsystem: associated to the $V$-invariant Markov sublattice 
+      \begin{equation*}
+        \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi)  \subset L^2(Y).
+      \end{equation*}
+  \end{itemize}
+    \end{column}
+  \end{columns}
+  \onslide<5->
+  \centering
+  \textbf{MEF is the TDS analogue of the Kronecker subsystem!}
+\end{frame}
 \begin{frame}{TDS with invariant measure as MPS}
 Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$.
 \begin{itemize}
-  \item $(X,T,\mu)$ is a concrete measure preserving system (MPS)
-  \item \emph{MPS Koopman operator}
+  \item $(X,T,\mu)$ is a concrete measure preserving system,
+    \pause
+  \item MPS Koopman operator
 \begin{equation*}
   \begin{split}
     &V : T \to L(L^2(X)),\\
-    & (V(t) f)(x) \coloneq f (t x). 
+    & (V(t) f)(x) \coloneq f (t x).
   \end{split}
 \end{equation*}
-\item
-  $(X,T,\mu)$ has \emph{MPS discrete spectrum} if and only if
-  \begin{equation*}
-    L^2(X) = \clin \bigcup_{\chi \in T^*} \ker (V - \chi).
-  \end{equation*}
 \end{itemize}
 \pause
 \begin{proposition}
   If $(X,T)$ has TDS discrete spectrum, then $(X,T,\mu)$ has MPS discrete spectrum.
   \end{proposition}
-  The converse is false.
 \end{frame}
 \begin{frame}[fragile]{MEF is subsystem of the Kronecker subsystem}
   Let $\pi : (X,T) \to (X_m,T)$ be the MEF of $(X,T)$.
   \begin{itemize}
     \item $(X_m,T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS with discrete spectrum,
-  \item $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$ and $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the induced extension,
+      \pause
+  \item $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$,
+  \item $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the extension induced by $\pi$,
+\pause
   \item Let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
   \item Kronecker subsystem maximality: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
 \end{itemize}
