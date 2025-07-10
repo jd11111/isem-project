@@ -1,0 +1,115 @@
+\section{Thue Morse Subshift}
+
+\begin{frame}
+	Let $\sigma$ be the left shift on $\{0, 1\}^\mathbb{Z}$. Then $(\{0, 1\}^\mathbb{Z}, \sigma)$ is a TDS.
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{example}[Thue Morse Subshift]
+				Take the substitution
+				\begin{align*}
+					\begin{dcases}
+						0 \mapsto 01\\
+						1 \mapsto 10
+					\end{dcases}.
+				\end{align*}
+				It has a unique fix point $v \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
+				\begin{align*}
+					X := \overline{\{\sigma^nv;\ n \in \mathbb{Z}\}}.
+				\end{align*}
+			\end{example}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{example}[Period Doubling Subshift]
+				Take the substitution
+				\begin{align*}
+					\begin{dcases}
+						0 \mapsto 01\\
+						1 \mapsto 00
+					\end{dcases}.
+				\end{align*}
+				It has a unique fix point $w \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
+				\begin{align*}
+					Y := \overline{\{\sigma^nw;\ n \in \mathbb{Z}\}}.
+				\end{align*}
+			\end{example}
+		\end{column}
+	\end{columns}
+	\medskip
+
+	Then there is a $2$-to-$1$ factor $\pi: X \to Y$ defined by
+	\begin{align*}
+		\pi((a_n)_{n \in \mathbb{Z}}) :=
+		\begin{dcases}
+			0 &; a_n \neq a_{n+1}\\
+			1 &; a_n = a_{n+1}
+		\end{dcases}.
+	\end{align*} 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dyadic Odometer}
+	The dyadic integer are given by
+	\begin{align*}
+		\mathbb{Z}_2 &:= \varprojlim_{k \to \infty} \mathbb{Z}/2^k\mathbb{Z}\\
+		&= \{(a_k + 2^k\mathbb{Z})_{k \in \mathbb{N}} \in \prod_{k \in \mathbb{N}} (\mathbb{Z}/2^k\mathbb{Z});\ a_{k+1} + 2^k\mathbb{Z} = a_k + 2^k\mathbb{Z}\}\\
+		&\cong \{(a_k)_{k \in \mathbb{N}} \in \prod_{k \in \mathbb{N}} \{0, \dots, 2^k-1\};\ a_{k+1} \in \{a_k, a_k + 2^k\}\}.
+	\end{align*}
+	Equipped with wise addition they form a compact abelian group.
+	
+	Define $\eta := (1, 1, \dots) \in \mathbb{Z}_2$ and define $d: \mathbb{Z}_2 \to \mathbb{Z}_2$ by $d(a) := a + \eta$. Then $(\mathbb{Z}, d)$ is a minimal equicontinuous TDS called the \textbf{dyadic odometer}.
+\end{frame}
+
+\begin{frame}
+	For the fix point $w$ of the period doubling subshift we have for $n \in \mathbb{Z} \setminus \{0\}$ that
+	\begin{align*}
+		w_n =
+		\begin{dcases}
+			0 &; \max\{k \in \mathbb{N}|\ 2^k | n\} \text{ is even}\\
+			1 &; \max\{k \in \mathbb{N}|\ 2^k | n\} \text{ is odd}
+		\end{dcases}.
+	\end{align*}
+	\medskip
+	
+	There is a unique a map $\rho: Y \to \mathbb{Z}_2$ such that for $ s = (s_n)_{n \in \mathbb{Z} \in Y}$ the entry $\rho(s)_m$ is the unique integer in $\{0, \dots, 2^m-1\}$ such that
+	\begin{align*}
+		s_n =
+		\begin{dcases}
+			0 &; \max\{k \in \mathbb{N};\ 2^k | n + \rho(s)_m\} \text{ is even}\\
+			1 &; \max\{k \in \mathbb{N};\ 2^k | n + \rho(s)_m\} \text{ is odd}
+		\end{dcases}
+	\end{align*}
+	holds for all $n \in \{\pm 1, \dots, \pm m\}$. This is well defined.
+	\medskip
+	
+	Clearly $\rho(w) = (0, 0, \dots)$. Also
+	\begin{align*}
+		(\sigma w)_n = w_{n+1} =
+		\begin{dcases}
+			0 &; \max\{k \in \mathbb{N};\ 2^k | n+1\} \text{ is even}\\
+			1 &; \max\{k \in \mathbb{N};\ 2^k | n+1\} \text{ is odd}
+		\end{dcases},
+	\end{align*}
+	so $\rho(\sigma w) = (1, 1, \dots ) = (0, 0, \dots) + \eta = d(\rho(w))$.
+	
+	In fact $\rho$ is a factor map and it is at most $2$-to-$1$.
+\end{frame}
+
+\begin{frame}
+	Putting this together we have
+	\medskip
+	
+	\begin{align*}
+		\begin{array}{rcc}
+			\text{Thue Morse subshift:} &\quad (X, \sigma) \quad &5\text{-equicontinuous}\\
+			\pi: &\downarrow &\\
+			\text{period doubling subshift:} &\quad (Y, \sigma) \quad &3\text{-equicontinuous}\\
+			\rho: &\downarrow &\\
+			\text{dyadic odometer:} &\quad (\mathbb{Z}_2, d) \quad &\text{equicontinuous.}
+		\end{array}
+	\end{align*}
+	\medskip
+
+	In particular $(\mathbb{Z}_2, d)$ is the MEF of $(X, \sigma)$ and $(Y, \sigma)$. Also $(Y, \sigma)$ is a $3$-MEF of $(X, \sigma)$.
+	
+	Note that however the MEF of $(\{0, 1\}^\mathbb{Z}, \sigma)$ is trivial.
+\end{frame}
