@@ -2,17 +2,29 @@
 
 \begin{frame}
 	\begin{definition}[Topological Dynamical System (TDS)]
-		Let $(X, d)$ be a \textbf{compact} metric space and $T$ a topological group. Let there be a group action $T \times X \to X$ ($ex = x$ and $s(tx) = (st)x$ for all $s, t \in T$, $x \in X$), which is continuous. Then we call the pair $(X, T)$ a \textbf{topological dynamical system} (TDS).
+		Let $(X, d)$ be a \textbf{compact} metric space and $T$ a topological group and let there be a continuous map $T \times X \to X$ ($(t, x) \mapsto tx$) such that for all $s, t \in T$ and $x \in X$
+		\begin{itemize}
+			\item $ex = x$
+			\item $(st)x = s(tx)$.
+		\end{itemize}
+		Then we call $(X, T)$ a \textbf{topological dynamical system} (TDS).
 	\end{definition}
-	\begin{remark}
-		Note that for each $t \in T$ the map $x \mapsto tx$ is a homeomorphism.
-	\end{remark}
-	\begin{remark}
-		Let $\alpha: X \to X$ be a homeomorphism. Then this gives rise to a $\mathbb{Z}$ action with $nx := \alpha^n(x)$ for $n \in \mathbb{Z}$. In this case we write $(X, \alpha)$ for this dynamical system.
-	\end{remark}
-	\begin{definition}[Minimal TDS]
-		A TDS $(X, T)$ is minimal if for every $x \in X$ the orbit $\{tx, t \in T\}$ is dense in $X$.
-	\end{definition}
+	\begin{overlayarea}{\textwidth}{3.5cm}
+	\begin{minipage}{\textwidth}
+		\only<2-3>{
+		\begin{remark}
+			Note that for each $t \in T$ the map $x \mapsto tx$ is a homeomorphism.
+		\end{remark}}
+		\only<3>{
+		\begin{remark}
+			Let $\alpha: X \to X$ be a homeomorphism. Then this gives rise to a $\mathbb{Z}$ action with $nx := \alpha^n(x)$ for $n \in \mathbb{Z}$. In this case we write $(X, \alpha)$ for this dynamical system.
+		\end{remark}}
+		\only<4>{
+		\begin{definition}[Minimal TDS]
+			A TDS $(X, T)$ is minimal if for every $x \in X$ the orbit $\{tx, t \in T\}$ is dense in $X$.
+		\end{definition}}
+	\end{minipage}
+	\end{overlayarea}
 \end{frame}
 
 \begin{frame}
@@ -21,16 +33,16 @@
 		\begin{align*}
 			\pi: X \to Y
 		\end{align*}
-		such that $\pi(tx) = t\pi(x)$ for all $t \in T,\ x \in X$.
+		such that $\pi(tx) = t\pi(x)$ for all $t \in T,\ x \in X$.\pause
 		
 		A factor map is an \textbf{isomorphism} (of TDS) if it is a homeomorphism.
 		
-		Two TDS are isomorphic if there exists an isomorphism between them.
+		Two TDS are isomorphic if there exists an isomorphism between them.\pause
 	\end{definition}
-	\begin{definition}[ICER]
-		An \textbf{invariant closed equivalent relation} (ICER) $R \subseteq X \times X$ is a equivalence relation, such that $R$ is closed and $tR = R$.
+	\begin{definition}[ICER and Quotient]
+		An \textbf{invariant closed equivalent relation} (ICER) $R \subseteq X \times X$ is a equivalence relation, such that $R$ is closed and $tR = R$.\pause
 		
-		Then $X/R$ becomes a TDS with $t[x] := [tx]$ for all $t \in T$ and $x \in X$.
+		Then the quotient $X/R$ becomes a TDS with $t[x] := [tx]$ for all $t \in T$ and $x \in X$.
 	\end{definition}
 \end{frame}
 
@@ -39,88 +51,100 @@
 		Let $R \subseteq X \times X$ be an ICER. Then we can define a factor by
 		\begin{align*}
 			\pi_R: X \to X/R \quad \pi_R(x) := [x] \quad \forall x \in X.
-		\end{align*}
+		\end{align*}\pause
 	
 		Let $\pi: X \to Y$ be a factor map. Then we can define an ICER by
 		\begin{align*}
 			R_\pi := \{(x, y) \in X \times X;\ \pi(x) = \pi(y)\}.
-		\end{align*}
+		\end{align*}\pause
 	
-		In this case we have $(Y, T) \cong (X/R_\pi, T)$.
+		In this case we have $(Y, T) \cong (X/R_\pi, T)$.\pause
 	\end{proposition}
 	\begin{definition}[Conjugated and Equivalent factors]
 		Let $(Y, T)$ and $(Z, T)$ be two factors of $(X, T)$ with factor maps $\pi$ and $\rho$.
 		
-		The factors are \textbf{equivalent} if $R_\pi = R_\rho$.
+		The factors are \textbf{equivalent} if $R_\pi = R_\rho$.\pause
 		
 		The factors are \textbf{conjugated} if $(Y, T) \cong (Z, T)$.
 	\end{definition}
 \end{frame}
 
 \begin{frame}
+	\onslide<1->{
 	\begin{definition}[Equicontinuous TDS]
 		The TDS $(X, T)$ is \textbf{equicontinuous} if for $\varepsilon > 0$ there is some $\delta > 0$ such that
 		\begin{align*}
 			d(x, y) < \delta \Rightarrow d(tx, ty) < \varepsilon
 		\end{align*}
 		for all $x, y \in X$ and $t \in T$.
-	\end{definition}
-	\begin{remark}
-		Intuitively equicontinuity means that two points that are close, were always and will always be close.
-	\end{remark}
-	\begin{proposition}
-		Let $d, \tilde{d}$ be two metrics on $X$, that induce the same topology. Then $(x, T)$ is equicontinuous with respect to $d$ if and only if it is equicontinuous with respect to $\tilde{d}$.
-	\end{proposition}
-	\begin{proposition}
-		Equicontinuity is preserved under isomorphisms and (countable) products. 
-	\end{proposition}
+	\end{definition}}
+	\begin{overlayarea}{\textwidth}{3.6cm}
+	\begin{minipage}{\textwidth}
+		\only<2>{
+		\begin{remark}
+			Intuitively equicontinuity means that two points that are close, were always and will always be close.
+		\end{remark}}
+		\only<3-4>{
+		\begin{proposition}
+			Let $d, \tilde{d}$ be two metrics on $X$, that induce the same topology. Then $(x, T)$ is equicontinuous with respect to $d$ if and only if it is equicontinuous with respect to $\tilde{d}$.
+		\end{proposition}}
+		\only<4>{
+		\begin{proposition}
+			Equicontinuity is preserved under isomorphisms and (countable) products. 
+		\end{proposition}}
+	\end{minipage}
+	\end{overlayarea}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Example: Circle Rotations}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
-			We look at the circle $\mathbb{S} := \mathbb{R}/\mathbb{Z}$ (identify $[x] = x + \mathbb{Z}$ for $x \in \mathbb{R}$ with $e^{2\pi ix}$ in $\mathbb{C}$). The metric on $\mathbb{S}$ is given by
+			\onslide<1->{We look at the circle $\mathbb{T} := \mathbb{R}/\mathbb{Z}$ (identify $[x] = x + \mathbb{Z}$ for $x \in \mathbb{R}$ with $e^{2\pi ix}$ in $\mathbb{C}$).} \onslide<2->{The metric on $\mathbb{T}$ is given by
 			\begin{align*}
-				d_\mathbb{S}([x], [y]) := \min_{n \in \mathbb{Z}} |x - y + n|.
-			\end{align*}
+				d_\mathbb{T}([x], [y]) := \min_{n \in \mathbb{Z}} |x - y + n|.
+			\end{align*}}
 			
 			\medskip			
-			Fix $a \in \mathbb{R}$ and define
+			\onslide<3->{Fix $a \in \mathbb{R}$ and define
 			\begin{align*}
 				\alpha([x]) := [x + a].
-			\end{align*}
+			\end{align*}}
 			
 			\medskip
-			The TDS $(\mathbb{S}, \alpha)$ is minimal iff $a \notin \mathbb{Q}$.
+			\onslide<6->{The TDS $(\mathbb{T}, \alpha)$ is minimal iff $a \notin \mathbb{Q}$.}
 			
 			\medskip
-			We have for $[x], [y] \in \mathbb{S}$ and $n \in \mathbb{Z}$ that
+			\onslide<7->{We have for $[x], [y] \in \mathbb{S}$ and $n \in \mathbb{Z}$ that
 			\begin{align*}
-				d_\mathbb{S}(\alpha^n([x]), \alpha^n([y])) = d_\mathbb{S}([x], [y]),
+				d_\mathbb{T}(\alpha^n([x]), \alpha^n([y])) = d_\mathbb{T}([x], [y]),
 			\end{align*}
-			i.e. $\alpha$ is isometric. Equicontinuity is an immediate consequence.
+			i.e. $\alpha$ is isometric. Equicontinuity is an immediate consequence.}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}[h]
 				\begin{tikzpicture}
-					\draw[very thick] (0, 0) circle (2) node[scale=1.5] {$\mathbb{S}$};
-					\draw[very thick] (1.8, 0) -- (2.2, 0);
+					\onslide<1->{
+					\draw[very thick] (0, 0) circle (2) node[scale=1.5] {$\mathbb{T}$};
+					\draw[very thick] (1.8, 0) -- (2.2, 0);}
 					
-					\filldraw[color=red] ([shift={(90:2)}]0, 0) circle (.1) node[anchor=south, scale=1.5] {$x$};
-					\filldraw[color=red] ([shift={(230:2)}]0, 0) circle (.1) node[anchor=east, scale=1.5] {$\alpha(x)$};
-					\filldraw[color=red] ([shift={(370:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2(x)$};
+					\onslide<2->\filldraw[color=red] ([shift={(90:2)}]0, 0) circle (.1) node[anchor=south, scale=1.5] {$[x]$};
+					\onslide<4->\filldraw[color=red] ([shift={(230:2)}]0, 0) circle (.1) node[anchor=east, scale=1.5] {$\alpha([x])$};
+					\onslide<5->\filldraw[color=red] ([shift={(370:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2([x])$};
 					
-					\draw[ultra thick, color=yellow, ->] (0, 2) arc (90:230:2) node[above, midway, scale=1.5] {$a$};
-					\draw[ultra thick, color=yellow, ->] (-1.284, -1.532) arc (230:370:2) node[right, midway, scale=1.5] {$a$};
+					\onslide<4-5>\draw[ultra thick, color=yellow, ->] (0, 2) arc (90:230:2) node[above, midway, scale=1.5] {$a$};
+					\onslide<5>\draw[ultra thick, color=yellow, ->] (-1.284, -1.532) arc (230:370:2) node[right, midway, scale=1.5] {$a$};
 					
-					\filldraw[color=blue] ([shift={(110:2)}]0, 0) circle (.1) node[anchor=east, scale=1.5] {$y$};
-					\filldraw[color=blue] ([shift={(250:2)}]0, 0) circle (.1) node[anchor=north, scale=1.5] {$\alpha(y)$};
-					\filldraw[color=blue] ([shift={(390:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2(y)$};
+					\onslide<2, 7->\filldraw[color=blue] ([shift={(110:2)}]0, 0) circle (.1) node[anchor=south, scale=1.5] {$[y]$};
+					\onslide<8->\filldraw[color=blue] ([shift={(250:2)}]0, 0) circle (.1) node[anchor=north, scale=1.5] {$\alpha([y])$};
+					\onslide<9->\filldraw[color=blue] ([shift={(390:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2([y])$};
 					
-					\draw[ultra thick, color=orange] (0, 2) arc (90:110:2) node[below, midway, scale=1.5] {$\delta$};
-					\draw[ultra thick, color=orange] (-1.284, -1.532) arc (230:250:2) node[above, midway, scale=1.5] {$\delta$};
-					\draw[ultra thick, color=orange] (1.970, .347) arc (10:30:2) node[left, midway, scale=1.5] {$\delta$};
+					\onslide<8->\draw[ultra thick, color=yellow, ->] ([shift={(110:2)}]0, 0) arc (110:250:2) node[left, midway, scale=1.5] {$a$};
+					\onslide<9->\draw[ultra thick, color=yellow, ->] ([shift={(250:2)}]0, 0) arc (250:390:2) node[right, midway, scale=1.5] {$a$};
+					
+					\onslide<2, 7->\draw[ultra thick, color=orange] (0, 2) arc (90:110:2) node[below, midway, scale=1.5] {$\delta$};
+					\onslide<10->\draw[ultra thick, color=orange] (-1.284, -1.532) arc (230:250:2) node[above, midway, scale=1.5] {$\delta$};
+					\onslide<10->\draw[ultra thick, color=orange] (1.970, .347) arc (10:30:2) node[left, midway, scale=1.5] {$\delta$};\onslide<1->
 				\end{tikzpicture}
 			\end{figure}
 		\end{column}
