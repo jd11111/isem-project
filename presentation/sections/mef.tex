@@ -37,7 +37,7 @@
     \end{tikzcd}
   \end{center}
 \end{frame}
-\subsection{Eigenfunction characterisation of the MEF}
+\subsection{Eigenfunction characterisation and $C^*$-algebra approach}
 \begin{frame}
   $(X,T)$ TDS with $T$ abelian, $T^\sharp$ ($T^*$) the set of all (continuous) characters of $T$.
 \begin{definition}[Koopman operator]
@@ -104,42 +104,46 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       \end{itemize}
       \end{frame}
 \begin{frame}[fragile]{MEF via $C^*$-algebras}
-  \begin{columns}
+  \begin{columns}[t]
     \begin{column}{0.5\textwidth}
      \begin{itemize}
        \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
-    \item  $\mathscr{A}$ is smallest $C^*$-subalgebra containing all eigenfunctions of $U$,
+    \item  $\mathscr{A}$ is smallest unital $C^*$-subalgebra containing all eigenfunctions of $U$,
+   \item \pause
+      $\mathscr{A}$ $U$-invariant $\Rightarrow T$-action on $G(\mathscr{A})$:
+      \begin{equation*}
+      t\cdot \varphi \coloneq G(U(t))\varphi,
+      \end{equation*}
     \item \pause $\iota : \mathscr{A} \to C(X)$ natural injection,
-    \item $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
-    \begin{tikzcd}[sep=large]
-      \mathscr{A} \arrow[d, "\iota"'] \arrow[r, "\widehat{\phantom{a}}"]  \arrow[dr, phantom, "\circlearrowleft"] 
-      & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
-      C(X)  \arrow[r,"\widehat{\phantom{a}}"] & C(G(C(X))) \\
-    \end{tikzcd}
-     \end{itemize}
+    \item $G(\iota)  : G(C(X)) \to G(\mathscr{A})$,
+    \item Idea: MEF of $(X,T)$ is
+      \begin{equation*}
+        \begin{split}
+          &\pi : (X,T) \to (G(\mathscr{A}),T),\\ 
+          &\pi \coloneq G(\iota) \circ \ev,
+        \end{split}
+      \end{equation*}
+        \end{itemize}
     \end{column}
     \begin{column}{0.5 \textwidth}
  \begin{itemize}
+ \item \pause $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
+    \begin{tikzcd}[sep=large]
+      \mathscr{A} \arrow[d, "\iota"'] \arrow[r, "\widehat{\phantom{a}}"]  \arrow[dr, phantom, "\circlearrowleft"] 
+      & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
+      C(X)  \arrow[r,"\widehat{\phantom{a}}"] & C(G(C(X)))
+    \end{tikzcd}
    \item \pause $G(\iota)$ is surjective:
        \begin{equation*}
         \begin{split}
           G(\iota) \ \text{surjective} &\Leftrightarrow C (G( \iota )) \ \text{injective} \\
-          &\Leftrightarrow \iota \ \text{injective}
+          &\Leftrightarrow \iota \ \text{injective},
         \end{split}
               \end{equation*}
-    \item \pause
-$T$-action on $G(\mathscr{A})$:
-      \begin{equation*}
-      t\cdot \varphi \coloneq G(U(t))\varphi,
-      \end{equation*}
-    \item The MEF of $(X,T)$ is
-      \begin{equation*}
-        \begin{split}
-          &\rho : (X,T) \to (G(\mathscr{A}),T)\\ 
-          &\rho\coloneq G(\iota) \circ \ev
-        \end{split}
-      \end{equation*}
-   \end{itemize}
+    \item \pause Let $x_1, x_2 \in X$: \begin{equation*}
+        \pi (x_1) = \pi (x_2) \Leftrightarrow \forall f \in \mathscr{A} : f(x_1) = f(x_2) .
+    \end{equation*}
+        \end{itemize}
     \end{column}
   \end{columns}
   \end{frame}
@@ -211,8 +215,9 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
     \begin{tikzcd}[sep=large]
       \phantom{a}       & \mathcal{K} \arrow[d,"K"]  \\
       \mathcal{X}_m \arrow[r,"\pi^*"'] \arrow[ur,"J"]  &  \arrow[ul, phantom, "\circlearrowright", near start] 
-\mathcal{X} \\
-    \end{tikzcd}
+\mathcal{X}
+    \end{tikzcd}\\
+\pause
   \textbf{MEF factors through Kronecker subsystem!}
   \end{center}
   \end{frame}
