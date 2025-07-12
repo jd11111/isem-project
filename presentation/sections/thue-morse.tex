@@ -12,7 +12,7 @@
 						1 \mapsto 10
 					\end{dcases}.
 				\end{align*}\pause
-				It has a unique fix point $v \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
+				It has a fixed point $v \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
 				\begin{align*}
 					X := \overline{\{\sigma^nv;\ n \in \mathbb{Z}\}}.
 				\end{align*}
@@ -27,7 +27,7 @@
 						1 \mapsto 00
 					\end{dcases}.
 				\end{align*}\pause
-				It has a unique fix point $w \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
+				It has a fixed point $w \in \{0, 1\}^\mathbb{Z}$ and gives a minimal subshift
 				\begin{align*}
 					Y := \overline{\{\sigma^nw;\ n \in \mathbb{Z}\}}.
 				\end{align*}
@@ -51,21 +51,20 @@
 	The dyadic integers are given by
 	\begin{align*}
 		\mathbb{Z}_2 &:= \varprojlim_{k \to \infty} \mathbb{Z}/2^k\mathbb{Z}\\
-		&= \{(a_k + 2^k\mathbb{Z})_{k \in \mathbb{N}} \in \prod_{k \in \mathbb{N}} (\mathbb{Z}/2^k\mathbb{Z});\ a_{k+1} + 2^k\mathbb{Z} = a_k + 2^k\mathbb{Z}\}\\
 		&\cong \{(a_k)_{k \in \mathbb{N}} \in \prod_{k \in \mathbb{N}} \{0, \dots, 2^k-1\};\ a_{k+1} \in \{a_k, a_k + 2^k\}\}.
 	\end{align*}\pause
-	Equipped with wise addition they form a compact abelian group.\pause
+	Equipped with pointwise addition they form a compact abelian group.\pause
 	
-	Define $\eta := (1, 1, \dots) \in \mathbb{Z}_2$ and define $d: \mathbb{Z}_2 \to \mathbb{Z}_2$ by $d(a) := a + \eta$.\pause Then $(\mathbb{Z}, d)$ is a minimal equicontinuous TDS called the \textbf{dyadic odometer}.
+	Define $\eta := (1, 1, \dots) \in \mathbb{Z}_2$ and define $d: \mathbb{Z}_2 \to \mathbb{Z}_2$ by $d(a) := a + \eta$.\pause Then $(\mathbb{Z}_2, d)$ is a minimal equicontinuous TDS called the \textbf{dyadic odometer}.
 \end{frame}
 
 \begin{frame}
-	For the fix point $w$ of the period doubling subshift we have for $n \in \mathbb{Z} \setminus \{0\}$ that
+	For the fixed point $w$ of the period doubling subshift we have for $n \in \mathbb{Z} \setminus \{0\}$ that
 	\begin{align*}
 		w_n =
 		\begin{dcases}
-			0 &; \max\{k \in \mathbb{N}|\ 2^k | n\} \text{ is even}\\
-			1 &; \max\{k \in \mathbb{N}|\ 2^k | n\} \text{ is odd}
+			0 &; \max\{k \in \mathbb{N};\ 2^k | n\} \text{ is even}\\
+			1 &; \max\{k \in \mathbb{N};\ 2^k | n\} \text{ is odd}
 		\end{dcases}.
 	\end{align*}\pause
 	\medskip
@@ -104,7 +103,7 @@
 			\pi: &\downarrow &\\
 			\text{period doubling subshift:} &\quad (Y, \sigma) \quad &3\text{-equicontinuous}\\
 			\rho: &\downarrow &\\
-			\text{dyadic odometer:} &\quad (\mathbb{Z}_2, d) \quad &\text{equicontinuous.}
+			\text{dyadic odometer:} &\quad (\mathbb{Z}_2, d) \quad &\text{(2-)equicontinuous.}
 		\end{array}
 	\end{align*}\pause
 	\medskip
