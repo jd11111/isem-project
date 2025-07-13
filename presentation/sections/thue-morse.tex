@@ -55,42 +55,10 @@
 	\end{align*}\pause
 	Equipped with pointwise addition they form a compact abelian group.\pause
 	
-	Define $\eta := (1, 1, \dots) \in \mathbb{Z}_2$ and define $d: \mathbb{Z}_2 \to \mathbb{Z}_2$ by $d(a) := a + \eta$.\pause Then $(\mathbb{Z}_2, d)$ is a minimal equicontinuous TDS called the \textbf{dyadic odometer}.
-\end{frame}
-
-\begin{frame}
-	For the fixed point $w$ of the period doubling subshift we have for $n \in \mathbb{Z} \setminus \{0\}$ that
-	\begin{align*}
-		w_n =
-		\begin{dcases}
-			0 &; \max\{k \in \mathbb{N};\ 2^k | n\} \text{ is even}\\
-			1 &; \max\{k \in \mathbb{N};\ 2^k | n\} \text{ is odd}
-		\end{dcases}.
-	\end{align*}\pause
+	Define $\eta := (1, 1, \dots) \in \mathbb{Z}_2$ and define $d: \mathbb{Z}_2 \to \mathbb{Z}_2$ by $d(a) := a + \eta$.\pause Then $(\mathbb{Z}_2, d)$ is a minimal equicontinuous TDS called the \textbf{dyadic odometer}.\pause
 	\medskip
 	
-	There is a unique a map $\rho: Y \to \mathbb{Z}_2$ such that for $ s = (s_n)_{n \in \mathbb{Z}} \in Y$ the entry $\rho(s)_m$ is the unique integer in $\{0, \dots, 2^m-1\}$ such that
-	\begin{align*}
-		s_n =
-		\begin{dcases}
-			0 &; \max\{k \in \mathbb{N};\ 2^k | n + \rho(s)_m\} \text{ is even}\\
-			1 &; \max\{k \in \mathbb{N};\ 2^k | n + \rho(s)_m\} \text{ is odd}
-		\end{dcases}
-	\end{align*}
-	holds for all $n \in \{\pm 1, \dots, \pm m\}$. This is well defined.\pause
-	\medskip
-	
-	Clearly $\rho(w) = (0, 0, \dots)$.\pause Also
-	\begin{align*}
-		(\sigma w)_n = w_{n+1} =
-		\begin{dcases}
-			0 &; \max\{k \in \mathbb{N};\ 2^k | n+1\} \text{ is even}\\
-			1 &; \max\{k \in \mathbb{N};\ 2^k | n+1\} \text{ is odd}
-		\end{dcases},
-	\end{align*}
-	so $\rho(\sigma w) = (1, 1, \dots ) = (0, 0, \dots) + \eta = d(\rho(w))$.\pause
-	
-	In fact $\rho$ is a factor map and it is at most $2$-to-$1$.
+	There is a factor map $\rho: Y \to \mathbb{Z}_2$, which is at most $2$-to-$1$. In particular $\mathbb{Z}_2$ is the MEF of $(Y, T)$ and $(X, T)$.
 \end{frame}
 
 \begin{frame}
