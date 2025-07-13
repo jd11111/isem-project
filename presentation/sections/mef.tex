@@ -40,14 +40,19 @@
 \subsection{Eigenfunction characterisation and $C^*$-algebra approach}
 \begin{frame}
   $(X,T)$ TDS with $T$ abelian, $T^\sharp$ ($T^*$) the set of all (continuous) characters of $T$.
-\begin{definition}[Koopman operator]
+\begin{definition}[Koopman representation]
   \begin{equation*}
     \begin{split}
-      &U : T \longrightarrow L(C(X)) \\
+      &U : T \longrightarrow \mathscr{L}(C(X)) \\
       &(U(t) f)(x) \coloneq f(tx)
     \end{split}
   \end{equation*}
    \end{definition}
+   \begin{remark}
+    $T$-action continuous on $T \times X$ $\Rightarrow$ $U$ strongly continuous $T$-representation
+
+    \hfill(for proof see \cite{OpThErg}, Theorem 4.17)
+   \end{remark}
    \pause
    \begin{definition}[eigenvalue, eigenfunction]
    \begin{equation*}
@@ -70,7 +75,7 @@
     (X,T) \ \text{is equicontinuous} \Leftrightarrow (X,T) \ \text{has discrete spectrum}
   \end{equation*}
 
-    \hfill(see for example \cite{HK2023}, Theorem 2.11)
+    \hfill(for proof see \cite{HK2023}, Theorem 2.11)
 \end{alertblock}
 \pause
   \begin{alertblock}{Theorem (MEF eigenfunction characterisation)}
@@ -110,7 +115,7 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
        \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
     \item  $\mathscr{A}$ is smallest unital $C^*$-subalgebra containing all eigenfunctions of $U$,
    \item \pause
-      $\mathscr{A}$ $U$-invariant $\Rightarrow T$-action on $G(\mathscr{A})$:
+      $\mathscr{A}$ $U$-invariant $\rightarrow T$-action on $G(\mathscr{A})$:
       \begin{equation*}
       t\cdot \varphi \coloneq G(U(t))\varphi,
       \end{equation*}
@@ -125,7 +130,7 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       \end{equation*}
         \end{itemize}
     \end{column}
-    \begin{column}{0.5 \textwidth}
+    \begin{column}{0.48 \textwidth}
  \begin{itemize}
  \item \pause $\widehat{\phantom{a}}: I \Rightarrow CG$ natural:
     \begin{tikzcd}[sep=large]
@@ -149,15 +154,13 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
 \subsection{Relationship to measure preserving system concepts}
 \begin{frame}{MEF vs. Kronecker subsystem}
   \onslide<1>$T$ still abelian
-  \begin{columns}
+  \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \onslide<1->$(X,T)$ TDS
       \begin{itemize}
-              \item \onslide+<2->
-$X$ topological space, $T$ acting by homeomorphisms on $X$,
-        \item \onslide+<3-> Koopman operator $U : T \to L(C(X))$,
-        \item $(X,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^*} \ker (U- \chi) = C(X)$,
-        \item \onslide<4-> MEF: associated to the $U$-invariant $C^*$-subalgebra
+        \item \onslide<2-> Koopman rep. $U : T \to \mathscr{L}(C(X))$,
+        \item \onslide<4->$(X,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^*} \ker (U- \chi) = C(X)$,
+        \item \onslide<6-> MEF: associated to the $U$-invariant $C^*$-subalgebra
           \begin{equation*}
             \clin \bigcup_{\chi \in T^*} \ker (U- \chi)  \subset C(X).
           \end{equation*}
@@ -167,28 +170,29 @@ $X$ topological space, $T$ acting by homeomorphisms on $X$,
   \onslide<1->
   $(Y,T)$ measure preserving system (MPS)
   \begin{itemize}
-    \onslide<2->\item $Y$ probability space, $T$ acting on $\Sigma (Y)$ by automorphisms,
-    \item \onslide<3-> Koopman op. $V: T \to L(L^2(Y))$,
-    \item $(Y,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi) = L^2(Y)$,
-    \item \onslide<4-> Kronecker subsystem: associated to the $V$-invariant Markov sublattice 
+    \item \onslide<3-> Koopman rep. $V: T \to \mathscr{L}(L^2(Y))$,
+    \item \onslide<5->$(Y,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi) = L^2(Y)$,
+    \item \onslide<7-> Kronecker subsystem: associated to the $V$-invariant Markov sublattice 
       \begin{equation*}
         \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi)  \subset L^2(Y).
       \end{equation*}
   \end{itemize}
     \end{column}
   \end{columns}
-  \onslide<5->
+  \onslide<8->
   \centering
+  \phantom{a}\\
   \textbf{MEF is the TDS analogue of the Kronecker subsystem!}
 \end{frame}
+\begin{comment}
 \begin{frame}{TDS with invariant measure as MPS}
 Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$.
 \begin{itemize}
   \item $(X,T,\mu)$ is a concrete measure preserving system,
-      \item \pause MPS Koopman operator
+      \item \pause MPS Koopman representation
 \begin{equation*}
   \begin{split}
-    &V : T \to L(L^2(X)),\\
+    &V : T \to \mathscr{L}(L^2(X)),\\
     & (V(t) f)(x) \coloneq f (t x).
   \end{split}
 \end{equation*}
@@ -220,3 +224,4 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
   \textbf{MEF factors through Kronecker subsystem!}
   \end{center}
   \end{frame}
+\end{comment}
