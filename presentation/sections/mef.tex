@@ -2,15 +2,15 @@
 \subsection{Definition, $\exists!$, universal property}
 \begin{frame}
   Let $(X,T)$ be a TDS.
-  \begin{definition}[Maximal equicontinuous factor (MEF)]
+  \begin{definition}[maximal equicontinuous factor (MEF)]
     A factor $\pi : (X,T) \to (X_m,T)$ is a \textbf{MEF} of $(X,T)$ if and only if
   \begin{itemize}
     \item $(X_m,T)$ is equicontinuous,
-    \item $\pi$ is maximal: $\forall \varphi : (X,T) \to (Y,T)$ factor with $(Y,T)$ equicontinuous: $R_\pi \subset R_\varphi$.
+    \item $\pi$ is maximal: $\forall \varphi : (X,T) \to (Y,T)$ factor s.t. $(Y,T)$ equicontinuous: $R_\pi \subset R_\varphi$.
   \end{itemize}
 \end{definition}
 \pause
-  \begin{alertblock}{Theorem (Existence and uniqueness of the MEF)}
+  \begin{alertblock}{Theorem (existence and uniqueness of the MEF)}
   $(X,T)$ has a MEF that is unique up to equivalence.
   \end{alertblock}
   \pause
@@ -20,19 +20,19 @@
 
 \end{frame}
 \begin{frame}[fragile]
-\begin{proposition}[Universal property of the MEF]
+\begin{proposition}[universal property of the MEF]
   Let $\pi : (X, T) \to  (X_m,T)$ be the MEF.
   \begin{equation*}
     \begin{split}
-      &\forall \, \varphi : (X,T) \to (Y,T) \ \text{equicontinuous factor}: \\
-      & \exists! \text{factor} \ \tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi.
+      &\forall \, \varphi : (X,T) \to (Y,T) \ \text{factor with} \ (Y,T) \ \text{equicontinuous}: \\
+      & \exists! \text{factor} \ \tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi
     \end{split}
       \end{equation*}
   \end{proposition}
   \begin{center}
     \begin{tikzcd}[sep=large]
-      (X,T) \arrow[d, "\pi"'] \arrow[r, "\varphi \ \text{equic.}"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
-      & (Y,T) \\
+      (X,T) \arrow[d, "\pi"'] \arrow[r, "\varphi"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
+      & (Y,T) \ \text{equic.}\\
       (X_m,T)  \arrow[ur,"\exists ! \tilde{\varphi}"'] & \phantom{a} \\
     \end{tikzcd}
   \end{center}
@@ -44,7 +44,7 @@
   \begin{equation*}
     \begin{split}
       &U : T \longrightarrow L(C(X)) \\
-      &(U(t) f)(x) \coloneq f(tx).
+      &(U(t) f)(x) \coloneq f(tx)
     \end{split}
   \end{equation*}
    \end{definition}
@@ -53,7 +53,7 @@
    \begin{equation*}
     \begin{split}
       &0 \neq f \in C(X) \ \text{\emph{eigenfunction} of} \ U \ \text{to \emph{eigenvalue}} \ \chi \in T^*   \\
- &:\Leftrightarrow f \in \ker (U-\chi)\coloneq \bigcap_{t \in T} \ker (U(t)- \chi (t)I).
+ &:\Leftrightarrow f \in \ker (U-\chi)\coloneq \bigcap_{t \in T} \ker (U(t)- \chi (t)I)
     \end{split}
       \end{equation*}
    \end{definition}
@@ -61,7 +61,7 @@
 \begin{frame}[fragile]
  \begin{definition}[discrete spectrum]
   \begin{equation*}
-    (X,T) \ \text{has \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi).
+    (X,T) \ \text{has \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi)
   \end{equation*}
 \end{definition}
 \pause 
@@ -70,7 +70,7 @@
     (X,T) \ \text{is equicontinuous} \Leftrightarrow (X,T) \ \text{has discrete spectrum}
   \end{equation*}
 
-    \hfill(see \cite{HK2023}, Theorem 2.11)
+    \hfill(see for example \cite{HK2023}, Theorem 2.11)
 \end{alertblock}
 \pause
   \begin{alertblock}{Theorem (MEF eigenfunction characterisation)}
@@ -79,7 +79,7 @@
   Then $\forall x_1, x_2 \in X$:
   \begin{equation*}
   \pi (x_1) = \pi (x_2) \Leftrightarrow 
-    \forall f \in \bigcup_{\chi \in T^*} \ker (U- \chi) : f(x_1) = f(x_2).
+    \forall f \in \bigcup_{\chi \in T^*} \ker (U- \chi) : f(x_1) = f(x_2)
   \end{equation*}
 \end{alertblock}
 \end{frame}
@@ -116,11 +116,11 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       \end{equation*}
     \item \pause $\iota : \mathscr{A} \to C(X)$ natural injection,
     \item $G(\iota)  : G(C(X)) \to G(\mathscr{A})$,
-    \item Idea: MEF of $(X,T)$ is
+    \item \alert{MEF of $(X,T)$ is}
       \begin{equation*}
         \begin{split}
-          &\pi : (X,T) \to (G(\mathscr{A}),T),\\ 
-          &\pi \coloneq G(\iota) \circ \ev,
+          &\alert{\pi : (X,T) \to (G(\mathscr{A}),T),}\\ 
+          &\alert{\pi \coloneq G(\iota) \circ \ev,}
         \end{split}
       \end{equation*}
         \end{itemize}
@@ -133,15 +133,14 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
       & C(G(\mathscr{A})) \arrow[d,"C(G(\iota))"] \\
       C(X)  \arrow[r,"\widehat{\phantom{a}}"] & C(G(C(X)))
     \end{tikzcd}
-   \item \pause $G(\iota)$ is surjective:
-       \begin{equation*}
+   \item \pause
+          $G(\iota)$ surjective $\Leftrightarrow$ $C (G( \iota ))$ injective $\Leftrightarrow$ $\iota$ injective,
+    \item \pause let $x_1, x_2 \in X$:
+      \begin{equation*}
         \begin{split}
-          G(\iota) \ \text{surjective} &\Leftrightarrow C (G( \iota )) \ \text{injective} \\
-          &\Leftrightarrow \iota \ \text{injective},
+          &\pi (x_1) = \pi (x_2) \Leftrightarrow \forall f \in \mathscr{A} : f(x_1) = f(x_2) \\
+          &\Leftrightarrow \forall f \in \bigcup_{\chi \in T^*} \ker (U- \chi)  : f(x_1) = f(x_2).
         \end{split}
-              \end{equation*}
-    \item \pause Let $x_1, x_2 \in X$: \begin{equation*}
-        \pi (x_1) = \pi (x_2) \Leftrightarrow \forall f \in \mathscr{A} : f(x_1) = f(x_2) .
     \end{equation*}
         \end{itemize}
     \end{column}
@@ -195,7 +194,7 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
 \end{equation*}
 \end{itemize}
 \pause
-\begin{proposition}
+  \begin{proposition}[TDS discrete spectrum $\Rightarrow$ MPS discrete spectrum]
   \begin{equation*}
     (X,T) \ \text{has TDS discrete spectrum} \Rightarrow (X,T,\mu) \ \text{has MPS discrete spectrum}
   \end{equation*}
