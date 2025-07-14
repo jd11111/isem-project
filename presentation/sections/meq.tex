@@ -45,11 +45,19 @@
         \item the diagonal to 
         $\Delta^m(X) := \{ (x_1, \dots, x_m) \in X^m \ | \ \text{there are} \ i, j \in \{1, \dots, m\} \ \text{such that} \ x_i = x_j \}$.
     \end{enumerate}
-    and get similarly to before
 
+\end{frame}
+
+\begin{frame}
+    And get similarly to before
     \begin{theorem}[Theorem 4.6 in \cite{Garcia-Ramos2024}]
 	    \label{thm:m-equiRelationChar}
 	    Let $(X, T)$ be a minimal TDS.
 	    Then $(X, T)$ is $m$-equicontinuous if and only if $Q_m(X) \setminus \Delta^m(X) = \varnothing$ for $2 \leq m \in \mathbb{N}$.
     \end{theorem}
+    \pause
+    \begin{corollary}
+        Let $(X, T)$ be a minimal TDS and $\pi : X \to Y$ its MEF.
+        Then $m$-equicontinuous if and only if $\# \pi^{-1}(\{ y \}) < m$ for all $y \in Y$.
+    \end{corollary} 
 \end{frame}
