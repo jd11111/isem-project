@@ -3,10 +3,10 @@
 \begin{frame}
   Let $(X,T)$ be a TDS.
   \begin{definition}[maximal equicontinuous factor (MEF)]
-    A factor $\pi : (X,T) \to (X_m,T)$ is a \textbf{MEF} of $(X,T)$ if and only if
+    A factor $\pi : (X,T) \to (X_{\text{MEF}},T)$ is a \textbf{MEF} of $(X,T)$ if and only if
   \begin{itemize}
-    \item $(X_m,T)$ is equicontinuous,
-    \item $\pi$ is maximal: $\forall \varphi : (X,T) \to (Y,T)$ factor s.t. $(Y,T)$ equicontinuous: $R_\pi \subset R_\varphi$.
+    \item $(X_{\text{MEF}},T)$ is equicontinuous,
+    \item $\pi$ is maximal: $\forall \varphi : (X,T) \to (Y,T)$ factor s.t. $(Y,T)$ equicontinuous: $R_\pi \subseteq R_\varphi$.
   \end{itemize}
 \end{definition}
 \pause
@@ -21,11 +21,11 @@
 \end{frame}
 \begin{frame}[fragile]
 \begin{proposition}[universal property of the MEF]
-  Let $\pi : (X, T) \to  (X_m,T)$ be the MEF.
+  Let $\pi : (X, T) \to  (X_{\text{MEF}},T)$ be the MEF.
   \begin{equation*}
     \begin{split}
       &\forall \, \varphi : (X,T) \to (Y,T) \ \text{factor with} \ (Y,T) \ \text{equicontinuous}: \\
-      & \exists! \text{factor} \ \tilde{\varphi}: (X_m,T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi
+      & \exists! \text{factor} \ \tilde{\varphi}: (X_{\text{MEF}},T) \to (Y,T): \varphi = \tilde{\varphi} \circ \pi
     \end{split}
       \end{equation*}
   \end{proposition}
@@ -33,7 +33,7 @@
     \begin{tikzcd}[sep=large]
       (X,T) \arrow[d, "\pi"'] \arrow[r, "\varphi"]  \arrow[dr, phantom, "\circlearrowleft", near start] 
       & (Y,T) \ \text{equic.}\\
-      (X_m,T)  \arrow[ur,"\exists ! \tilde{\varphi}"'] & \phantom{a} \\
+      (X_{\text{MEF}},T)  \arrow[ur,"\exists ! \tilde{\varphi}"'] & \phantom{a} \\
     \end{tikzcd}
   \end{center}
 \end{frame}
@@ -64,9 +64,9 @@
    \end{definition}
 \end{frame}
 \begin{frame}[fragile]
- \begin{definition}[discrete spectrum]
+  \begin{definition}[discrete spectrum]
   \begin{equation*}
-    (X,T) \ \text{has \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi)
+    (X,T) \ \text{has (TDS) \textbf{discrete spectrum}}:\Leftrightarrow C(X) = \overline{\lin} \bigcup_{\chi \in T^*} \ker (U- \chi)
   \end{equation*}
 \end{definition}
 \pause 
@@ -80,7 +80,7 @@
 \pause
   \begin{alertblock}{Theorem (MEF eigenfunction characterisation)}
   \label{thm:MEF_EFchar}
-  Let $\pi : (X,T) \to (X_m,T)$ be the MEF.
+  Let $\pi : (X,T) \to (X_{\text{MEF}},T)$ be the MEF.
   Then $\forall x_1, x_2 \in X$:
   \begin{equation*}
   \pi (x_1) = \pi (x_2) \Leftrightarrow 
@@ -112,7 +112,7 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
   \begin{columns}[t]
     \begin{column}{0.5\textwidth}
      \begin{itemize}
-       \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subset C(X)$,
+       \item $\mathscr{A}\coloneq \clin \bigcup_{\chi \in T^*} \ker (U- \chi) \subseteq C(X)$,
     \item  $\mathscr{A}$ is smallest unital $C^*$-subalgebra containing all eigenfunctions of $U$,
    \item \pause
       $\mathscr{A}$ $U$-invariant $\rightarrow T$-action on $G(\mathscr{A})$:
@@ -162,7 +162,7 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
         \item \onslide<4->$(X,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^*} \ker (U- \chi) = C(X)$,
         \item \onslide<6-> MEF: associated to the $U$-invariant $C^*$-subalgebra
           \begin{equation*}
-            \clin \bigcup_{\chi \in T^*} \ker (U- \chi)  \subset C(X).
+            \clin \bigcup_{\chi \in T^*} \ker (U- \chi)  \subseteq C(X).
           \end{equation*}
       \end{itemize}
     \end{column}
@@ -174,7 +174,7 @@ contravariant Gelfand functor $G: \mathbf{C} \to \mathbf{D}$,
     \item \onslide<5->$(Y,T)$ has discrete spectrum $\Leftrightarrow \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi) = L^2(Y)$,
     \item \onslide<7-> Kronecker subsystem: associated to the $V$-invariant Markov sublattice 
       \begin{equation*}
-        \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi)  \subset L^2(Y).
+        \clin \bigcup_{\chi \in T^\sharp} \ker (V- \chi)  \subseteq L^2(Y).
       \end{equation*}
   \end{itemize}
     \end{column}
@@ -205,11 +205,11 @@ Let $(X,T)$ a TDS, $T$ abelian, $\mu$ a $T$-invariant probability measure on $X$
   \end{proposition}
 \end{frame}
 \begin{frame}[fragile]{Relationship of MEF and Kronecker subsystem}
-  Let $\pi : (X,T) \to (X_m,T)$ be the MEF of $(X,T)$.
+  Let $\pi : (X,T) \to (X_{\text{MEF}},T)$ be the MEF of $(X,T)$.
   \begin{itemize}
-    \item $(X_m,T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS,
-    \item $(X_m,T, \nu)$ has MPS discrete spectrum,
-    \item \pause let $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_m,T,\nu)$,
+    \item $(X_{\text{MEF}},T, \nu)$ with $\nu(A)\coloneq  \mu(\pi^{-1}(A))$ is concrete MPS,
+    \item $(X_{\text{MEF}},T, \nu)$ has MPS discrete spectrum,
+    \item \pause let $\mathcal{X}, \mathcal{X}_m$ the MPS associated to $(X,T,\mu), (X_{\text{MEF}},T,\nu)$,
   \item let $\pi^* : \mathcal{X}_m \to \mathcal{X}$ the extension induced by $\pi$,
   \item \pause let $K: \mathcal{K} \to \mathcal{X}$ the Kronecker subsystem of $\mathcal{X}$,
   \item Kronecker subsystem maximality: $\exists$ extension $J: \mathcal{X}_m \to \mathcal{K}$:
