@@ -21,7 +21,7 @@
 		\end{remark}}
 		\only<4>{
 		\begin{definition}[Minimal TDS]
-			A TDS $(X, T)$ is minimal if for every $x \in X$ the orbit $\{tx, t \in T\}$ is dense in $X$.
+			A TDS $(X, T)$ is minimal if for every $x \in X$ the orbit $\{tx;\ t \in T\}$ is dense in $X$.
 		\end{definition}}
 	\end{minipage}
 	\end{overlayarea}
@@ -35,12 +35,12 @@
 		\end{align*}
 		such that $\pi(tx) = t\pi(x)$ for all $t \in T,\ x \in X$.\pause
 		
-		A factor map is an \textbf{isomorphism} (of TDS) if it is a homeomorphism.
+		A factor map is an \textbf{conjugacy} (of TDS) if it is a homeomorphism.
 		
-		Two TDS are isomorphic if there exists an isomorphism between them.\pause
+		Two TDS are conjugated if there exists an conjugacy between them.\pause
 	\end{definition}
 	\begin{definition}[ICER and Quotient]
-		An \textbf{invariant closed equivalent relation} (ICER) $R \subseteq X \times X$ is a equivalence relation, such that $R$ is closed and $tR = R$.\pause
+		An \textbf{invariant closed equivalent relation} (ICER) $R \subseteq X \times X$ is a equivalence relation, such that $R$ is closed and $tR = R$ for all $t \in T$.\pause
 		
 		Then the quotient $X/R$ becomes a TDS with $t[x] := [tx]$ for all $t \in T$ and $x \in X$.
 	\end{definition}
@@ -55,7 +55,7 @@
 	
 		Let $\pi: X \to Y$ be a factor map. Then we can define an ICER by
 		\begin{align*}
-			R_\pi := \{(x, y) \in X \times X;\ \pi(x) = \pi(y)\}.
+			R_\pi := \{(x, y) \in X \times X|\ \pi(x) = \pi(y)\}.
 		\end{align*}\pause
 	
 		In this case we have $(Y, T) \cong (X/R_\pi, T)$.\pause
@@ -87,17 +87,19 @@
 		\only<3-4>{
 		\begin{proposition}
 			Let $d, \tilde{d}$ be two metrics on $X$, that induce the same topology. Then $(X, T)$ is equicontinuous with respect to $d$ if and only if it is equicontinuous with respect to $\tilde{d}$.
+			
+			We can always choose the metric such that is invariant under the action of $T$.
 		\end{proposition}}
 		\only<4>{
 		\begin{proposition}
-			Equicontinuity is preserved under isomorphisms and (countable) products. 
+			Equicontinuity is preserved under conjugacies and (countable) products. 
 		\end{proposition}}
 	\end{minipage}
 	\end{overlayarea}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Example: Circle Rotations}
+	\frametitle{Example: Circle Rotations $\mathbb{Z}$-action}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\onslide<1->{We look at the circle $\mathbb{T} := \mathbb{R}/\mathbb{Z}$ (identify $[x] = x + \mathbb{Z}$ for $x \in \mathbb{R}$ with $e^{2\pi ix}$ in $\mathbb{C}$).} \onslide<2->{The metric on $\mathbb{T}$ is given by
@@ -108,18 +110,18 @@
 			\medskip			
 			\onslide<3->{Fix $a \in \mathbb{R}$ and define
 			\begin{align*}
-				\alpha([x]) := [x + a].
+				r_a([x]) := [x + a].
 			\end{align*}}
 			
 			\medskip
-			\onslide<6->{The TDS $(\mathbb{T}, \alpha)$ is minimal iff $a \notin \mathbb{Q}$.}
+			\onslide<6->{The TDS $(\mathbb{T}, r_a)$ is minimal iff $a \notin \mathbb{Q}$.}
 			
 			\medskip
 			\onslide<7->{We have for $[x], [y] \in \mathbb{S}$ and $n \in \mathbb{Z}$ that
 			\begin{align*}
-				d_\mathbb{T}(\alpha^n([x]), \alpha^n([y])) = d_\mathbb{T}([x], [y]),
+				d_\mathbb{T}(r_a^n([x]), r_a^n([y])) = d_\mathbb{T}([x], [y]),
 			\end{align*}
-			i.e. $\alpha$ is isometric. Equicontinuity is an immediate consequence.}
+			i.e. $r_a$ is isometric. Equicontinuity is an immediate consequence.}
 		\end{column}
 		\begin{column}{0.5\textwidth}
 			\begin{figure}[h]
@@ -129,15 +131,15 @@
 					\draw[very thick] (1.8, 0) -- (2.2, 0);}
 					
 					\onslide<2->\filldraw[color=red] ([shift={(90:2)}]0, 0) circle (.1) node[anchor=south, scale=1.5] {$[x]$};
-					\onslide<4->\filldraw[color=red] ([shift={(230:2)}]0, 0) circle (.1) node[anchor=east, scale=1.5] {$\alpha([x])$};
-					\onslide<5->\filldraw[color=red] ([shift={(370:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2([x])$};
+					\onslide<4->\filldraw[color=red] ([shift={(230:2)}]0, 0) circle (.1) node[anchor=east, scale=1.5] {$r_a([x])$};
+					\onslide<5->\filldraw[color=red] ([shift={(370:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$r_a^2([x])$};
 					
 					\onslide<4-5>\draw[ultra thick, color=yellow, ->] (0, 2) arc (90:230:2) node[above, midway, scale=1.5] {$a$};
 					\onslide<5>\draw[ultra thick, color=yellow, ->] (-1.284, -1.532) arc (230:370:2) node[right, midway, scale=1.5] {$a$};
 					
 					\onslide<2, 7->\filldraw[color=blue] ([shift={(110:2)}]0, 0) circle (.1) node[anchor=south, scale=1.5] {$[y]$};
-					\onslide<8->\filldraw[color=blue] ([shift={(250:2)}]0, 0) circle (.1) node[anchor=north, scale=1.5] {$\alpha([y])$};
-					\onslide<9->\filldraw[color=blue] ([shift={(390:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$\alpha^2([y])$};
+					\onslide<8->\filldraw[color=blue] ([shift={(250:2)}]0, 0) circle (.1) node[anchor=north, scale=1.5] {$r_a([y])$};
+					\onslide<9->\filldraw[color=blue] ([shift={(390:2)}]0, 0) circle (.1) node[anchor=west, scale=1.5] {$r_a^2([y])$};
 					
 					\onslide<8->\draw[ultra thick, color=yellow, ->] ([shift={(110:2)}]0, 0) arc (110:250:2) node[left, midway, scale=1.5] {$a$};
 					\onslide<9->\draw[ultra thick, color=yellow, ->] ([shift={(250:2)}]0, 0) arc (250:390:2) node[right, midway, scale=1.5] {$a$};
